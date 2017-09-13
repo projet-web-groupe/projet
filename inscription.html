@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title> Inscription</title>
+		<link rel="stylesheet" href="inscription.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	</head>
+	<style>
+		#up{display:none;}
+		#desc{visibility:hidden;}
+	</style>
+	<body>
+		
+		<header>
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+					  <a class="navbar-brand" href="#">Bye Bye Chômage</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li ><a href="offres.html">Consulter offres</a></li>
+						<li><a href="#">Inscription</a></li>
+						<li><a href="creerOffre.html"> Créer Offres</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <li class="active"><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
+					  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div class="container">
+			<div class="page-header">
+					<h1>Inscrivez-vous!</h1>
+			</div>
+			
+			<div id="form">
+				<form >
+					<div class="row">
+						<div class="form-group col-md-4 col-xs-4 col-sm-4 col-lg-4">
+							<label for="nom" class="label label-primary">Nom:</label>
+							<input type="text" id="nom" class="form-control" placeholder="Entrez votre Nom">
+						</div>
+						<div  class="form-group col-md-4 col-md-push-1 col-lg-4 col-xs-4 col-xs-push-3 col-sm-4 col-sm-push-1 col-lg-push-1">
+							<label for="prenom" class="label label-primary">Prénom:</label>
+							<input type="text" id="prenom" class="form-control" placeholder="Entrez votre Prénom">
+						</div>
+					</div>
+					<div  class="form-group">
+						
+						<!--<div class="radio form-group">
+							<label><input type="radio" name="genre" value="homme">Homme</label>
+						</div>
+						<div class="radio">
+							<label><input type="radio" name="genre" value="femme">Femme</label>
+						</div>-->
+						<div class="row">
+							<div class="col-md-1 col-sm-1 col-xs-1 col-lg-1">
+								<div class="label label-primary">
+									Sexe:
+								</div>
+							</div>
+							<div class="col-md-1 col-md-push-4 col-sm-1 col-sm-push-4 col-xs-1 col-xs-push-6 col-lg-1">
+								<div class="label label-primary">
+									Date de naissance: 
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="row">
+							
+							<div class=" btn-grp-justified">
+								<div class=" col-md-3 col-lg-3 col-sm-3 col-xs-7">
+								  <a href="#" class="btn btn-primary ">Homme</a>
+								  <a href="#" class="btn btn-primary ">Femme</a>
+								</div>
+							</div>	
+							<div  class="form-group col-md-4 col-md-push-2 col-lg-4 col-xs-4 col-sm-4 col-sm-push-2 col-lg-push-2">
+								
+								<input type="date" name="naissance" class="form-control">
+							</div>
+						</div>
+							
+					</div>
+					
+					
+					<div class="row">
+						<div  class="form-group col-md-4 col-sm-4 col-xs-4">
+							<label class="label label-primary">Sélectionnez votre dernier diplôme:</label>
+							<select class="form-control">
+								<option value="DUT">DUT</option>
+								<option value="BAC">BAC</option>
+								<option value="BEP">BEP</option>
+								<option value="CAP">CAP</option>
+								<option value="BTS">BTS</option>
+								<option value="MASTER">MASTER</option>
+							</select>
+						</div>
+						<div  class="form-group col-md-4 col-md-push-1 col-xs-4 col-xs-push-3 col-sm-4 col-sm-push-1">
+							<label class="label label-primary">Sélectionnez votre domaine:</label>
+							<select class="form-control">
+								<option value="INFO">Informatique</option>
+								<option value="MED">Médecine</option>
+								<option value="DRO">Droit</option>
+								<option value="COM">COMMERCE</option>
+								<option value="Ele">Electronique</option>
+								<option value="BAT">Bâtiment</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+								<label class="label label-primary">Nombre d'années d'éxpérience:</label>
+								<input type="number" class="form-control" placeholder="Entrez votre nombre d'années d'éxpérience">
+						</div>
+					</div>
+					<div class="row">
+						<div  class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3">
+							<label class="label label-primary">Etes-vous véhiculé?</label>
+							<div class="radio">
+								<label><input type="radio" name="vehicule" value="oui">Oui</label>
+							</div>
+							<div class="radio">
+								<label><input type="radio" name="vehicule" value="non">Non</label>
+							</div>
+						</div>
+						<div class="form-group col-lg-9 col-lg-push-2 col-md-2 col-md-push-3 col-sm-3 col-sm-push-2 col-xs-3 col-xs-push-4">
+							<div class="label label-primary">Uploadez votre CV: </div>
+							<!--<div  >
+								<input class="glyphicon glyphicon-upload" type="file" name="nom" />
+							</div>-->
+								<div class="row">
+									<div class="col-lg-7">
+										<label class="btn btn-default ">
+											Choisissez: <input type="file" id="up" name="nom">
+											
+										</label>
+										<label id="desc" for="f02">Add profile picture</label>
+										<!--<input id="f02" id="up" type="file" placeholder="Add profile picture" />-->
+									</div>
+								</div>
+						</div>
+					</div>
+				
+					<div >
+						<button type="submit" class="btn btn-success">Valider</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+		<script>
+			$("#up").on("change",function(){
+				$("#desc").css("visibility","visible");
+				var f= this.files[0].name;
+				var dflt = $(this).attr("placeholder");
+				if($(this).val()!=""){
+					$("#desc").text(f);
+				  }
+				  else {
+					$("#desc").text(dflt);
+				  }
+			});
+		</script>
+	</body>
+
+
+</html>
