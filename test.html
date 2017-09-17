@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Page de test</title>
+		<title>Inscription</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="footer.css">
 		<script src="jquery-3.2.1.min.js"></script>
@@ -10,140 +10,208 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar-fixed-top navbar navbar-inverse">
-				<div class="container-fluid">
-					<div class="navbar-header">
-					  <a class="navbar-brand" href="Accueil.html">
-					  	<span class="glyphicon glyphicon-home"></span> Bye Bye Chômage
-					  </a>
-					</div>
-					<ul class="nav navbar-nav">
-						<li ><a href="offres.html">Consulter offres</a></li>
-						<li><a href="candidature.html" class="active"> Candidatures</a></li>
-						<li><a href="creerOffre.html"> Créer Offres</a></li>
-						<li><a href="contacterRH.html"> Contacter RH</a></li>
-						<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-					  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-					  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<div class="container" id="page">
-			<div class="page-header">
-				<h1>Rechercher un candidat</h1>
-			</div>
-			<form>
-				<div class="row">
-					<!-- ici l'adresse mail afficher et cibler change en fonction des résultat de la recherche  possible ???-->
-					
-					<div class=" panel panel-default">
-						<div class="panel-heading">
-							<span>Choisissez les domaines de compétences que vous souhaitez rechercher :</span>
-						</div>
-						<div class="panel-body">
-							<div class="form-inline row">
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline">
-										<input type="checkbox" value="Informatique"> Informatique
-									</label>
-								</div>
-								
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline">
-										<input type="checkbox" value="Médecine"> Médecine
-									</label>
-								</div>
-								
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline">
-										<input type="checkbox" value="Droit"> Droit
-									</label>
-								</div>
-								
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline">
-										<input type="checkbox" value="Commerce"> Commerce
-									</label>
-								</div>
-								
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline">
-										<input type="checkbox" value="Electronique"> Electronique
-									</label>
-								</div>
-								
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline">
-										<input type="checkbox" value="Bâtiment"> Bâtiment
-									</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xm-8 col-xs-offset-4 col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9 col-lg-2 col-lg-offset-10">
-									<label class="label label-primary">
-										Expérience minimum
-									</label>
-									<input type="number" class="form-control" placeholder="année(s)">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<button class="col-lg-offset-10 col-lg-2 col-md-offset-10 col-md-2 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-xs-10 btn btn-success">
-						<span class="glyphicon glyphicon-search"></span>
-						Rechercher
-					</button>
-				</div>
-
-				<div class="row ">
-					<div class="panel panel-default">
-						
-					</div>
-				</div>
-				<h2>Résultats :</h2>
-				<div class="row">
-					<div class="table-responsive ">
-				<table class="table table-bordered ">
-					<tr >
-						<th>Id candidat</th>
-						<th>Année expérience</th>
-						<th>Fiche candidat</th>
-						<th>Contacter</th>
-					</tr>
-					<tr >
-						<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">001</td>
-						<td>xx ans</td>
-						<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-						<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-					</tr>
-					<tr >
-						<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">002</td>
-						<td>xx ans</td>
-						<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-						<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-					</tr>
-					<tr >
-						<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">003</td>
-						<td>xx ans</td>
-						<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-						<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-					</tr>
-					<tr >
-						<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">004</td>
-						<td>xx ans</td>
-						<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-						<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-					</tr>
-				</table>
-			</div>
-				</div>
-			</form>
 		
+			
+				<nav class=" navbar navbar-inverse">
+					<div class="container-fluid">
+						<div class="navbar-header">
+						  <a class="navbar-brand" href="Accueil.html">
+							<span class="glyphicon glyphicon-home"></span> Bye Bye Chômage
+						  </a>
+						</div>
+						<ul class="nav navbar-nav">
+							<li ><a href="offres.html">Consulter offres</a></li>
+							<li><a href="candidature.html" class="active"> Candidatures</a></li>
+							<li><a href="creerOffre.html"> Créer Offres</a></li>
+							<li><a href="contacterRH.html"> Contacter RH</a></li>
+							<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+						  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
+						  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
+						</ul>
+					</div>
+				</nav>
+			
+		
+		</header>
+		<div class="row">
+			<div class="container" id="page">
+				<div class="page-header">
+						<h1>Inscrivez-vous!</h1>
+				</div>
+				
+				
+				<div id="form">
+					<form >
+						<div class="row">
+							<div form-group">
+								<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
+									<label for="nom" class="label label-primary">Nom:</label>
+									<input type="text" id="nom" class="form-control" placeholder="Entrez votre Nom">
+								</div>
+								<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+									<label for="prenom" class="label label-primary">Prénom:</label>
+									<input type="text" id="prenom" class="form-control" placeholder="Entrez votre Prénom">
+								</div>
+							</div>
+							
+							<div id="sexe">
+								<div class="form-group">
+									<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
+										<div class="label label-primary ">
+											Sexe:
+										</div>
+										<div class=" btn-grp-justified">
+											<a href="#" class="btn btn-primary ">Homme</a>
+											<a href="#" class="btn btn-primary ">Femme</a>
+										</div>
+									</div>
+									<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
+										<div class="label label-primary">
+											Date de naissance: 
+										</div>
+									</div>
+									<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+										
+										<input type="date" name="naissance" class="form-control">
+									</div>
+								</div>
+							</div>
+							
+							<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+								<label class="label label-primary">Sélectionnez votre dernier diplôme:</label>
+								<select class="form-control">
+									<option value="DUT">DUT</option>
+									<option value="BAC">BAC</option>
+									<option value="BEP">BEP</option>
+									<option value="CAP">CAP</option>
+									<option value="BTS">BTS</option>
+									<option value="MASTER">MASTER</option>
+								</select>
+							</div>
+							<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+								<label class="label label-primary">Sélectionnez votre domaine:</label>
+								<select class="form-control">
+									<option value="INFO">Informatique</option>
+									<option value="MED">Médecine</option>
+									<option value="DRO">Droit</option>
+									<option value="COM">COMMERCE</option>
+									<option value="Ele">Electronique</option>
+									<option value="BAT">Bâtiment</option>
+								</select>
+							</div>
+						
+						
+							<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+									<label class="label label-primary">Nombre d'années d'éxpérience:</label>
+									<input type="number" class="form-control" placeholder="Entrez votre nombre d'années d'éxpérience">
+							</div>
+							
+						</div>
+						<div class="row">
+							<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+								<label class="label label-primary">Etes-vous véhiculé?</label>
+								<div class="radio">
+									<label><input type="radio" name="vehicule" value="oui">Oui</label>
+								</div>
+								<div class="radio">
+									<label><input type="radio" name="vehicule" value="non">Non</label>
+								</div>
+							</div>
+							<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+								<div class="label label-primary">Uploadez votre CV: </div>
+								
+									<div class="row">
+										<div class="col-lg-7">
+											<label class="btn btn-default ">
+												Choisissez: <input type="file" id="up" name="nom">
+												
+											</label>
+											<label id="desc" for="f02">Add profile picture</label>
+											
+										</div>
+									</div>
+							</div>
+						</div>
+						<div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<span>Choisissez les qualités qui vont définissent parmis celles qui figurent ci-dessous:</span>
+								</div>
+								<div class="panel-body form-inline">
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Enthousiaste"> Enthousiaste</label>
+									</div>
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Curieux"> Curieux</label>
+									</div>
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Sociable"> Sociable</label>
+									</div>
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Déterminé"> Déterminé</label>
+									</div>
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Rigoureux"> Rigoureux</label>
+									</div>
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Organisé"> Organisé</label>
+									</div>
+									<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+										<label class="checkbox-inline"><input type="checkbox" value="Intelligent"> Intelligent</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div >
+							<button type="submit" class="btn btn-success">Valider</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
 		</div>
+		<div class="row">
+			<footer class=" row-fluid  navbar-inverse" id="footer" >
+				
+				<div class="container" >
+					
+						<div class="row" id="test">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+								<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-4" >
+								<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+								<span class="navbar-text">Nous contacter:</span>
+								<a class="navbar-brand" href="https://www.facebook.com"><i class="fa fa-facebook-square" id="fb"></i></a>
+								<a class="navbar-brand" href="https://www.twitter.com"><i class="fa fa-twitter-square" id="tweet"></i></a>
+								<a class="navbar-brand" href="https://www.instagram.com"><i class="fa fa-instagram" id="insta"></i></a>	
+							</div>
+							
+						</div>
+							
+							   
+					
+				</div>
+			</footer>
+		</div>
+		<script>
+			$("#up").on("change",function(){
+				$("#desc").css("visibility","visible");
+				var f= this.files[0].name;
+				var dflt = $(this).attr("placeholder");
+				if($(this).val()!=""){
+					$("#desc").text(f);
+				  }
+				  else {
+					$("#desc").text(dflt);
+				  }
+			});
+
+		</script>
 	</body>
 
 
