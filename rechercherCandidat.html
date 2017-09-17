@@ -2,39 +2,41 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Page de test</title>
+		<title>Recherche candidat</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="footer.css">
 		<script src="jquery-3.2.1.min.js"></script>
-
+		<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
 	<body>
-		
 		<header>
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar-fixed-top navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-					  <a class="navbar-brand" href="offres.html">Bye Bye Chômage</a>
+					  <a class="navbar-brand" href="Accueil.html">
+					  	<span class="glyphicon glyphicon-home"></span> Bye Bye Chômage
+					  </a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li ><a href="offres.html">Consulter offres</a></li>
-						<li><a href="candidature.html">Candidatures</a></li>
-						<li><a href="creerOffre.html">Créer Offres</a></li>
+						<li><a href="candidature.html" class="active"> Candidatures</a></li>
+						<li><a href="creerOffre.html"> Créer Offres</a></li>
+						<li><a href="contacterRH.html"> Contacter RH</a></li>
+						<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-					  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span>s'inscrire</a></li>
+					  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 					  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 					</ul>
 				</div>
 			</nav>
 		</header>
-		<div class="container">
+		<div class="container" id="page">
 			<div class="page-header">
 				<h1>Rechercher un candidat</h1>
 			</div>
 			<form>
 				<div class="row">
-					<!-- ici l'adresse mail afficher et cibler change en fonction des résultat de la recherche  possible ???-->
-					
 					<div class=" panel panel-default">
 						<div class="panel-heading">
 							<span>Choisissez les domaines de compétences que vous souhaitez rechercher :</span>
@@ -140,7 +142,26 @@
 			</form>
 		
 		</div>
+		<div class="navbar-fixed-bottom row-fluid navbar navbar-inverse" >
+			
+			<div class=" container " >
+				
+					<div class="row" id="test">
+						<div class="col-md-4" >
+							<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+						</div>
+						<div class="col-md-5" >
+							<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
+						</div>
+						<div class="col-md-3" >
+							<span class="navbar-text">Nous contacter:</span>
+							<a class="navbar-brand" href="https://www.facebook.com"><i class="fa fa-facebook-square" id="fb"></i></a>
+							<a class="navbar-brand" href="https://www.twitter.com"><i class="fa fa-twitter-square" id="tweet"></i></a>
+							<a class="navbar-brand" href="https://www.instagram.com"><i class="fa fa-instagram" id="insta"></i></a>	
+						</div>
+						
+					</div>
+			</div>
+		</div>
 	</body>
-
-
 </html>
