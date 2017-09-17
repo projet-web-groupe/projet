@@ -6,17 +6,45 @@
 	<link rel="stylesheet" href="inscription.css"/>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+		#footer{
+			background-color:#292b34; 
+			border:0px
+			margin-top:10px;	
+		}
+		#test{
+			color:white;
+		}
+		#fb{
+			
+			font-size:24px
+		}
+		#tweet{
+			
+			font-size:24px
+		}
+		#insta{
+			
+			font-size:24px
+		}
+		#page{
+			margin-bottom:70px;
+			margin-top:20px;
+		}
+</style>
 <body>
 
-<nav class="navbar navbar-inverse navbar-static-top">
+<nav class="navbar-fixed-top navbar navbar-inverse navbar-static-top">
 	<div class="container-fluid">
 		<!-- Un titre pour la barre de navigation -->
 		<div class="navbar-header">
-			<a class="navbar-brand" href="offres.html">Bye Bye Chômage</a>
+			<a class="navbar-brand" href="Accueil.html">Bye Bye Chômage</a>
 		</div>
 		<!-- Les différents menus -->
 			<ul class="nav navbar-nav">
+				<li ><a href="Accueil.html">Accueil</a></li>
 				<li ><a href="offres.html"class="active">Consulter offres</a></li>
 				<li><a href="candidature.html"> Candidatures</a></li>
 				<li class="active"><a href="creerOffre.html"> Créer Offres</a></li>
@@ -27,7 +55,7 @@
 			</ul>
 	</div>
 </nav>
-<section class="container col-lg-12">
+<section class="container col-lg-12" id="page">
 	<form>
 		<div class="row">
 			<div class="col-lg-8 col-lg-push-2">
@@ -47,5 +75,26 @@
 		</div>
 	</form>
 </section>
+<div class="navbar-fixed-bottom row-fluid navbar navbar-inverse" >
+			
+	<div class=" container " >
+		
+		<div class="row" id="test">
+			<div class="col-md-4" >
+				<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+			</div>
+			<div class="col-md-5" >
+				<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
+			</div>
+			<div class="col-md-3" >
+				<span class="navbar-text">Nous contacter:</span>
+				<a class="navbar-brand" href="https://www.facebook.com"><i class="fa fa-facebook-square" id="fb"></i></a>
+				<a class="navbar-brand" href="https://www.twitter.com"><i class="fa fa-twitter-square" id="tweet"></i></a>
+				<a class="navbar-brand" href="https://www.instagram.com"><i class="fa fa-instagram" id="insta"></i></a>	
+			</div>
+			
+		</div>
+	</div>
+</div>
 </body>
 </html>

@@ -5,19 +5,46 @@
 		<title> Candidature</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<script src="jquery-3.2.1.min.js"></script>
-
+		<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
+	<style>
+		#footer{
+			background-color:#292b34; 
+			border:0px
+			margin-top:10px;	
+		}
+		#test{
+			color:white;
+		}
+		#fb{
+			
+			font-size:24px
+		}
+		#tweet{
+			
+			font-size:24px
+		}
+		#insta{
+			
+			font-size:24px
+		}
+		#page{
+			margin-bottom:70px;
+			margin-top:20px;
+		}
+	</style>
 	<body>
 		
 		<header>
-			<nav class="navbar navbar-inverse">
+			<nav class="navbar-fixed-top navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-					  <a class="navbar-brand" href="offres.html">Bye Bye Chômage</a>
+					  <a class="navbar-brand" href="Accueil.html">Bye Bye Chômage</a>
 					</div>
 					<ul class="nav navbar-nav">
+						<li ><a href="Accueil.html">Accueil</a></li>
 						<li ><a href="offres.html">Consulter offres</a></li>
-						<li><a href="candidature.html" class="active"> Candidatures</a></li>
+						<li class="active"><a href="candidature.html" class="active"> Candidatures</a></li>
 						<li><a href="creerOffre.html"> Créer Offres</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -27,7 +54,10 @@
 				</div>
 			</nav>
 		</header>
-		<div class="container">
+		<div class="container" id="page" >
+			<div class="page-header">
+				<h1>Candidatures</h1>
+			</div>
 			<div class="table-responsive ">
 				<table class="table table-bordered ">
 					<tr >
@@ -68,7 +98,27 @@
 				</table>
 			</div>
 		</div>
-	
+		<div class="navbar-fixed-bottom row-fluid navbar navbar-inverse" >
+			
+			<div class=" container " >
+				
+					<div class="row" id="test">
+						<div class="col-md-4" >
+							<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+						</div>
+						<div class="col-md-5" >
+							<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
+						</div>
+						<div class="col-md-3" >
+							<span class="navbar-text">Nous contacter:</span>
+							<a class="navbar-brand" href="https://www.facebook.com"><i class="fa fa-facebook-square" id="fb"></i></a>
+							<a class="navbar-brand" href="https://www.twitter.com"><i class="fa fa-twitter-square" id="tweet"></i></a>
+							<a class="navbar-brand" href="https://www.instagram.com"><i class="fa fa-instagram" id="insta"></i></a>	
+						</div>
+						
+					</div>
+			</div>
+		</div>
 	</body>
 
 
