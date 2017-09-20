@@ -9,6 +9,17 @@
 		<script src="jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
+	<style>
+		#footer
+		{
+			margin-bottom:0px;
+		}
+		#droite
+		{
+			margin-right:0px;
+		}
+		
+	</style>
 	<body>
 		<header>
 			<nav class=" navbar navbar-inverse ">
@@ -16,10 +27,10 @@
 				<div class="text-center">
 					<div class="container-fluid ">
 						<div class="row">
-							<div class="navbar-header ">
+							<div class="navbar-header">
 							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
 							</div>
-							<ul class="nav navbar-nav navbar-right col-md-5 col-md-push-2">
+							<ul class="nav navbar-nav navbar-right" id="droite">
 							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 							</ul>
@@ -58,10 +69,10 @@
 							</div>
 						</div>
 						
-						<div id="sexe">
+						<div >
 							<div class="form-group">
-								<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
-									<div class="label label-primary ">
+								<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6" id="sexe">
+									<div class="label label-primary" id="se" >
 										Sexe:
 									</div>
 									<div class=" btn-grp-justified">
@@ -173,7 +184,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="navbar-fixed-bottom row-fluid navbar navbar-inverse" >
+		<footer class=" row-fluid navbar navbar-inverse" id="footer">
 					
 			<div class=" container " >
 				
@@ -192,7 +203,7 @@
 					
 				</div>
 			</div>
-		</div>
+		</footer>
 		<script>
 			$("#up").on("change",function(){
 				$("#desc").css("visibility","visible");

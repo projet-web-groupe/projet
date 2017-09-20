@@ -1,9 +1,4 @@
-#footer{
-			/*background-color:#292b34; */
-			border:0px
-			margin-top:10px;
-			margin-bottom: 0px;
-		}
+
 
 #test{
 			color:white;
@@ -22,9 +17,9 @@
 		}
 
 #page{
-			margin-bottom:70px;
-			margin-top:20px;
-		}
+	margin-bottom:75px;
+	margin-top:20px;
+}
 
 #titre{
 	font-size:20px;

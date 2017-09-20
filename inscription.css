@@ -1,5 +1,5 @@
 #sexe{
-	margin-bottom:2px;
+	height:57px;
 	color:yellow;
 }
 #up{
@@ -8,4 +8,8 @@
 		
 #desc{
 	visibility:hidden;
+}
+#se
+{
+	padding-bottom: 1px;
 }

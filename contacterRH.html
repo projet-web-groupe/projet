@@ -8,9 +8,20 @@
 		<script src="jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
-	<style type="text/css">
-		#footer {
-			bottom: 0;
+		<style>
+		#footer
+		{
+			margin-bottom:0px;
+			
+		}
+		#droite
+		{
+			margin-right:0px;
+		}
+		
+		#pa
+		{
+			margin-bottom: 43px;
 		}
 	</style>
 	<body>
@@ -18,12 +29,12 @@
 			<nav class=" navbar navbar-inverse ">
 			
 				<div class="text-center">
-					<div class="container-fluid">
+					<div class="container-fluid ">
 						<div class="row">
-							<div class="navbar-header ">
+							<div class="navbar-header">
 							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
 							</div>
-							<ul class="nav navbar-nav col-md-5">
+							<ul class="nav navbar-nav navbar-right" id="droite">
 							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 							</ul>
@@ -42,7 +53,7 @@
 				</div>
 			</nav>
 		</header>
-		<div class="container" id="page">
+		<div class="container" id="pa">
 			<div class="page-header">
 				<h1>Contacter une DRH</h1>
 			</div>
@@ -87,7 +98,7 @@
 			</form>
 		
 		</div>
-		<div id="footer" class="navbar navbar-inverse" >
+		<footer class=" row-fluid navbar navbar-inverse" id="footer">
 					
 			<div class=" container " >
 				
@@ -106,6 +117,6 @@
 					
 				</div>
 			</div>
-		</div>
+		</footer>
 	</body>
 </html>
