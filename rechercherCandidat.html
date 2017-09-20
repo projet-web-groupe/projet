@@ -12,16 +12,20 @@
 		#footer
 		{
 			margin-bottom:0px;
-			
+
 		}
 		#droite
 		{
 			margin-right:0px;
 		}
+		.bg-img {
+			background-image: url("dark-triangles.png");
+			background-repeat: repeat;
+		}
 	</style>
 	<body>
-		<header>
-			<nav class=" navbar navbar-inverse ">
+		<header class="row">
+			<nav class="bg-img navbar navbar-fixed-top navbar-inverse hidden-xs">
 			
 				<div class="text-center">
 					<div class="container-fluid ">
@@ -29,6 +33,34 @@
 							<div class="navbar-header">
 							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
 							</div>
+
+							<ul class="nav navbar-nav navbar-right" id="droite">
+							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
+							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
+							</ul>
+						</div>
+						<div class="row">
+							<ul class="nav navbar-nav col-lg-8 ">
+								<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home"></span> </a></li>
+								<li ><a href="offres.html">Consulter offres</a></li>
+								<li><a href="candidature.html" class="active"> Candidatures</a></li>
+								<li><a href="creerOffre.html"> Créer Offres</a></li>
+								<li><a href="contacterRH.html"> Contacter RH</a></li>
+								<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
+							</ul>
+						</div>	
+					</div>
+				</div>
+			</nav>
+			<nav class="bg-img navbar navbar-inverse hidden-lg hidden-md hidden-sm ">
+			
+				<div class="text-center">
+					<div class="container-fluid ">
+						<div class="row">
+							<div class="navbar-header">
+							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
+							</div>
+
 							<ul class="nav navbar-nav navbar-right" id="droite">
 							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
@@ -159,7 +191,27 @@
 			</form>
 		
 		</div>
-		<footer class=" row-fluid navbar navbar-inverse" id="footer">
+		<footer class=" bg-img navbar-fixed-bottom row-fluid navbar navbar-inverse hidden-xs" id="footer">
+					
+			<div class=" container " >
+				
+				<div class="row" id="test">
+					<div class="col-md-4" >
+						<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+					</div>
+					<div class="col-md-5" >
+						<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
+					</div>
+					<div class="col-md-3" >
+						<a class="navbar-brand" href="https://www.facebook.com"><i class="fa fa-facebook-square" id="fb"></i></a>
+						<a class="navbar-brand" href="https://www.twitter.com"><i class="fa fa-twitter-square" id="tweet"></i></a>
+						<a class="navbar-brand" href="https://www.instagram.com"><i class="fa fa-instagram" id="insta"></i></a>	
+					</div>
+					
+				</div>
+			</div>
+		</footer>
+		<footer class=" bg-img  row-fluid navbar navbar-inverse hidden-lg hidden-md hidden-sm" id="footer">
 					
 			<div class=" container " >
 				
