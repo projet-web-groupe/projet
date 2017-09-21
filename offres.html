@@ -7,26 +7,27 @@
 		<link rel="stylesheet" href="footer.css">
 		<script src="jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-	</head>
-	<style>
-		#footer
-		{
-			margin-bottom:0px;
+		<style>
+			#footer
+			{
+				margin-bottom:0px;
 
-		}
-		#droite
-		{
-			margin-right:0px;
-		}
-		#pa
-		{
-			margin-top: 80px;
-		}
-		.bg-img {
-			background-image: url("dark-triangles.png");
-			background-repeat: repeat;
-		}
-	</style>
+			}
+			.droite
+			{
+				margin-right:0px;
+			}
+			#pa
+			{
+				margin-top: 80px;
+			}
+			.bg-img {
+				background-image: url("dark-triangles.png");
+				background-repeat: repeat;
+			}
+		</style>
+	</head>
+	
 	<body>
 		<header class="row">
 			<nav class="bg-img navbar navbar-fixed-top navbar-inverse hidden-xs">
@@ -35,10 +36,10 @@
 					<div class="container-fluid ">
 						<div class="row">
 							<div class="navbar-header">
-							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
+							  <span class="navbar-text titre">Bye Bye Chômage</span>
 							</div>
 
-							<ul class="nav navbar-nav navbar-right" id="droite">
+							<ul class="nav navbar-nav navbar-right droite">
 							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 							</ul>
@@ -46,7 +47,7 @@
 						<div class="row">
 							<ul class="nav navbar-nav col-lg-8 ">
 								<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home"></span> </a></li>
-								<li ><a href="offres.html">Consulter offres</a></li>
+								<li class="active"><a href="offres.html">Consulter offres</a></li>
 								<li><a href="candidature.html" class="active"> Candidatures</a></li>
 								<li><a href="creerOffre.html"> Créer Offres</a></li>
 								<li><a href="contacterRH.html"> Contacter RH</a></li>
@@ -62,10 +63,10 @@
 					<div class="container-fluid ">
 						<div class="row">
 							<div class="navbar-header">
-							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
+							  <span class="navbar-text titre">Bye Bye Chômage</span>
 							</div>
 
-							<ul class="nav navbar-nav navbar-right" id="droite">
+							<ul class="nav navbar-nav navbar-right droite">
 							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 							</ul>
@@ -73,7 +74,7 @@
 						<div class="row">
 							<ul class="nav navbar-nav col-lg-8 ">
 								<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home"></span> </a></li>
-								<li ><a href="offres.html">Consulter offres</a></li>
+								<li class="active"><a href="offres.html">Consulter offres</a></li>
 								<li><a href="candidature.html" class="active"> Candidatures</a></li>
 								<li><a href="creerOffre.html"> Créer Offres</a></li>
 								<li><a href="contacterRH.html"> Contacter RH</a></li>
@@ -141,7 +142,7 @@
 						
 				<div class=" container " >
 					
-					<div class=" test">
+					<div class="row test">
 						<div class="col-lg-4" >
 							<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
 						</div>
@@ -161,14 +162,16 @@
 						
 				<div class="container" >
 					
-					<div class=" test">
-						<div class="col-md-12" >
-							<span><a class="text-center navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+					<div class="row test">
+						<div class="brand-padding text-center col-sm-12" >
+							<span><a class="inc navbar-text" href="historique.html">Qui sommes-nous?</a></span>
 						</div>
-						<div class="brand-padding col-md-5" >
+
+						<div class="brand-padding text-center col-sm-12" >
 							<span class="inc navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
 						</div>
-						<div class="text-right col-md-4" >
+
+						<div class="text-center col-sm-12" >
 							<a class="navbar-text" href="https://www.facebook.com"><i class="fa fa-facebook-square fb"></i></a>
 							<a class="navbar-text" href="https://www.twitter.com"><i class="fa fa-twitter-square tweet"></i></a>
 							<a class="navbar-text" href="https://www.instagram.com"><i class="fa fa-instagram insta"></i></a>	
