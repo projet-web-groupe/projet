@@ -47,3 +47,26 @@
 .navbar {
 	margin-bottom:0px;
 }
+
+.bg-img {
+			background-image: url("dark-triangles.png");
+			background-repeat: repeat;
+		}
+body
+{
+	background-image:url("wp5.jpg");
+	background-size: 100%;
+	background-attachment: fixed;
+}
+h1
+{
+	color:white;
+}
+h2
+{
+	color:white;
+}
+tr
+{
+	background-color: white;
+}
