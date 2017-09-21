@@ -1,18 +1,18 @@
 
 
-#test{
+.test{
 			color:white;
 		}
 
-#fb{
+.fb{
 			font-size:24px
 		}
 
-#tweet{
+.tweet{
 			font-size:24px
 		}
 
-#insta{
+.insta{
 			font-size:24px
 		}
 
@@ -25,10 +25,25 @@
 	font-size:20px;
 }
 
-.text-center{
-	text-align:center;
+.navbar-nav {
+			margin-right: 0;
+		}
+
+.text-center {
+	text-align: center!important;
 }
 
-#fdp{
-	border-style:none;
+.text-right {
+	text-align: right!important;
+}
+.fa {
+	font-size: 20px!important;
+	padding-right: 5px;
+}
+
+.brand-paddind {
+	padding: 15px 15px!important;
+}
+.navbar {
+	margin-bottom:0px;
 }
