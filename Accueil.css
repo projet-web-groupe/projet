@@ -1,77 +1,4 @@
-
-
-.test{
-			color:white;
-		}
-
-.fb{
-			font-size:24px
-		}
-
-.tweet{
-			font-size:24px
-		}
-
-.insta{
-			font-size:24px
-		}
-
-#page{
-	margin-bottom:75px;
-	margin-top:100px;
-}
-
-.titre{
-	font-size:20px;
-}
-
-.navbar-nav {
-			margin-right: 0;
-		}
-
-.text-center {
-	text-align: center!important;
-}
-
-.text-right {
-	text-align: right!important;
-}
-.fa {
-	font-size: 20px!important;
-	padding-right: 5px;
-}
-
-.brand-paddind {
-	padding: 15px 15px!important;
-}
-.navbar {
-	margin-bottom:0px;
-}
-
-.bg-img {
-			background-image: url("dark-triangles.png");
-			background-repeat: repeat;
-		}
-body
-{
-	background-image:url("wp5.jpg");
-	background-size: 100%;
-	background-attachment: fixed;
-}
-h1
-{
-	color:white;
-}
-h2
-{
-	color:white;
-}
-tr
-{
-	background-color: white;
-}
-
-.menu{
+/*.menu{
 	display: none;
 	position: absolute;
 	background-color: #222;
@@ -154,4 +81,4 @@ tr
 .home:hover{
 	
 	color:white;
-}
+}*/

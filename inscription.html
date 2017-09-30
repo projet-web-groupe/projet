@@ -18,7 +18,10 @@
 		{
 			margin-right:0px;
 		}
-		
+		.veh
+		{
+			color:white;
+		}
 		
 	</style>
 	<body>
@@ -29,25 +32,34 @@
 				<div class="text-center">
 					<div class="container-fluid ">
 						<div class="row">
-							<div class="navbar-header">
+							<div class="navbar-header ref">
 							  <span class="navbar-text titre">Bye Bye Chômage</span>
 							</div>
 
 							<ul class="nav navbar-nav navbar-right droite">
-							  <li class="active"><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
+							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 							</ul>
 						</div>
-						<div class="row">
-							<ul class="nav navbar-nav col-lg-8 ">
-								<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home"></span> </a></li>
-								<li ><a href="offres.html">Consulter offres</a></li>
-								<li><a href="candidature.html" class="active"> Candidatures</a></li>
-								<li><a href="creerOffre.html"> Créer Offres</a></li>
-								<li><a href="contacterRH.html"> Contacter RH</a></li>
-								<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
-							</ul>
-						</div>	
+						
+							<div class="row">
+								<ul class="nav navbar-nav" >
+									<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home home"></span> </a></li>
+									<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule">Menu</span></span></li>
+
+								</ul>
+								<div class="row menu">
+									<ul class="in">
+										<li ><a href="offres.html">Consulter offres</a></li>
+										<li><a href="candidature.html"> Candidatures</a></li>
+										<li><a href="creerOffre.html"> Créer Offres</a></li>
+										<li><a href="contacterRH.html"> Contacter RH</a></li>
+										<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
+									</ul>
+								</div>	
+							</div>
+							
+						
 					</div>
 				</div>
 			</nav>
@@ -56,25 +68,29 @@
 				<div class="text-center">
 					<div class="container-fluid ">
 						<div class="row">
-							<div class="navbar-header">
-							  <span class="navbar-text" id="titre">Bye Bye Chômage</span>
+							<div class="navbar-header ref">
+							  <span class="navbar-text titre">Bye Bye Chômage</span>
 							</div>
-
-							<ul class="nav navbar-nav navbar-right" id="droite">
-							  <li class="active"><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
+							<ul class="nav navbar-nav navbar-right droite">
+							  <li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							  <li><a href="connexion.html"><span class="glyphicon glyphicon-log-in"></span> se connecter</a></li>
 							</ul>
 						</div>
 						<div class="row">
-							<ul class="nav navbar-nav col-lg-8 ">
-								<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home"></span> </a></li>
-								<li ><a href="offres.html">Consulter offres</a></li>
-								<li><a href="candidature.html" class="active"> Candidatures</a></li>
-								<li><a href="creerOffre.html"> Créer Offres</a></li>
-								<li><a href="contacterRH.html"> Contacter RH</a></li>
-								<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
-							</ul>
-						</div>	
+								<ul class="nav navbar-nav" >
+									<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home home"></span> </a></li>
+									<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule">Menu</span></span></li>
+								</ul>
+								<ul class="nav navbar-nav menu-xs">
+									
+									<li ><a href="offres.html">Consulter offres</a></li>
+									<li><a href="candidature.html" class="active"> Candidatures</a></li>
+									<li><a href="creerOffre.html"> Créer Offres</a></li>
+									<li><a href="contacterRH.html"> Contacter RH</a></li>
+									<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
+								</ul>
+							</div>
+						
 					</div>
 				</div>
 			</nav>
@@ -156,26 +172,13 @@
 						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label class="label label-primary">Etes-vous véhiculé?</label>
 							<div class="radio">
-								<label><input type="radio" name="vehicule" value="oui">Oui</label>
+								<label><input  type="radio" name="vehicule" value="oui"><span class="veh">Oui</span></label>
 							</div>
 							<div class="radio">
-								<label><input type="radio" name="vehicule" value="non">Non</label>
+								<label><input  type="radio" name="vehicule" value="non"><span class="veh">Non</span></label>
 							</div>
 						</div>
-						<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<div class="label label-primary">Uploadez votre CV: </div>
-							
-								<div class="row">
-									<div class="col-lg-7">
-										<label class="btn btn-default ">
-											Choisissez: <input type="file" id="up" name="nom">
-											
-										</label>
-										<label id="desc" for="f02">Add profile picture</label>
-										
-									</div>
-								</div>
-						</div>
+						
 					</div>
 					<div>
 						<div class="panel panel-default">
@@ -258,20 +261,9 @@
 				</div>
 			</div>
 		</footer>
-		<script>
-			$("#up").on("change",function(){
-				$("#desc").css("visibility","visible");
-				var f= this.files[0].name;
-				var dflt = $(this).attr("placeholder");
-				if($(this).val()!=""){
-					$("#desc").text(f);
-				  }
-				  else {
-					$("#desc").text(dflt);
-				  }
-			});
-
-		</script>
+		
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="general.js"></script>
 	</body>
 
 
