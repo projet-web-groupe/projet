@@ -1,0 +1,23 @@
+#footer
+{
+	margin-bottom:0px;
+}
+.droite
+{
+	margin-right:0px;
+}
+.bg-img {
+	background-image: url("dark-triangles.png");
+	background-repeat: repeat;
+}
+
+.panel-body{
+	display:none;
+}
+.panel-heading{
+	cursor:pointer;
+}
+
+.sigle{
+	display:inline-block;
+}
