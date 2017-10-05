@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(".panel-heading").on("click",function(){
+	$(".sec").on("click",function(){
 		console.log("entrer");
 		//console.log($(this).parent().children(".panel-body"));
 		$(this).parent().children(".panel-body").slideToggle();
