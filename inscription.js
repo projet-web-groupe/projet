@@ -35,5 +35,58 @@ $(document).ready(function(){
 		$(".cache2").fadeOut(300);
 		$(".gene").show();
 	})
+	$("#exp").on("keyup",function(){
 
+		if($("#exp").val()<0 || !$.isNumeric($("#exp").val()))
+		{
+			if($("#croix").hasClass("glyphicon glyphicon-ok"))
+			{
+				$("#croix").removeClass("glyphicon glyphicon-ok");
+			}
+			if(!$("#croix").hasClass("glyphicon glyphicon-remove"))
+			{
+				$("#croix").addClass("glyphicon glyphicon-remove");
+			}
+			
+		}
+		else{
+			if($("#croix").hasClass("glyphicon glyphicon-remove"))
+			{
+				$("#croix").removeClass("glyphicon glyphicon-remove");
+			}
+			if(!$("#croix").hasClass("glyphicon glyphicon-ok"))
+			{
+				$("#croix").addClass("glyphicon glyphicon-ok");
+			}
+		}
+	});
+	$("#email").on("keyup",function(){
+		
+		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+		console.log(pattern.test($("#email").val()));
+		if(!pattern.test($("#email").val()))
+		{
+			
+			//$('#croix').hide();
+			if(!$('#e-croix').hasClass("glyphicon glyphicon-remove"))
+			{
+				if($('#e-croix').hasClass("glyphicon glyphicon-ok"))
+				{
+					$('#e-croix').removeClass("glyphicon glyphicon-ok")
+				}
+				$("#e-croix").addClass("glyphicon glyphicon-remove");
+			}
+		}
+		else{
+			
+			if(!$('#e-croix').hasClass("glyphicon glyphicon-ok"))
+			{
+				if($('#e-croix').hasClass("glyphicon glyphicon-remove"))
+				{
+					$('#e-croix').removeClass("glyphicon glyphicon-remove")
+				}
+				$("#e-croix").addClass("glyphicon glyphicon-ok");
+			}
+		}
+	});
 });

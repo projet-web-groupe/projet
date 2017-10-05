@@ -1,0 +1,26 @@
+#footer
+{
+	margin-bottom:0px;
+
+}
+.droite
+{
+	margin-right:0px;
+}
+
+#pa
+{
+	margin-top: 80px;
+}
+
+.glyphicon-ok{
+	color:rgb(34,139,34);
+
+}
+
+.glyphicon-remove{
+	color:rgb(245, 0, 0);
+}
+#res{
+	display: none;
+}
