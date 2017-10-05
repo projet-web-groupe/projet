@@ -71,3 +71,11 @@
 .gene{
 	display:block;
 }
+.glyphicon-ok{
+	color:rgb(34,139,34);
+
+}
+
+.glyphicon-remove{
+	color:rgb(245, 0, 0);
+}
