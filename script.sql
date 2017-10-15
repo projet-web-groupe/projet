@@ -29,7 +29,7 @@ CREATE TABLE RH
 CREATE TABLE Candidat
 (
     numCandidat INT PRIMARY KEY,
-    Domain varchar(25),
+    domain varchar(25),
     lastDiploma varchar(25),
     vehicule boolean,
     id_pers INT,
@@ -38,13 +38,14 @@ CREATE TABLE Candidat
 
 CREATE TABLE Description
 (
-    description varchar(250) PRIMARY KEY
+    description varchar(250) PRIMARY KEY,
+    ref varchar(25),
+    FOREIGN KEY(ref)REFERENCES OFFRE(ref)
 );
 
 CREATE TABLE OFFRE
 (
     ref varchar(25) PRIMARY KEY,
-    description varchar(25),
     id_cand INT,
     FOREIGN KEY(id_cand) REFERENCES candidat(numCandidat)
 );

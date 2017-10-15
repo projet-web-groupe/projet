@@ -98,13 +98,6 @@
 										</a>
 									</div>
 								</div>
-								<div>
-									<div class="col-md-12 control text-right">
-										<div>
-											<a href="#">Forgot password ?</a>
-										</div>
-									</div>
-								</div>
 							</div>  
 						</div>  
 					</form>
