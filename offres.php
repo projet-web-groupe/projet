@@ -30,23 +30,23 @@
 							<div id="mod" class="panel panel-info">
 								<div class="panel-heading">
 									<div class="panel-title">Sign In</div>
-								</div>     
+								</div>
 
 								<div class="panel-body" >
 									<form id="loginform" class="form-horizontal">
-										
+
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+											<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
 										</div>
-										
+
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 											<input id="login-password" type="password" class="form-control" name="password" placeholder="password">
 										</div>
-										
 
-										
+
+
 										<div class="input-group">
 											<div class="checkbox">
 												<label>
@@ -69,7 +69,7 @@
 											<div class="form-group ">
 												<div class="col-md-12 control">
 													<div class="form-group-end">
-														Don't have an account? 
+														Don't have an account?
 														<a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
 															Sign Up Here
 														</a>
@@ -82,8 +82,8 @@
 														</div>
 													</div>
 												</div>
-											</div>  
-										</div>  
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -132,7 +132,7 @@
 					<td>CDI</td>
 					<td ><a href="postuler.html" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 				</tr>
-				
+
 			</table>
 			<ul class="pagination pull-right">
 				<li class="active"><a href="#">1</a></li>
@@ -148,7 +148,7 @@
 	?>
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 

@@ -25,20 +25,20 @@
 							<div id="mod" class="panel panel-info">
 								<div class="panel-heading">
 									<div class="panel-title">Sign In</div>
-								</div>     
+								</div>
 
 								<div class="panel-body" >
 									<form id="loginform" class="form-horizontal">
-										
+
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-											<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+											<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
 										</div>
-										
+
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 											<input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-										</div> 
+										</div>
 										<div class="input-group">
 											<div class="checkbox">
 												<label>
@@ -59,7 +59,7 @@
 											<div class="form-group ">
 												<div class="col-md-12 control">
 													<div class="form-group-end">
-														Don't have an account? 
+														Don't have an account?
 														<a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
 															Sign Up Here
 														</a>
@@ -72,8 +72,8 @@
 														</div>
 													</div>
 												</div>
-											</div>  
-										</div>  
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -89,11 +89,11 @@
 			<h1>Détails de l'offre</h1>
 		</div>
 
-		
+
 
 		<div class="container-fluid">
 			<div class="panel panel-primary">
-				<div class="panel-heading sec">						
+				<div class="panel-heading sec">
 					<span class="plus glyphicon glyphicon-menu-down"></span>
 					Entreprise
 				</div>
@@ -101,7 +101,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus nisi. Morbi molestie tortor in magna lobortis, ut dapibus nisl rhoncus. Quisque consectetur vulputate risus non vulputate. Pellentesque pharetra, risus id auctor congue, eros ex euismod mauris, eu tincidunt purus mauris et purus. Donec laoreet commodo nunc auctor vestibulum. Nulla in porttitor est. Proin a tortor id tellus posuere dignissim. Nunc sodales tempus ultricies. Praesent eu lectus mattis, blandit turpis eget, laoreet nisi. Proin auctor lacinia erat, non commodo nibh porta ac. Pellentesque et mauris eget ipsum pulvinar mollis. Nunc viverra rhoncus lorem, at pharetra tortor auctor a. Aenean feugiat arcu nec enim tempus, vitae varius tortor gravida. Suspendisse tincidunt est lectus, a pharetra nunc tincidunt id.
 
 					Suspendisse feugiat pretium convallis. Donec aliquet libero et dolor rutrum, hendrerit euismod neque maximus. In rutrum convallis eros, vel volutpat tellus bibendum nec. Pellentesque sed metus vel metus pretium semper id in purus. Ut blandit convallis dolor nec malesuada. Phasellus et felis orci. Sed a elit eu neque facilisis rhoncus. Donec malesuada diam velit.
-					
+
 				</div>
 			</div>
 			<div class="panel panel-primary">
@@ -113,7 +113,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus nisi. Morbi molestie tortor in magna lobortis, ut dapibus nisl rhoncus. Quisque consectetur vulputate risus non vulputate. Pellentesque pharetra, risus id auctor congue, eros ex euismod mauris, eu tincidunt purus mauris et purus. Donec laoreet commodo nunc auctor vestibulum. Nulla in porttitor est. Proin a tortor id tellus posuere dignissim. Nunc sodales tempus ultricies. Praesent eu lectus mattis, blandit turpis eget, laoreet nisi. Proin auctor lacinia erat, non commodo nibh porta ac. Pellentesque et mauris eget ipsum pulvinar mollis. Nunc viverra rhoncus lorem, at pharetra tortor auctor a. Aenean feugiat arcu nec enim tempus, vitae varius tortor gravida. Suspendisse tincidunt est lectus, a pharetra nunc tincidunt id.
 
 					Suspendisse feugiat pretium convallis. Donec aliquet libero et dolor rutrum, hendrerit euismod neque maximus. In rutrum convallis eros, vel volutpat tellus bibendum nec. Pellentesque sed metus vel metus pretium semper id in purus. Ut blandit convallis dolor nec malesuada. Phasellus et felis orci. Sed a elit eu neque facilisis rhoncus. Donec malesuada diam velit.
-					
+
 				</div>
 			</div>
 			<div class="panel panel-primary">
@@ -142,7 +142,7 @@
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>
 	<script src="js/postuler.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 
