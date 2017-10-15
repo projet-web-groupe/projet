@@ -16,7 +16,7 @@ create table Personne
     mdp varchar(25),
     mail varchar(50)
     
-)
+);
 
 
 CREATE TABLE RH
@@ -24,7 +24,7 @@ CREATE TABLE RH
 	numRh INT PRIMARY Key, 
 	id_pers INT,
 	FOREIGN KEY(id_pers) REFERENCES personne(id)
-)
+);
 
 CREATE TABLE Candidat
 (
@@ -34,12 +34,12 @@ CREATE TABLE Candidat
     vehicule boolean,
     id_pers INT,
     FOREIGN KEY(id_pers) REFERENCES personne(id)
-)
+);
 
 CREATE TABLE Description
 (
     description varchar(250) PRIMARY KEY
-)
+);
 
 CREATE TABLE OFFRE
 (
@@ -47,7 +47,7 @@ CREATE TABLE OFFRE
     description varchar(25),
     id_cand INT,
     FOREIGN KEY(id_cand) REFERENCES candidat(numCandidat)
-)
+);
 
 CREATE TABLE QUALITE
 (
