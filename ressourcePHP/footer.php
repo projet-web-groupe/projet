@@ -5,7 +5,7 @@
 					
 					<div class="row test">
 						<div class="col-lg-4" >
-							<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
+							<span><a class="navbar-brand" href="historique.php">Qui sommes-nous?</a></span>
 						</div>
 						<div class="col-lg-5" >
 							<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
@@ -25,7 +25,7 @@
 					
 					<div class="row test">
 						<div class="brand-padding text-center col-sm-12" >
-							<span><a class="inc navbar-text" href="historique.html">Qui sommes-nous?</a></span>
+							<span><a class="inc navbar-text" href="historique.php">Qui sommes-nous?</a></span>
 						</div>
 
 						<div class="brand-padding text-center col-sm-12" >

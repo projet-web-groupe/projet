@@ -5,7 +5,7 @@
 #up{
 	display:none;
 }
-		
+
 #desc{
 	visibility:hidden;
 }
@@ -112,7 +112,12 @@ div#login-alert{
 	color:white;
 }
 
-#insc {
+#loginform{
+	background-color: white;
+}
+
+form{
+
 	padding :25px;
 	border-radius: 10px;
 }
