@@ -53,14 +53,14 @@
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="panel-title">Sign In</div>
-				</div>     
+				</div>
 
 				<div class="panel-body" >
 					<form id="loginform" class="form-horizontal">
 						
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+							<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
 						</div>
 						
 						<div class="input-group">
