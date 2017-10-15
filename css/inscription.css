@@ -5,7 +5,7 @@
 #up{
 	display:none;
 }
-		
+
 #desc{
 	visibility:hidden;
 }
@@ -82,37 +82,40 @@
 
 
 div#login-alert{
-			display: none;
-		}
-		
-		.input-group {
-			margin-bottom: 25px;
-		}
-		.form-group-end{
-			border-top: 1px solid#888;
-			padding-top:15px;
-			font-size:85%;
-		}
+	display: none;
+}
 
-		#panel {
-			max-width: 600px;
-			padding-right:0;
-			padding-left:0;
-		}
-		#mod{
-			margin-bottom:0px;
-		}
-		.moda{
-			display:block;
-			padding-top: 15px;
-			cursor:pointer;
-			color: #9d9d9d;
-		}
-		.moda:hover{
-			color:white;
-		}
+.input-group {
+	margin-bottom: 25px;
+}
+.form-group-end{
+	border-top: 1px solid#888;
+	padding-top:15px;
+	font-size:85%;
+}
 
-form {
+#panel {
+	max-width: 600px;
+	padding-right:0;
+	padding-left:0;
+}
+#mod{
+	margin-bottom:0px;
+}
+.moda{
+	display:block;
+	padding-top: 15px;
+	cursor:pointer;
+	color: #9d9d9d;
+}
+.moda:hover{
+	color:white;
+}
+#loginform{
+	background-color: white;
+}
+
+form{
 	padding :25px;
 	border-radius: 10px;
 	background-color: rgba(0,0,0,0.5);
