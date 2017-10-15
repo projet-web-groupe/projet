@@ -10,75 +10,9 @@
 </head>
 
 <body>
-	<header>
-		<nav class="bg-img navbar navbar-fixed-top navbar-inverse hidden-xs">
-
-			<div class="text-center">
-				<div class="container-fluid ">
-					<div class="row">
-						<div class="navbar-header ref">
-							<span class="navbar-text titre">Bye Bye Chômage</span>
-						</div>
-
-						<ul class="nav navbar-nav navbar-right droite">
-							<li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-						</ul>
-					</div>
-
-					<div class="row">
-						<ul class="nav navbar-nav" >
-							<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home home"></span> </a></li>
-							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
-
-						</ul>
-						<div class="row menu">
-							<ul class="in">
-								<li ><a href="offres.html">Consulter offres</a></li>
-								<li><a href="candidature.html"> Candidatures</a></li>
-								<li><a href="creerOffre.html"> Créer Offres</a></li>
-								<li><a href="contacterRH.html"> Contacter RH</a></li>
-								<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
-							</ul>
-						</div>
-					</div>
-
-
-				</div>
-			</div>
-		</nav>
-		<nav class="bg-img navbar navbar-inverse hidden-lg hidden-md hidden-sm ">
-
-			<div class="text-center">
-				<div class="container-fluid ">
-					<div class="row">
-						<div class="navbar-header ref">
-							<span class="navbar-text titre">Bye Bye Chômage</span>
-						</div>
-						<ul class="nav navbar-nav navbar-right droite">
-							<li><a href="inscription.html"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-						</ul>
-					</div>
-					<div class="row">
-						<ul class="nav navbar-nav" >
-							<li><a  href="Accueil.html"><span class="glyphicon glyphicon-home home"></span> </a></li>
-							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
-						</ul>
-						<ul class="nav navbar-nav menu-xs">
-
-							<li ><a href="offres.html">Consulter offres</a></li>
-							<li><a href="candidature.html" class="active"> Candidatures</a></li>
-							<li><a href="creerOffre.html"> Créer Offres</a></li>
-							<li><a href="contacterRH.html"> Contacter RH</a></li>
-							<li><a href="rechercherCandidat.html"> Rechercher Candidat</a></li>
-						</ul>
-					</div>
-
-				</div>
-			</div>
-		</nav>
-	</header>
+	<?php
+	include 'ressourcePHP/header.php'
+	?>
 	<div class="container" id="page">
 
 		<div id="myModal" class="modal fade" role="dialog">
@@ -202,50 +136,9 @@
 			</div>
 		</div>
 	</div>
-	<footer>
-		<div class="text-center bg-img row-fluid navbar navbar-fixed-bottom navbar-inverse hidden-xs footer">
-
-			<div class=" container " >
-
-				<div class="row test">
-					<div class="col-lg-4" >
-						<span><a class="navbar-brand" href="historique.html">Qui sommes-nous?</a></span>
-					</div>
-					<div class="col-lg-5" >
-						<span class="navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
-					</div>
-					<div class="text-center col-lg-3 pull-right" >
-						<a class="navbar-text" href="https://www.facebook.com"><i class="fa fa-facebook-square fb"></i></a>
-						<a class="navbar-text" href="https://www.twitter.com"><i class="fa fa-twitter-square tweet"></i></a>
-						<a class="navbar-text" href="https://www.instagram.com"><i class="fa fa-instagram insta"></i></a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<div class="bg-img  row-fluid navbar navbar-inverse hidden-lg hidden-md hidden-sm footer">
-
-			<div class="container" >
-
-				<div class="row test">
-					<div class="brand-padding text-center col-sm-12" >
-						<span><a class="inc navbar-text" href="historique.html">Qui sommes-nous?</a></span>
-					</div>
-
-					<div class="brand-padding text-center col-sm-12" >
-						<span class="inc navbar-text">ByeByeChômage,INC. Tous droits réservés</span>
-					</div>
-
-					<div class="text-center col-sm-12" >
-						<a class="navbar-text" href="https://www.facebook.com"><i class="fa fa-facebook-square fb"></i></a>
-						<a class="navbar-text" href="https://www.twitter.com"><i class="fa fa-twitter-square tweet"></i></a>
-						<a class="navbar-text" href="https://www.instagram.com"><i class="fa fa-instagram insta"></i></a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</footer>
+	<?php
+	include 'ressourcePHP/footer.php'
+	?>
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>
 	<script src="js/postuler.js"></script>
