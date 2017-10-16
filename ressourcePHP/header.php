@@ -53,7 +53,7 @@
 						</ul>
 						<ul class="nav navbar-nav menu-xs">
 
-							<li ><a href="offres.php">Consulter offres</a></li>
+							<li><a href="offres.php">Consulter offres</a></li>
 							<li><a href="candidature.php" class="active"> Candidatures</a></li>
 							<li><a href="creerOffre.php"> Créer Offres</a></li>
 							<li><a href="contacterRH.php"> Contacter RH</a></li>
