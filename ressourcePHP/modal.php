@@ -11,7 +11,7 @@
 						</div>
 
 						<div class="panel-body" >
-							<form id="loginform" class="form-horizontal">
+							<form id="loginform" class="form-horizontal" action="accueil.php" method="POST">
 
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -38,8 +38,9 @@
 									<!-- Button -->
 
 									<div class=" controls ">
-										<a id="btn-login" href="#" class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-8 col-md-3 col-lg-offset-9 col-lg-2 btn btn-success">Login  </a>
-
+										<input id="btn-login" type="submit" value="Login" class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-8 col-md-3 col-lg-offset-9 col-lg-2 btn btn-success">
+											
+										
 									</div>
 								</div>
 
