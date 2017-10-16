@@ -1,4 +1,5 @@
 <header>
+	<?php session_start() ?>
 		<nav class="bg-img navbar navbar-fixed-top navbar-inverse hidden-xs">
 			
 			<div class="text-center">
@@ -11,6 +12,7 @@
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
+							<li><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></li>
 						</ul>
 					</div>
 
@@ -44,6 +46,7 @@
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
+							<li id="ident"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></li>
 						</ul>
 					</div>
 					<div class="row">
