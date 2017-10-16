@@ -38,9 +38,11 @@ CREATE TABLE Candidat
 
 CREATE TABLE Description
 (
+
     description varchar(250) PRIMARY KEY,
     ref varchar(25),
     FOREIGN KEY(ref)REFERENCES OFFRE(ref)
+
 );
 
 CREATE TABLE OFFRE

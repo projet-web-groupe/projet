@@ -73,15 +73,13 @@
 	display:block;
 }
 
-
-
 #loginform{
 	background-color: white;
 }
 
 form{
+
 	padding :25px;
 	border-radius: 10px;
-	background-color: rgba(0,0,0,0.5);
 }
 

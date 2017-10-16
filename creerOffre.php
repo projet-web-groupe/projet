@@ -19,24 +19,22 @@
 		<div class="page-header">
 			<h1>Créer votre offre</h1>
 		</div>
-		<form>
-			<div class="row">
-				<?php
-				include 'ressourcePHP/modal.php'
-				?>
-
+		<?php include 'ressourcePHP/modal.php' ?>
+		<div class="row">	
+			<form>
 				<span class="label label-primary">Employeur : </span>
-				<input type="text" class="form-control">
+				<input type="text" name="employeur" class="form-control">
 				
 				<span class="label label-primary">Description du poste : </span>
-				<textarea class="form-control"></textarea>
-			</div>
-			<div class="row">
+				<textarea name="desc" class="form-control"></textarea>
+				<div class="row">
 				<div class="col-lg-1 col-lg-push-11">
 					<button type="button" class="btn btn-success btn-block">Valider</button>
 				</div>
-			</div>
-		</form>
+			
+			</form>
+		</div>
+		
 	</div>
 	<?php
 	include 'ressourcePHP/footer.php'
