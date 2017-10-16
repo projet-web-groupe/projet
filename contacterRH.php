@@ -4,8 +4,10 @@
 	<meta charset="utf-8"/>
 	<title>Contacter RH</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/contacterRH.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="css/contacterRH.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	
 </head>
@@ -14,7 +16,7 @@
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
-	<div class="container" id="pa">
+	<div class="container" id="page">
 		<div class="page-header">
 			<h1>Contacter une DRH</h1>
 		</div>

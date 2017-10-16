@@ -5,6 +5,8 @@
 	<title>Inscription</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="css/inscription.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
@@ -13,7 +15,7 @@
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
-	<div class="container " id="page">
+	<div class="container ">
 		<div class="page-header">
 			<h1>Inscrivez-vous!</h1>
 		</div>
@@ -85,7 +87,7 @@
 							<input type="text" name="diplome" class="form-control diplome">
 							<div class="suggestion cache">
 								<ul>
-									<a href="Accueil.html"><li>test1</li></a>
+									<a href="Accueil.php"><li>test1</li></a>
 									<a href="#"><li>test2</li></a>
 								</ul>
 							</div>
@@ -104,7 +106,7 @@
 							<input type="text" name="domaine" class="form-control domaine">
 							<div class="suggestion2 cache2">
 								<ul>
-									<a href="Accueil.html"><li>test1</li></a>
+									<a href="Accueil.php"><li>test1</li></a>
 									<a href="#"><li>test2</li></a>
 								</ul>
 							</div>
