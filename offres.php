@@ -5,7 +5,8 @@
 	<title>Consultation des offres</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/footer.css">
-	<link rel="stylesheet" href="css/offres.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/offres.css">
 
@@ -15,7 +16,7 @@
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
-	<div class="container" id="pa">
+	<div class="container" id="page">
 		<div class="page-header">
 			<h1>Liste des offres</h1>
 		</div>
@@ -38,28 +39,28 @@
 					<td>Info</td>
 					<td>No data</td>
 					<td>CDI</td>
-					<td ><a href="postuler.html" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
+					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 				</tr>
 				<tr>
 					<td>0002</td>
 					<td>Info</td>
 					<td>No data</td>
 					<td>CDI</td>
-					<td ><a href="postuler.html" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
+					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 				</tr>
 				<tr>
 					<td>0003</td>
 					<td>Info</td>
 					<td>No data</td>
 					<td>CDI</td>
-					<td ><a href="postuler.html" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
+					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 				</tr>
 				<tr>
 					<td>0004</td>
 					<td>Info</td>
 					<td>No data</td>
 					<td>CDI</td>
-					<td ><a href="postuler.html" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
+					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 				</tr>
 
 			</table>

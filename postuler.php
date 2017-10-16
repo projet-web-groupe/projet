@@ -5,6 +5,8 @@
 	<title>Postuler</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="css/postuler.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
@@ -66,7 +68,7 @@
 			</div>
 			<div class="container text-center">
 				<button type="button" class="btn btn-success">Postuler</button>
-				<a href="offres.html" class="btn btn-primary" role="button">Retour</a>
+				<a href="offres.php" class="btn btn-primary" role="button">Retour</a>
 			</div>
 		</div>
 	</div>

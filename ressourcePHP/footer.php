@@ -3,7 +3,7 @@
 						
 				<div class=" container " >
 					
-					<div class="row test">
+					<div class="row">
 						<div class="col-lg-4" >
 							<span><a class="navbar-brand" href="historique.php">Qui sommes-nous?</a></span>
 						</div>
@@ -23,7 +23,7 @@
 						
 				<div class="container" >
 					
-					<div class="row test">
+					<div class="row">
 						<div class="brand-padding text-center col-sm-12" >
 							<span><a class="inc navbar-text" href="historique.php">Qui sommes-nous?</a></span>
 						</div>
