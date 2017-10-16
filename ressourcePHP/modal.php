@@ -11,16 +11,16 @@
 						</div>
 
 						<div class="panel-body" >
-							<form id="loginform" class="form-horizontal" action="accueil.php" method="POST">
+							<form id="loginform" class="form-horizontal" action="accueil.php" method="get">
 
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-									<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+									<input id="login-username" type="text" class="form-control" name="login" value="" placeholder="username or email">
 								</div>
 
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-									<input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+									<input id="login-password" type="password" class="form-control" name="mdp" placeholder="password">
 								</div>
 
 

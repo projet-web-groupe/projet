@@ -34,7 +34,7 @@
 						</div>
 						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label for="prenom" class="label label-primary">Prénom:</label>
-							<input type="text" id="prenom" name="prennom" class="form-control" placeholder="Entrez votre Prénom">
+							<input type="text" id="prenom" name="prenom" class="form-control" placeholder="Entrez votre Prénom">
 						</div>
 
 					</div>

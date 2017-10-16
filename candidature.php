@@ -14,6 +14,7 @@
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
+	
 	<div class="container" id="page" >
 		<div class="page-header">
 			<h1>Candidatures</h1>
@@ -34,6 +35,7 @@
 						<th class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">Refuser</th>
 					</tr>
 					<tr >
+
 						<td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">001</td>
 						<td class="col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center"><a href="postuler.php"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 						<td class="col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center"><a href="inscription.php"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
