@@ -111,13 +111,14 @@ div#login-alert{
 .moda:hover{
 	color:white;
 }
+
 #loginform{
 	background-color: white;
 }
 
 form{
+
 	padding :25px;
 	border-radius: 10px;
-	background-color: rgba(0,0,0,0.5);
 }
 

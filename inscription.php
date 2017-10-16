@@ -23,19 +23,32 @@
 		?>
 
 		<div id="form">
-			<form >
+			<form id="insc" method="get" action="accueil.php">
 				<div class="row">
 					<div class="form-group">
 						<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label for="nom" class="label label-primary">Nom:</label>
-							<input type="text" id="nom" class="form-control" placeholder="Entrez votre Nom">
+							<input type="text" id="nom" name="nom" class="form-control" placeholder="Entrez votre Nom">
 						</div>
 						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label for="prenom" class="label label-primary">Prénom:</label>
-							<input type="text" id="prenom" class="form-control" placeholder="Entrez votre Prénom">
+							<input type="text" id="prenom" name="prennom" class="form-control" placeholder="Entrez votre Prénom">
 						</div>
+
+					</div>
+					<div class="form-group">
+						<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
+							<label for="nom" class="label label-primary">Login:</label>
+							<input type="text" id="login" name="login" class="form-control" placeholder="Choisissez un Login">
+						</div>
+						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+							<label for="prenom" class="label label-primary">Mot de passe:</label>
+							<input type="text" id="mdp" name="mdp" class="form-control" placeholder="choisissez un mot de passe">
+						</div>
+						
 					</div>
 
+					
 					<div >
 						<div class="form-group">
 							<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6" id="sexe">
@@ -54,7 +67,7 @@
 							</div>
 							<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
 
-								<input type="date" name="naissance" class="form-control">
+								<input type="date" name="date" name="naissance" class="form-control">
 							</div>
 						</div>
 					</div>
@@ -101,14 +114,14 @@
 						<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6 gene">
 							<label class="label label-primary">Nombre d'années d'éxpérience:</label>
 							<span class="input-group">
-								<input id="exp" type="number" class="form-control" placeholder="Entrez votre nombre d'années d'éxpérience">
+								<input id="exp" type="number" name="exp" class="form-control" placeholder="Entrez votre nombre d'années d'éxpérience">
 								<span id="croix" class="input-group-addon "></span>
 							</span>
 						</div>
 						<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6 gene">
 							<label class="label label-primary">Adresse mail:</label>
 							<span class="input-group">
-								<input id="email" type="text" class="form-control" placeholder="exemple@gmail.com">
+								<input id="email" name="mail" type="text" class="form-control" placeholder="exemple@gmail.com">
 								<span id="e-croix" class="input-group-addon "></span>
 							</span>
 						</div>

@@ -28,7 +28,7 @@
 				<div>
 					<label class="label label-primary">Entreprise ou RH :</label>
 					<div class="form-group">
-						<input type="text" class="form-control">
+						<input type="text" name="nom" class="form-control">
 						<div class="form-group rechercher">
 							
 							<div class="col-lg-offset-10 col-lg-2 col-md-offset-10 col-md-2 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-xs-10 btn btn-success">
