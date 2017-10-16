@@ -47,10 +47,7 @@
  							$_SESSION['nom'] = $tab['nom'];
 							$_SESSION['prenom'] = $tab['prenom'];
 							$_SESSION['connecte'] = true;
-
-
-							echo "!!!!!!!!!!!!! bienvenue a ". $tab['nom']." ".$tab['prenom']." !!!!!!!!!!!!!!!!!!!! <br><br>";
-
+							
 						}
 						catch(PDOException $e){
 							die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');

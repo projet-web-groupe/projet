@@ -12,11 +12,12 @@
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-							<li><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></li>
+							<!--<li ><span class="identSession"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></span></li>-->
 						</ul>
 					</div>
 
 					<div class="row">
+						<span class="ide"><?php echo"Bienvenue ".$_SESSION['nom']." ".$_SESSION['prenom']; ?></span>
 						<ul class="nav navbar-nav" >
 							<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
@@ -30,6 +31,7 @@
 								<li><a href="contacterRH.php"> Contacter RH</a></li>
 								<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
 							</ul>
+
 						</div>	
 					</div>
 				</div>
@@ -46,7 +48,7 @@
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-							<li id="ident"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></li>
+							<li class="identSession"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></li>
 						</ul>
 					</div>
 					<div class="row">
@@ -62,6 +64,7 @@
 							<li><a href="contacterRH.php"> Contacter RH</a></li>
 							<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
 						</ul>
+						<?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?>
 					</div>
 
 				</div>
