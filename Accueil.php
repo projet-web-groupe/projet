@@ -11,10 +11,49 @@
 </head>
 
 <body>
+	
+	<?php include 'ressourcePHP/session.php' ?>
+	<?php
+		 if(isset($_GET['deco']))
+		{
+			session_destroy();
+			session_start();
+		}
+	?>
+	<?php 
+
+		if(isset($_GET['login']) && isset($_GET['mdp']))
+		{
+
+			try{
+					$db= new PDO('mysql:host=localhost;dbname=web','root','');
+					$db->query('SET NAMES utf8');
+					$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					$requete = $db->prepare('SELECT nom, prenom FROM personne where login =:log and mdp =:md');
+					$requete->bindValue(':log', $_GET['login']);
+					$requete->bindValue(':md', $_GET['mdp']);
+					$requete->execute();
+					$tab= $requete->fetch(PDO::FETCH_ASSOC);
+					if(empty($tab))
+					{
+						echo "!!!!!!!!!!!!!erreur !!!!!!!!!!!!!!!!!!!! <br><br>";
+					}
+					
+					$_SESSION['nom'] = htmlspecialchars($tab['nom']);
+					$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+					$_SESSION['connecte'] = true;
+				
+			}
+			catch(PDOException $e){
+				die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
+			}
+			
+		}
+	?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
-	<?php session_start(); ?>
+	
 	<div class="container" id="page">
 		<div class="page-header">
 			<h1>Bienvenue</h1>
@@ -29,32 +68,7 @@
 			?>
 
 			<div class="panel-body">
-				<?php 
-					if(!isset($_GET['login']) || !isset($_GET['mdp']))
-					{
-						echo "!!!!!!!!!!!!! Non connecté !!!!!!!!!!!!!!!!!!!! <br><br>";
-					}
-					else{
-						try{
-							$db= new PDO('mysql:host=localhost;dbname=web','root','');
-							$db->query('SET NAMES utf8');
- 							$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 							$requete = $db->prepare('SELECT nom, prenom FROM personne where login =:log and mdp =:md');
- 							$requete->bindValue(':log', $_GET['login']);
- 							$requete->bindValue(':md', $_GET['mdp']);
- 							$requete->execute();
- 							$tab= $requete->fetch(PDO::FETCH_ASSOC);
- 							$_SESSION['nom'] = $tab['nom'];
-							$_SESSION['prenom'] = $tab['prenom'];
-							$_SESSION['connecte'] = true;
-							
-						}
-						catch(PDOException $e){
-							die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
-						}
-						
-					}
-				?>
+				
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque accumsan turpis a egestas. Suspendisse scelerisque fermentum est, et tincidunt risus. Aliquam at metus malesuada, mattis magna eu, hendrerit diam. Proin eu tellus semper, viverra tellus at, bibendum ipsum. Pellentesque sed volutpat metus. Aenean hendrerit risus a augue varius mattis. Donec vel felis pellentesque, pellentesque nibh et, dapibus libero. Etiam faucibus massa et ligula mattis, a rutrum leo mattis.
 
 				Nunc elementum ante risus, eget hendrerit mi scelerisque in. Proin tempus mi nec vestibulum tristique. Donec a nunc sed velit facilisis pharetra. Aenean eu congue dolor. Curabitur ornare mauris sit amet nulla lacinia pulvinar. Nulla sapien velit, luctus non feugiat nec, hendrerit imperdiet nunc. Nullam in finibus dolor. Integer dictum feugiat porta.

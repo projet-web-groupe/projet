@@ -1,5 +1,5 @@
 <header>
-	<?php session_start() ?>
+	
 		<nav class="bg-img navbar navbar-fixed-top navbar-inverse hidden-xs">
 			
 			<div class="text-center">
@@ -11,8 +11,18 @@
 
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-							<!--<li ><span class="identSession"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></span></li>-->
+							<?php 
+								if(!empty($_SESSION['connecte']) && $_SESSION['connecte']==true)
+								{
+									echo"<form method=\"get\" action=\"accueil.php\">
+										<button  name=\"deco\" type=\"submit\" class=\"btn btn-success\">Déconnexion</button>
+										</form> 
+									";
+								}
+								else{
+									echo"<li class=\"moda\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"glyphicon glyphicon-log-in\"></span> se connecter</li>";
+								}
+							?>
 						</ul>
 					</div>
 
@@ -52,7 +62,19 @@
 						</div>
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
+							<?php 
+								if(!empty($_SESSION['connecte']) && $_SESSION['connecte']==true)
+								{
+									echo"<form method=\"get\" action=\"accueil.php\">
+										<button type=\"submit\" class=\"btn btn-success\">Déconnexion</button>
+										</form> 
+									";
+								}
+								else{
+									echo"<li class=\"moda\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"glyphicon glyphicon-log-in\"></span> se connecter</li>";
+								}
+							?>
+							
 							
 						</ul>
 					</div>
