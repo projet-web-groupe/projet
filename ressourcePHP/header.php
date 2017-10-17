@@ -12,30 +12,33 @@
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							<?php 
-								if(!empty($_SESSION['connecte']) && $_SESSION['connecte']==true)
+								if(isConnecter())
 								{
-									echo"<form method=\"get\" action=\"accueil.php\">
-										<button  name=\"deco\" type=\"submit\" class=\"btn btn-success\">Déconnexion</button>
-										</form> 
+									echo"<li ><form method=\"get\" action=\"Accueil.php\">
+										<button name=\"deco\" type=\"submit\" class=\"moda\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</button>
+										</form> </li>
 									";
 								}
 								else{
-									echo"<li class=\"moda\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"glyphicon glyphicon-log-in\"></span> se connecter</li>";
+									echo"<li data-toggle=\"modal\" data-target=\"#myModal\">
+										<button name=\"deco\" class=\"moda\"><span class=\"glyphicon glyphicon-log-in\"></span> Se connecter</button>
+										</li>
+									";
 								}
 							?>
 						</ul>
 					</div>
 
 					<div class="row">
-						<?php 
-							if(!empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
-							{
-								echo"<span class=\"ide\"> Bienvenue ".$_SESSION['nom']." ".$_SESSION['prenom']."</span>";
-							}
-						?>
 						<ul class="nav navbar-nav" >
 							<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
+							<?php 
+							if(isConnecter() && !empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
+							{
+								echo"<li class=\"ide\"><span class=\"glyphicon glyphicon-lock\"></span> ".$_SESSION['nom']." ".$_SESSION['prenom']."</li>";
+							}
+							?>
 
 						</ul>
 						<div class="row menu">
@@ -63,31 +66,33 @@
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 							<?php 
-								if(!empty($_SESSION['connecte']) && $_SESSION['connecte']==true)
+								if(isConnecter())
 								{
-									echo"<form method=\"get\" action=\"accueil.php\">
-										<button type=\"submit\" class=\"btn btn-success\">Déconnexion</button>
-										</form> 
+									echo"<li ><form method=\"get\" action=\"Accueil.php\">
+										<button name=\"deco\" type=\"submit\" class=\"moda\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</button>
+										</form> </li>
 									";
 								}
 								else{
-									echo"<li class=\"moda\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"glyphicon glyphicon-log-in\"></span> se connecter</li>";
+									echo"<li data-toggle=\"modal\" data-target=\"#myModal\">
+										<button name=\"deco\" class=\"moda\"><span class=\"glyphicon glyphicon-log-in\"></span> Se connecter</button>
+										</li>
+									";
 								}
 							?>
-							
 							
 						</ul>
 					</div>
 					<div class="row">
-						<?php 
-							if(!empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
-							{
-								echo"<span class=\"ide\"> Bienvenue ".$_SESSION['nom']." ".$_SESSION['prenom']."</span>";
-							}
-						?>
 						<ul class="nav navbar-nav" >
 							<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
+							<?php 
+							if(isConnecter() && !empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
+							{
+								echo"<li class=\"ide\"><span class=\"glyphicon glyphicon-lock\"></span> ".$_SESSION['nom']." ".$_SESSION['prenom']."</li>";
+							}
+							?>
 						</ul>
 						<ul class="nav navbar-nav menu-xs">
 
