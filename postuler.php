@@ -12,6 +12,7 @@
 </head>
 
 <body>
+	<?php include 'ressourcePHP/session.php' ?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>

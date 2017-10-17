@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
+	<?php include 'ressourcePHP/session.php' ?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>

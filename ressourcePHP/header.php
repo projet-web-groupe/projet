@@ -1,5 +1,5 @@
 <header>
-	<?php session_start() ?>
+	
 		<nav class="bg-img navbar navbar-fixed-top navbar-inverse hidden-xs">
 			
 			<div class="text-center">
@@ -11,13 +11,28 @@
 
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-							<!--<li ><span class="identSession"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></span></li>-->
+							<?php 
+								if(!empty($_SESSION['connecte']) && $_SESSION['connecte']==true)
+								{
+									echo"<form method=\"get\" action=\"accueil.php\">
+										<button  name=\"deco\" type=\"submit\" class=\"btn btn-success\">Déconnexion</button>
+										</form> 
+									";
+								}
+								else{
+									echo"<li class=\"moda\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"glyphicon glyphicon-log-in\"></span> se connecter</li>";
+								}
+							?>
 						</ul>
 					</div>
 
 					<div class="row">
-						<span class="ide"><?php echo"Bienvenue ".$_SESSION['nom']." ".$_SESSION['prenom']; ?></span>
+						<?php 
+							if(!empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
+							{
+								echo"<span class=\"ide\"> Bienvenue ".$_SESSION['nom']." ".$_SESSION['prenom']."</span>";
+							}
+						?>
 						<ul class="nav navbar-nav" >
 							<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
@@ -47,11 +62,29 @@
 						</div>
 						<ul class="nav navbar-nav navbar-right droite">
 							<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
-							<li class="moda" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> se connecter</li>
-							<li class="identSession"><?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?></li>
+							<?php 
+								if(!empty($_SESSION['connecte']) && $_SESSION['connecte']==true)
+								{
+									echo"<form method=\"get\" action=\"accueil.php\">
+										<button type=\"submit\" class=\"btn btn-success\">Déconnexion</button>
+										</form> 
+									";
+								}
+								else{
+									echo"<li class=\"moda\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"glyphicon glyphicon-log-in\"></span> se connecter</li>";
+								}
+							?>
+							
+							
 						</ul>
 					</div>
 					<div class="row">
+						<?php 
+							if(!empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
+							{
+								echo"<span class=\"ide\"> Bienvenue ".$_SESSION['nom']." ".$_SESSION['prenom']."</span>";
+							}
+						?>
 						<ul class="nav navbar-nav" >
 							<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
@@ -64,7 +97,7 @@
 							<li><a href="contacterRH.php"> Contacter RH</a></li>
 							<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
 						</ul>
-						<?php echo"".$_SESSION['nom']." ".$_SESSION['prenom']; ?>
+						
 					</div>
 
 				</div>
