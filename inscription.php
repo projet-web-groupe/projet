@@ -14,63 +14,63 @@
 <body>
 	<?php include 'ressourcePHP/session.php' ?>
 	<?php
-		include 'ressourcePHP/header.php';
+	include 'ressourcePHP/header.php';
 	?>
 
 	<?php
-		
-		if(isset($_GET['nom']) and isset($_GET['prenom']) and isset($_GET['login']) and isset($_GET['mdp']) and isset($_GET['genre']) and isset($_GET['date']) and isset($_GET['diplome']) and isset($_GET['exp']) and isset($_GET['mail']) and isset($_GET['vehicule']) and isset($_GET['qualite']) and (trim($_GET['nom']!='')) and (trim($_GET['prenom']!='')) and (trim($_GET['login']!='')) and (trim($_GET['mdp']!='')) and (trim($_GET['genre']!='')) and (trim($_GET['date']!='')) and (trim($_GET['diplome']!='') )and (trim($_GET['exp']!='')) and (trim($_GET['mail']!='')) and (trim($_GET['vehicule']!='')) and (trim($_GET['qualite']!='')))
-		{
-			try{
+	
+	if(isset($_GET['nom']) and isset($_GET['prenom']) and isset($_GET['login']) and isset($_GET['mdp']) and isset($_GET['genre']) and isset($_GET['date']) and isset($_GET['diplome']) and isset($_GET['exp']) and isset($_GET['mail']) and isset($_GET['vehicule']) and isset($_GET['qualite']) and (trim($_GET['nom']!='')) and (trim($_GET['prenom']!='')) and (trim($_GET['login']!='')) and (trim($_GET['mdp']!='')) and (trim($_GET['genre']!='')) and (trim($_GET['date']!='')) and (trim($_GET['diplome']!='') )and (trim($_GET['exp']!='')) and (trim($_GET['mail']!='')) and (trim($_GET['vehicule']!='')) and (trim($_GET['qualite']!='')))
+	{
+		try{
 
 
-				$db= new PDO('mysql:host=localhost;dbname=web','root','');
-				$db->query('SET NAMES utf8');
-				$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$r=$db->prepare('SELECT count(*) as nbPerso from personne');
-				$r->execute();
-				$val=$r->fetch();
-				echo "test!!!!";
-				$verif= $db->prepare('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
+			$db= new PDO('mysql:host=localhost;dbname=web','root','');
+			$db->query('SET NAMES utf8');
+			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$r=$db->prepare('SELECT count(*) as nbPerso from personne');
+			$r->execute();
+			$val=$r->fetch();
+			echo "test!!!!";
+			$verif= $db->prepare('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
 
-				$verif->bindValue(':nom', $_GET['nom']);
-				$verif->bindValue(':prenom', $_GET['prenom']);
-				$verif->bindValue(':dateNaissance',$_GET['date']);
-				$verif->bindValue(':login', $_GET['login']);
-				$verif->bindValue(':mail', $_GET['mail']);
-				echo "test2!!!!";
-				$verif->execute();
-				echo "test3!!!!";
-				$vtab= $verif->fetch();
-				if(empty($vtab))
-				{
-					$verif=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
-					$req->bindValue(':id', $val['nbPerso']+1);
-					$req->bindValue(':nom', $_GET['nom']);
-					$req->bindValue(':prenom', $_GET['prenom']);
-					$req->bindValue(':dateNaissance',$_GET['date']);
-					$req->bindValue(':sexe',$_GET['genre']);
-					$req->bindValue(':login', $_GET['login']);
-					$req->bindValue(':mdp', $_GET['mdp']);
-					$req->bindValue(':mail', $_GET['mail']);
-					$req->execute();
-				}
-				else{
-					echo "deja present!!!!";
-				}
-				
-
+			$verif->bindValue(':nom', $_GET['nom']);
+			$verif->bindValue(':prenom', $_GET['prenom']);
+			$verif->bindValue(':dateNaissance',$_GET['date']);
+			$verif->bindValue(':login', $_GET['login']);
+			$verif->bindValue(':mail', $_GET['mail']);
+			echo "test2!!!!";
+			$verif->execute();
+			echo "test3!!!!";
+			$vtab= $verif->fetch();
+			if(empty($vtab))
+			{
+				$verif=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+				$req->bindValue(':id', $val['nbPerso']+1);
+				$req->bindValue(':nom', $_GET['nom']);
+				$req->bindValue(':prenom', $_GET['prenom']);
+				$req->bindValue(':dateNaissance',$_GET['date']);
+				$req->bindValue(':sexe',$_GET['genre']);
+				$req->bindValue(':login', $_GET['login']);
+				$req->bindValue(':mdp', $_GET['mdp']);
+				$req->bindValue(':mail', $_GET['mail']);
+				$req->execute();
 			}
-			catch(PDOException $e){
-				die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
+			else{
+				echo "deja present!!!!";
 			}
+			
+
 		}
-		else{
-			include 'ressourcePHP/inscriptionForm.php';
+		catch(PDOException $e){
+			die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
 		}
-		
+	}
+	else{
+		include 'ressourcePHP/inscriptionForm.php';
+	}
+	
 	?>
- 
+	
 	<?php
 	include 'ressourcePHP/footer.php'
 	?>

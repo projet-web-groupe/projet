@@ -19,6 +19,7 @@ class requeteur
 		$this->charset = $info::CHARSET;
 		try{
 			$this->bdd = new PDO($this->dns.';charset='.$this->charset, $this->user, $this->pwd);
+			$this->bdd->query('SET NAMES utf8');
 			$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//echo 'Connexion établie !!!';
 		}catch (PDOException $e){
