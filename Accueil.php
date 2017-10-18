@@ -4,54 +4,43 @@
 	<meta charset="utf-8"/>
 	<title> Accueil</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 	
-	<?php include 'ressourcePHP/session.php' ?>
 	<?php
-		 if(isset($_GET['deco']))
-		{
-			session_destroy();
-			session_start();
-		}
-	?>
-	<?php 
+	require_once('ressourcePHP/session.php'); 
+	require_once('ressourcePHP/requeteur.class.php');
 
-		if(isset($_GET['login']) && isset($_GET['mdp']))
-		{
+	if(isset($_GET['deco']))
+	{
+		session_destroy();
+		session_start();
+	}
 
-			try{
-					$db= new PDO('mysql:host=localhost;dbname=web','root','');
-					$db->query('SET NAMES utf8');
-					$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$requete = $db->prepare('SELECT nom, prenom FROM personne where login =:log and mdp =:md');
-					$requete->bindValue(':log', $_GET['login']);
-					$requete->bindValue(':md', $_GET['mdp']);
-					$requete->execute();
-					$tab= $requete->fetch(PDO::FETCH_ASSOC);
-					if(empty($tab))
-					{
-						echo "!!!!!!!!!!!!!erreur !!!!!!!!!!!!!!!!!!!! <br><br>";
-					}
-					
-					$_SESSION['nom'] = htmlspecialchars($tab['nom']);
-					$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
-					$_SESSION['connecte'] = true;
-				
-			}
-			catch(PDOException $e){
-				die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
-			}
-			
+	if(isset($_GET['login']) && isset($_GET['mdp']))
+	{
+		$_requeteur = new requeteur;
+		$requete = $_requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:md'); //equiv a prepare()
+		$requete->bindValue(':log', $_GET['login']);
+		$requete->bindValue(':md', $_GET['mdp']);
+		$requete->execute();
+		$tab= $requete->fetch(PDO::FETCH_ASSOC);
+		if(empty($tab))
+		{
+			echo "!!!!!!!!!!!!!erreur !!!!!!!!!!!!!!!!!!!! <br><br>";
 		}
-	?>
-	<?php
-	include 'ressourcePHP/header.php'
+
+		$_SESSION['nom'] = htmlspecialchars($tab['nom']);
+		$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+		$_SESSION['connecte'] = true;
+	}
+
+	require_once('ressourcePHP/header.php');
 	?>
 	
 	<div class="container" id="page">
@@ -63,9 +52,7 @@
 				Activités
 			</div>
 
-			<?php
-			include 'ressourcePHP/modal.php'
-			?>
+			<?php require_once('ressourcePHP/modal.php'); ?>
 
 			<div class="panel-body">
 				
@@ -84,9 +71,7 @@
 
 	</div>
 
-	<?php
-	include 'ressourcePHP/footer.php'
-	?>
+	<?php require_once('ressourcePHP/footer.php'); ?>
 
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>

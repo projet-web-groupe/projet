@@ -17,9 +17,11 @@ div#login-alert{
 	margin-bottom:0px;
 }
 
-.moda
+.moda, .moda:active
 {
-	display:block;
+	background-color: rgba(255,255,255,0);
+	outline-style: none;
+	border:none;
 	padding-top: 15px;
 	cursor:pointer;
 	color: #9d9d9d;
@@ -85,6 +87,7 @@ tr
 	background-color: white;
 }
 
+
 #ph{
 	margin-top:140px; !important
 }
@@ -92,3 +95,10 @@ tr
 footer{
 	margin-top: 100px;
 }
+
+.ide{
+	color:#9d9d9d;
+	padding: 13px 0px 17px 5px;
+	font-size: 20px;
+}
+
