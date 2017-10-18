@@ -12,7 +12,11 @@
 </head>
 
 <body>
-	<?php include 'ressourcePHP/session.php' ?>
+	<?php 
+	require_once('ressourcePHP/session.php');
+	require_once('ressourcePHP/requeteur.class.php');
+	require_once('ressourcePHP/session.php');
+	?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
@@ -68,7 +72,13 @@
 				</div>
 			</div>
 			<div class="container text-center">
-				<button type="button" class="btn btn-success">Postuler</button>
+				<?php 
+				$_requeteur = new requeteur;
+				if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) &&$_requeteur->isRh($_SESSION['nom'],$_SESSION['nom']))
+				{
+					echo '<button type="button" class="btn btn-success">Postuler</button>';
+				}
+				?>
 				<a href="offres.php" class="btn btn-primary" role="button">Retour</a>
 			</div>
 		</div>

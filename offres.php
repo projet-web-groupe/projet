@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/offres.css">
 
 </head>
 
