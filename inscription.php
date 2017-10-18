@@ -28,17 +28,35 @@
 				$r=$db->prepare('SELECT count(*) as nbPerso from personne');
 				$r->execute();
 				$val=$r->fetch();
-				$
-				$req=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
-				$req->bindValue(':id', $val['nbPerso']+1);
-				$req->bindValue(':nom', $_GET['nom']);
-				$req->bindValue(':prenom', $_GET['prenom']);
-				$req->bindValue(':dateNaissance',$_GET['date']);
-				$req->bindValue(':sexe',$_GET['genre']);
-				$req->bindValue(':login', $_GET['login']);
-				$req->bindValue(':mdp', $_GET['mdp']);
-				$req->bindValue(':mail', $_GET['mail']);
-				$req->execute();
+				echo "test!!!!";
+				$verif= $db->prepare('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
+
+				$verif->bindValue(':nom', $_GET['nom']);
+				$verif->bindValue(':prenom', $_GET['prenom']);
+				$verif->bindValue(':dateNaissance',$_GET['date']);
+				$verif->bindValue(':login', $_GET['login']);
+				$verif->bindValue(':mail', $_GET['mail']);
+				echo "test2!!!!";
+				$verif->execute();
+				echo "test3!!!!";
+				$vtab= $verif->fetch();
+				if(empty($vtab))
+				{
+					$verif=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+					$req->bindValue(':id', $val['nbPerso']+1);
+					$req->bindValue(':nom', $_GET['nom']);
+					$req->bindValue(':prenom', $_GET['prenom']);
+					$req->bindValue(':dateNaissance',$_GET['date']);
+					$req->bindValue(':sexe',$_GET['genre']);
+					$req->bindValue(':login', $_GET['login']);
+					$req->bindValue(':mdp', $_GET['mdp']);
+					$req->bindValue(':mail', $_GET['mail']);
+					$req->execute();
+				}
+				else{
+					echo "deja present!!!!";
+				}
+				
 
 			}
 			catch(PDOException $e){
