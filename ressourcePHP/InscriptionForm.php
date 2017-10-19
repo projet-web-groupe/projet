@@ -1,5 +1,5 @@
-<div class="container ">
-	<div class="page-header" id="page">
+<div class="container " id="page">
+	<div class="page-header">
 		<h1>Inscrivez-vous!</h1>
 	</div>
 
