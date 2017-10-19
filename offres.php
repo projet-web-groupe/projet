@@ -34,7 +34,16 @@
 					<th>Type de contrat</th>
 					<th>Détails</th>
 				</tr>
-				<tr>
+				<?php
+					$requeteur= new requeteur;
+					$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
+					$req->execute();
+					$val=$req->fetch();
+					
+					echo"
+						<td>".
+				?>
+				<!--<tr>
 					<td>0001</td>
 					<td>Info</td>
 					<td>No data</td>
@@ -61,7 +70,7 @@
 					<td>No data</td>
 					<td>CDI</td>
 					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
+				</tr>-->
 
 			</table>
 			<ul class="pagination pull-right">

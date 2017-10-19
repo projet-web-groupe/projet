@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+POST<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8"/>
@@ -16,13 +16,13 @@
 	require_once('ressourcePHP/session.php'); 
 	require_once('ressourcePHP/requeteur.class.php');
 
-	if(isset($_GET['deco']))
+	if(isset($_POST['deco']))
 	{
 		session_destroy();
 		session_start();
 	}
 
-	if(isset($_GET['login']) && isset($_GET['mdp']))
+	if(isset($_POST['login']) && isset($_POST['mdp']))
 	{
 		$_requeteur = new requeteur;
 		$requete = $_requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:md'); //equiv a prepare()
