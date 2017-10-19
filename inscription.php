@@ -30,21 +30,19 @@
 				$r=$db->prepare('SELECT count(*) as nbPerso from personne');
 				$r->execute();
 				$val=$r->fetch();
-				echo "test!!!!";
-				$verif= $db->prepare('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
+				
+				$verif= $db->prepare('SELECT id from personne where nom= :nom and prenom= :prenom and dateNaissance= :dateNaissance and login= :login and mail= :mail ');
 
 				$verif->bindValue(':nom', $_GET['nom']);
 				$verif->bindValue(':prenom', $_GET['prenom']);
 				$verif->bindValue(':dateNaissance',$_GET['date']);
 				$verif->bindValue(':login', $_GET['login']);
 				$verif->bindValue(':mail', $_GET['mail']);
-				echo "test2!!!!";
 				$verif->execute();
-				echo "test3!!!!";
 				$vtab= $verif->fetch();
 				if(empty($vtab))
 				{
-					$verif=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+					$req=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
 					$req->bindValue(':id', $val['nbPerso']+1);
 					$req->bindValue(':nom', $_GET['nom']);
 					$req->bindValue(':prenom', $_GET['prenom']);
@@ -54,6 +52,26 @@
 					$req->bindValue(':mdp', $_GET['mdp']);
 					$req->bindValue(':mail', $_GET['mail']);
 					$req->execute();
+					$r=$db->prepare('SELECT count(*) as nbCand from personne');
+					$r->execute();
+					$val2=$r->fetch();
+					$req=$db->prepare('INSERT INTO candidat(numCandidat, domain, lastDiploma, vehicule, id_pers) VALUES(:numCandidat, :domain, :lastDiploma, :vehicule, :id_pers)');
+					$req->bindValue(':numCandidat', $val2['nbCand']+1);
+					$req->bindValue(':domain', $_GET['domaine']);
+					$req->bindValue(':lastDiploma', $_GET['diplome']);
+					if($_GET['vehicule'] == 'oui')
+						$req->bindValue(':vehicule',1);
+					else
+						$req->bindValue(':vehicule',0);
+					$req->bindValue(':id_pers',$val['nbPerso']+1);
+					$req->execute();
+					foreach ($_GET['qualite'] as  $value) {
+						$req=$db->prepare('INSERT INTO qualite(qual, num_cand) VALUES(:qual, :numCandidat)');
+						echo $value;
+						$req->bindValue(':qual', $value);
+						$req->bindValue(':numCandidat', $val2['nbCand']+1);
+						$req->execute();
+					}
 				}
 				else{
 					echo "deja present!!!!";
@@ -70,7 +88,7 @@
 		}
 		
 	?>
- 
+ 	
 	<?php
 	include 'ressourcePHP/footer.php'
 	?>
