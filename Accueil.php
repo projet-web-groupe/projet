@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+POST<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8"/>

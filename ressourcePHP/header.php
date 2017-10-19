@@ -7,6 +7,7 @@
 				<div class="row">
 					<div class="navbar-header ref">
 						<span class="navbar-text titre">Bye Bye Chômage</span>
+
 					</div>
 
 					<ul class="nav navbar-nav navbar-right droite">

@@ -14,7 +14,8 @@
 <body>
 	<?php include 'ressourcePHP/session.php' ?>
 	<?php
-	include 'ressourcePHP/header.php'
+	require_once('ressourcePHP/header.php');
+	require_once('ressourcePHP/requeteur.class.php');
 	?>
 	<div class="container" id="page">
 		<div class="page-header">
@@ -29,12 +30,21 @@
 			<table class="table table-bordered ">
 				<tr class="bg-primary">
 					<th>Référence</th>
-					<th>Domaine </th>
-					<th>Description</th>
-					<th>Type de contrat</th>
+					<th>poste</th>
 					<th>Détails</th>
 				</tr>
-				<tr>
+				<?php
+					$requeteur= new requeteur;
+					$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
+					$req->execute();
+					while($l = $req->fetch(PDO::FETCH_ASSOC))
+					{
+						echo"<tr><td>".$l['ref']."</td><td>".$l['label']."</td><td><a href=\"postuler.php?id=".$l['ref']."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
+					}
+					
+					
+				?>
+				<!--<tr>
 					<td>0001</td>
 					<td>Info</td>
 					<td>No data</td>
@@ -61,7 +71,7 @@
 					<td>No data</td>
 					<td>CDI</td>
 					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
+				</tr>-->
 
 			</table>
 			<ul class="pagination pull-right">
