@@ -53,6 +53,26 @@
 				$verif->bindValue(':mdp', $_POST['mdp']);
 				$verif->bindValue(':mail', $_POST['mail']);
 				$verif->execute();
+				$r=$db->prepare('SELECT count(*) as nbCand from personne');
+				$r->execute();
+				$val2=$r->fetch();
+				$req=$db->prepare('INSERT INTO candidat(numCandidat, domain, lastDiploma, vehicule, id_pers) VALUES(:numCandidat, :domain, :lastDiploma, :vehicule, :id_pers)');
+				$req->bindValue(':numCandidat', $val2['nbCand']+1);
+				$req->bindValue(':domain', $_GET['domaine']);
+				$req->bindValue(':lastDiploma', $_GET['diplome']);
+				if($_GET['vehicule'] == 'oui')
+					$req->bindValue(':vehicule',1);
+				else
+					$req->bindValue(':vehicule',0);
+				$req->bindValue(':id_pers',$val['nbPerso']+1);
+				$req->execute();
+				foreach ($_GET['qualite'] as  $value) {
+					$req=$db->prepare('INSERT INTO qualite(qual, num_cand) VALUES(:qual, :numCandidat)');
+					echo $value;
+					$req->bindValue(':qual', $value);
+					$req->bindValue(':numCandidat', $val2['nbCand']+1);
+					$req->execute();
+				}
 			}
 			else
 			{
