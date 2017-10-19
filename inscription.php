@@ -12,66 +12,71 @@
 </head>
 
 <body>
-	<?php include 'ressourcePHP/session.php' ?>
+	<?php require_once('ressourcePHP/session.php'); ?>
 	<?php
-	include 'ressourcePHP/header.php';
+	require_once('ressourcePHP/header.php');
+	require_once('ressourcePHP/requeteur.class.php');
 	?>
-
 	<?php
-	
-	if(isset($_GET['nom']) and isset($_GET['prenom']) and isset($_GET['login']) and isset($_GET['mdp']) and isset($_GET['genre']) and isset($_GET['date']) and isset($_GET['diplome']) and isset($_GET['exp']) and isset($_GET['mail']) and isset($_GET['vehicule']) and isset($_GET['qualite']) and (trim($_GET['nom']!='')) and (trim($_GET['prenom']!='')) and (trim($_GET['login']!='')) and (trim($_GET['mdp']!='')) and (trim($_GET['genre']!='')) and (trim($_GET['date']!='')) and (trim($_GET['diplome']!='') )and (trim($_GET['exp']!='')) and (trim($_GET['mail']!='')) and (trim($_GET['vehicule']!='')) and (trim($_GET['qualite']!='')))
-	{
-		try{
+	try{
 
 
-			$db= new PDO('mysql:host=localhost;dbname=web','root','');
-			$db->query('SET NAMES utf8');
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$r=$db->prepare('SELECT count(*) as nbPerso from personne');
-			$r->execute();
-			$val=$r->fetch();
+		echo'<p></br></br></br></br></br></br></br></p>';
+		var_dump($_POST);
+		if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['login']) and isset($_POST['mdp']) and isset($_POST['genre']) and isset($_POST['date']) and isset($_POST['diplome']) and isset($_POST['exp']) and isset($_POST['mail']) and isset($_POST['vehicule']) and isset($_POST['qualite']) and (trim($_POST['nom']!='')) and (trim($_POST['prenom']!='')) and (trim($_POST['login']!='')) and (trim($_POST['mdp']!='')) and (trim($_POST['genre']!='')) and (trim($_POST['date']!='')) and (trim($_POST['diplome']!='') )and (trim($_POST['exp']!='')) and (trim($_POST['mail']!='')) and (trim($_POST['vehicule']!='')) and (trim($_POST['qualite']!='')))
+		{
+			$requeteur = new requeteur;
+			
+			$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
+			$req->execute();
+			$val=$req->fetch();
+			var_dump($val);
 			echo "test!!!!";
-			$verif= $db->prepare('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
+			$verif= $requeteur->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
 
-			$verif->bindValue(':nom', $_GET['nom']);
-			$verif->bindValue(':prenom', $_GET['prenom']);
-			$verif->bindValue(':dateNaissance',$_GET['date']);
-			$verif->bindValue(':login', $_GET['login']);
-			$verif->bindValue(':mail', $_GET['mail']);
-			echo "test2!!!!";
+			$verif->bindValue(':nom', $_POST['nom']);
+			$verif->bindValue(':prenom', $_POST['prenom']);
+			$verif->bindValue(':dateNaissance',$_POST['date']);
+			$verif->bindValue(':login', $_POST['login']);
+			$verif->bindValue(':mail', $_POST['mail']);
+
 			$verif->execute();
-			echo "test3!!!!";
 			$vtab= $verif->fetch();
+			var_dump($vtabs);
 			if(empty($vtab))
 			{
-				$verif=$db->prepare('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
-				$req->bindValue(':id', $val['nbPerso']+1);
-				$req->bindValue(':nom', $_GET['nom']);
-				$req->bindValue(':prenom', $_GET['prenom']);
-				$req->bindValue(':dateNaissance',$_GET['date']);
-				$req->bindValue(':sexe',$_GET['genre']);
-				$req->bindValue(':login', $_GET['login']);
-				$req->bindValue(':mdp', $_GET['mdp']);
-				$req->bindValue(':mail', $_GET['mail']);
-				$req->execute();
+				$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+				$verif->bindValue(':id', $val['idMax']+1);
+				$verif->bindValue(':nom', $_POST['nom']);
+				$verif->bindValue(':prenom', $_POST['prenom']);
+				$verif->bindValue(':dateNaissance',$_POST['date']);
+				$verif->bindValue(':sexe',$_POST['genre']);
+				$verif->bindValue(':login', $_POST['login']);
+				$verif->bindValue(':mdp', $_POST['mdp']);
+				$verif->bindValue(':mail', $_POST['mail']);
+				$verif->execute();
 			}
-			else{
-				echo "deja present!!!!";
-			}
-			
+			else
+			{
+				echo'<div class="panel panel-danger">
+				<div class="panel-header">
+				Vous êtes déjà inscrit sur ce site !
+				</div>
+				</div>';
 
+
+
+			}
 		}
-		catch(PDOException $e){
-			die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
+		else{
+			include 'ressourcePHP/inscriptionForm.php';
 		}
 	}
-	else{
-		include 'ressourcePHP/inscriptionForm.php';
-	}
-	
+	catch(PDOException $e){die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');}
 	?>
-	
+
 	<?php
+
 	include 'ressourcePHP/footer.php'
 	?>
 

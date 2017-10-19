@@ -22,7 +22,7 @@
 			<h1>Créer votre offre</h1>
 		</div>
 		<?php include 'ressourcePHP/modal.php' ?>
-		<form id="creer_offre" method="get" action="creerOffre.php">
+		<form id="creer_offre" method="post" action="creerOffre.php">
 			<div class="row">	
 				<div  class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
 					<label for="Intitulé du poste" class="label label-primary">Intitulé du poste</label>

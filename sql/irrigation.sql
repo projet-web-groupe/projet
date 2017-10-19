@@ -10,8 +10,8 @@ INSERT INTO `personne` VALUES (2, 'Sop', 'Alain', '1950-02-13', 'H', 'log2', 'md
 INSERT INTO `personne` VALUES (3, 'Sérien', 'Jean', '1983-07-13', 'H', 'log3', 'mdp3', 'jean.serien@free.fr');
 INSERT INTO `personne` VALUES (4, 'Fer', 'Lucie', '1979-03-13', 'F', 'log4', 'mdp4', 'lucie.fer@gmail.com');
 
-INSERT INTO `candidat` VALUES (1, 'Humour', 'DUT', 1, 1);
-INSERT INTO `candidat` VALUES (2, 'sable', 'Bac', 0, 3);
+INSERT INTO `candidat` VALUES (1, 'Humour', 'DUT',5, 1, 1);
+INSERT INTO `candidat` VALUES (2, 'sable', 'Bac',3, 0, 3);
 
 INSERT INTO `rh` VALUES (1,2);
 INSERT INTO `rh` VALUES (2,4);

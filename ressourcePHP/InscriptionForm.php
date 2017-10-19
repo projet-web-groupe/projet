@@ -8,7 +8,7 @@
 	?>
 
 	<div id="form">
-		<form id="insc" method="get" action="inscription.php">
+		<form id="insc" method="post" action="inscription.php">
 			<div class="row">
 				<div class="form-group">
 					<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
@@ -52,8 +52,7 @@
 							</div>
 						</div>
 						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
-
-							<input type="date" name="date" name="naissance" class="form-control">
+							<input type="datetime" name="date" name="naissance" class="form-control">
 						</div>
 					</div>
 				</div>
