@@ -12,8 +12,6 @@
 					<ul class="nav navbar-nav navbar-right droite">
 						<li><a href="inscription.php"><span class="glyphicon glyphicon-user"></span> s'inscrire</a></li>
 						<?php 
-						var_dump(isConnecter());
-						var_dump($_SESSION);
 						if(isConnecter())
 						{
 							echo"<li ><form method=\"post\" action=\"Accueil.php\">
