@@ -12,8 +12,8 @@
 </head>
 
 <body>
-	<?php include 'ressourcePHP/session.php' ?>
-	<?php
+	<?php 
+	require_once('ressourcePHP/session.php');
 	require_once('ressourcePHP/header.php');
 	require_once('ressourcePHP/requeteur.class.php');
 	?>
@@ -23,7 +23,7 @@
 		</div>
 
 		<?php
-		include 'ressourcePHP/modal.php'
+		require_once('ressourcePHP/modal.php');
 		?>
 
 		<div class="table-responsive">
@@ -34,45 +34,13 @@
 					<th>Détails</th>
 				</tr>
 				<?php
-					$requeteur= new requeteur;
-					$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
-					$req->execute();
-					while($l = $req->fetch(PDO::FETCH_ASSOC))
-					{
-						echo"<tr><td>".$l['ref']."</td><td>".$l['label']."</td><td><a href=\"postuler.php?id=".$l['ref']."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
-					}
-					
-					
+				$requeteur= new requeteur;
+				$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
+				$req->execute();
+				while ($l = $req->fetch(PDO::FETCH_ASSOC)){
+					echo"<tr><td>".$l['ref']."</td><td>".$l['label']."</td><td><a href=\"postuler.php?id=".$l['ref']."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
+				}
 				?>
-				<!--<tr>
-					<td>0001</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-				<tr>
-					<td>0002</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-				<tr>
-					<td>0003</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-				<tr>
-					<td>0004</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>-->
-
 			</table>
 			<ul class="pagination pull-right">
 				<li class="active"><a href="#">1</a></li>
@@ -89,7 +57,6 @@
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 
 </html>

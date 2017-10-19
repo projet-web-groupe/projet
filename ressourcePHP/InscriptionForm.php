@@ -8,7 +8,7 @@
 	?>
 
 	<div id="form">
-		<form id="insc" method="post" action="inscription.php">
+		<form id="insc" method="post" action="Accueil.php">
 			<div class="row">
 				<div class="form-group">
 					<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">

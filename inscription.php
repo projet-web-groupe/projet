@@ -19,73 +19,25 @@
 	?>
 	<?php
 	try{
-
-		//echo'<p></br></br></br></br></br></br></br></p>';
-		//var_dump($_POST);
-		if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['login']) and isset($_POST['mdp']) and isset($_POST['genre']) and isset($_POST['date']) and isset($_POST['diplome']) and isset($_POST['exp']) and isset($_POST['mail']) and isset($_POST['vehicule']) and isset($_POST['qualite']) and (trim($_POST['nom']!='')) and (trim($_POST['prenom']!='')) and (trim($_POST['login']!='')) and (trim($_POST['mdp']!='')) and (trim($_POST['genre']!='')) and (trim($_POST['date']!='')) and (trim($_POST['diplome']!='') )and (trim($_POST['exp']!='')) and (trim($_POST['mail']!='')) and (trim($_POST['vehicule']!='')) and (trim($_POST['qualite']!='')))
+		$requeteur = new requeteur;
+		if(isInscrit())
 		{
-			$requeteur = new requeteur;
-
-			$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
-			$req->execute();
-			$val=$req->fetch();
-			var_dump($val);
-			echo "test!!!!";
-			$verif= $requeteur->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom AND prenom= :prenom AND dateNaissance= :dateNaissance AND login= :login AND mail= :mail');
-
-			$verif->bindValue(':nom', $_POST['nom']);
-			$verif->bindValue(':prenom', $_POST['prenom']);
-			$verif->bindValue(':dateNaissance',$_POST['date']);
-			$verif->bindValue(':login', $_POST['login']);
-			$verif->bindValue(':mail', $_POST['mail']);
-			$verif->execute();
-			$vtab= $verif->fetch();
-			var_dump($vtab);
-			if(empty($vtab))
-			{
-				$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
-				$verif->bindValue(':id', $val['idMax']+1);
-				$verif->bindValue(':nom', $_POST['nom']);
-				$verif->bindValue(':prenom', $_POST['prenom']);
-				$verif->bindValue(':dateNaissance',$_POST['date']);
-				$verif->bindValue(':sexe',$_POST['genre']);
-				$verif->bindValue(':login', $_POST['login']);
-				$verif->bindValue(':mdp', $_POST['mdp']);
-				$verif->bindValue(':mail', $_POST['mail']);
-				$verif->execute();
-				$r=$requeteur->getRequete('SELECT MAX(id) as idMaxCand from personne');
-				$r->execute();
-				$val2=$r->fetch();
-				$req=$requeteur->getRequete('INSERT INTO candidat(numCandidat, domain, lastDiploma, vehicule, id_pers) VALUES(:numCandidat, :domain, :lastDiploma, :vehicule, :id_pers)');
-				$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
-				$req->bindValue(':domain', $_POST['domaine']);
-				$req->bindValue(':lastDiploma', $_POST['diplome']);
-				if($_POST['vehicule'] == 'oui')
-					$req->bindValue(':vehicule',1);
-				else
-					$req->bindValue(':vehicule',0);
-				$req->bindValue(':id_pers',$val['idMax']+1);
-				$req->execute();
-				foreach ($_POST['qualite'] as  $value) {
-					$req=$requeteur->getRequete('INSERT INTO qualite(qual, num_cand) VALUES(:qual, :numCandidat)');
-					echo $value;
-					$req->bindValue(':qual', $value);
-					$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
-					$req->execute();
-				}
-			}
-			else
-			{
 				?>
-					<div class="panel panel-danger">
+					<div class="panel panel-danger" id="page">
 						<div class="panel-heading">
 							Vous êtes déjà inscrit sur ce site !
 						</div>
 					</div>'
 				<?php
-
-
-			}
+		}
+		else if (isConnecter()){
+			?>
+					<div class="panel panel-danger" id="page">
+						<div class="panel-heading">
+							Vous êtes déjà connecté, vous ne pouvez donc pas vous inscrire !
+						</div>
+					</div>'
+				<?php
 		}
 		else{
 			include 'ressourcePHP/inscriptionForm.php';
