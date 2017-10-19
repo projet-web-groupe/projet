@@ -26,8 +26,8 @@
 	{
 		$_requeteur = new requeteur;
 		$requete = $_requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:md'); //equiv a prepare()
-		$requete->bindValue(':log', $_GET['login']);
-		$requete->bindValue(':md', $_GET['mdp']);
+		$requete->bindValue(':log', $_POST['login']);
+		$requete->bindValue(':md', $_POST['mdp']);
 		$requete->execute();
 		$tab= $requete->fetch(PDO::FETCH_ASSOC);
 		if(empty($tab))

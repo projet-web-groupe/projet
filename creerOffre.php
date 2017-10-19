@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="css/creerOffre.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 	
 </head>
@@ -21,21 +22,28 @@
 			<h1>Créer votre offre</h1>
 		</div>
 		<?php include 'ressourcePHP/modal.php' ?>
-		<div class="row">	
-			<form>
-				<span class="label label-primary">Employeur : </span>
-				<input type="text" name="employeur" class="form-control">
-				
-				<span class="label label-primary">Description du poste : </span>
-				<textarea name="desc" class="form-control"></textarea>
-				<div class="row">
-				<div class="col-lg-1 col-lg-push-11">
-					<button type="button" class="btn btn-success btn-block">Valider</button>
+		<form id="creer_offre" method="post" action="creerOffre.php">
+			<div class="row">	
+				<div  class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+					<label for="Intitulé du poste" class="label label-primary">Intitulé du poste</label>
+					<input type="text" id="prenom" name="label" class="form-control" placeholder="Décrivé le poste en quelque termes">
 				</div>
-			
-			</form>
-		</div>
-		
+
+				<div class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+					<label for="Description détaillé du poste" class="label label-primary">Description détaillé du poste</label>
+					<textarea id="longDesc" name="longDesc" class="form-control"></textarea>
+				</div>
+				<div class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+					<label for="Profil recherché pour le poste" class="label label-primary">Profil recherché pour le poste</label>
+					<textarea id="profil" name="profil" class="form-control"></textarea>
+				</div>
+				<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-10 col-md-2 col-lg-offset-11 col-lg-1">
+					<button type="submit" class="btn btn-success">Valider</button>
+				</div>
+
+			</div>
+		</form>
+
 	</div>
 	<?php
 	include 'ressourcePHP/footer.php'

@@ -14,7 +14,7 @@
 						<?php 
 						if(isConnecter())
 						{
-							echo"<li ><form method=\"get\" action=\"Accueil.php\">
+							echo"<li ><form method=\"post\" action=\"Accueil.php\">
 							<button name=\"deco\" type=\"submit\" class=\"moda\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</button>
 							</form> </li>
 							";
@@ -82,7 +82,7 @@
 						<?php 
 						if(isConnecter())
 						{
-							echo"<li ><form method=\"get\" action=\"Accueil.php\">
+							echo"<li ><form method=\"post\" action=\"Accueil.php\">
 							<button name=\"deco\" type=\"submit\" class=\"moda\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</button>
 							</form> </li>
 							";
