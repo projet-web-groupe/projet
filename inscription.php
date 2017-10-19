@@ -26,13 +26,13 @@
 		if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['login']) and isset($_POST['mdp']) and isset($_POST['genre']) and isset($_POST['date']) and isset($_POST['diplome']) and isset($_POST['exp']) and isset($_POST['mail']) and isset($_POST['vehicule']) and isset($_POST['qualite']) and (trim($_POST['nom']!='')) and (trim($_POST['prenom']!='')) and (trim($_POST['login']!='')) and (trim($_POST['mdp']!='')) and (trim($_POST['genre']!='')) and (trim($_POST['date']!='')) and (trim($_POST['diplome']!='') )and (trim($_POST['exp']!='')) and (trim($_POST['mail']!='')) and (trim($_POST['vehicule']!='')) and (trim($_POST['qualite']!='')))
 		{
 			$requeteur = new requeteur;
-			
+
 			$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
 			$req->execute();
 			$val=$req->fetch();
 			var_dump($val);
 			echo "test!!!!";
-			$verif= $requeteur->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom, prenom= :prenom, dateNaissance= :dateNaissance, login= :login, mail= :mail ');
+			$verif= $requeteur->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom AND prenom= :prenom AND dateNaissance= :dateNaissance AND login= :login AND mail= :mail');
 
 			$verif->bindValue(':nom', $_POST['nom']);
 			$verif->bindValue(':prenom', $_POST['prenom']);
