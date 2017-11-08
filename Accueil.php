@@ -15,16 +15,19 @@
 	<?php
 	require_once('ressourcePHP/session.php'); 
 	require_once('ressourcePHP/requeteur.class.php');
+	$requeteur = new requeteur;
 
 	if(isset($_POST['deco']))
 	{
 		session_destroy();
 		session_start();
 	}
-
+	if(isInscrit() && isset($_POST['modif']) && $_POST['modif'] === "true"){
+		
+	}
 	if(isInscrit())
 	{
-		$requeteur = new requeteur;
+		
 
 		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
 		$req->execute();

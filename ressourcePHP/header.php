@@ -62,6 +62,9 @@
 									<li>
 										<a href="offres.php">Consulter offres</a>
 									</li>
+									<li>
+										<a href="contacterRH.php"> Contacter RH</a>
+									</li>
 									<?php 
 								}
 								else
@@ -70,11 +73,12 @@
 									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom']) or $requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
 										?>
 										<li><a href="offres.php">Consulter offres</a></li>
+										<li><a href="candidature.php"> Candidatures</a></li>
+										<li><a href="ModifierProfil.php">Mon Profil</a></li>
 										<?php 
 									}
 									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom'])){
 										?>
-										<li><a href="candidature.php"> Candidatures</a></li>
 										<li><a href="creerOffre.php"> Créer Offres</a></li>
 										<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
 										<?php 

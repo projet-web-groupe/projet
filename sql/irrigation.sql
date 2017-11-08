@@ -20,11 +20,11 @@ INSERT INTO `rh` VALUES (1,2);
 INSERT INTO `rh` VALUES (2,4);
 INSERT INTO `rh` VALUES (3,5);
 
-INSERT INTO `qualite` VALUES ('Rapide',1);
+INSERT INTO `qualite` VALUES ('Curieux',1);
 INSERT INTO `qualite` VALUES ('Absorbant',2);
-INSERT INTO `qualite` VALUES ('Ignorant',3);
-INSERT INTO `qualite` VALUES ('Maléfique',4);
-INSERT INTO `qualite` VALUES ('Impatient',5);
+INSERT INTO `qualite` VALUES ('Déterminé',3);
+INSERT INTO `qualite` VALUES ('Intelligent',4);
+INSERT INTO `qualite` VALUES ('Rigoureux',5);
 INSERT INTO `qualite` VALUES ('Curieux',6);
 
 INSERT INTO `description` VALUES (1,'desc1','poste à pourvoir 1','profil 1');
