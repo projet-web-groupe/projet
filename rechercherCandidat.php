@@ -99,14 +99,14 @@
 						
 						<table id="listeCandidat" class="table table-bordered ">
 
-							<tr class="bg-primary">
+							<!--<tr class="bg-primary" id="entete">
 								<th>Id candidat</th>
 								<th>Année expérience</th>
 								<th>Fiche candidat</th>
 								<th>Contacter</th>
 								
 							</tr>
-							<!--<tr class="info">
+							<tr class="info">
 								<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">001</td>
 								<td>xx ans</td>
 								<td><a href="inscription.php"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
