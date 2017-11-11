@@ -10,16 +10,11 @@ $(document).ready(function(){
 		$(".part2").show();
 		var tab=[];
 		$( "input:checked" ).each(function(){
+			console.log("coché: "+$(this).val());
 			tab.push($(this).val());
 			//console.log($(this).val());
 		})
-		/*$.get('http://localhost/Web/projet/ressourcePHP/listeCandidat.php',{competences:tab},
-				function(rep){
-					console.log("Réponse du serveur: ",rep);
-					console.log("pass");
-					$("#test").html(rep);
-				}
-		);*/
+		
 		$.ajax({
 		    
 		    url: 'ressourcePHP/listeCandidat.php',
@@ -27,9 +22,8 @@ $(document).ready(function(){
 		    data: 'competences='+ JSON.stringify(tab)+"&exp="+ $("#minExp").val(),
 		    success: function(data) {
 		       
-				//var obj= jQuery.parseJSON(data);
-				console.log(data);
-				$('#listeCandidat tbody').append(data);
+				console.log(data+" test");
+				$('#listeCandidat').html(data);
 
 		    },
 		    error: function(x,y, error){
@@ -37,9 +31,5 @@ $(document).ready(function(){
 		    }
 
 		});
-
-		/*$.get("http://#",{coche:tab},function(rep){
-			$("table").html(rep);
-		});*/
 	});
 });
