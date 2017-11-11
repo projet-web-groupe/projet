@@ -45,6 +45,14 @@ class requeteur
 		return 1 === count($tab);
 	}
 
+	public function isUserHasQual($nom, $prenom,$qual){
+		$req = $this->bdd->query('SELECT  COUNT(*) as nb FROM personne join candidat on personne.id=candidat.id_pers join qualite on candidat.numCandidat=qualite.num_cand WHERE nom = "'.$nom.'" AND prenom = "'.$prenom.'"'.' AND qualite.qual = "'.$qual.'"');
+		$val = $req->fetch();
+		$req->closeCursor();
+
+		return intval($val['nb']) > 0;
+	}
+
 	public function isCandidat($nom,$prenom){
 		$req = $this->bdd->query('SELECT id FROM personne JOIN candidat ON personne.id = candidat.id_pers WHERE personne.nom = "'.$nom.'" AND personne.prenom = "'.$prenom.'"');
 		$tab = $req->fetchAll();
