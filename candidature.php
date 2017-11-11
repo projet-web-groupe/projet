@@ -35,7 +35,8 @@
 						<th class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center" >Accepter</th>
 						<th class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">Refuser</th>
 					</tr>
-					<tr >
+					
+					<!--<tr >
 
 						<td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">001</td>
 						<td class="col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center"><a href="postuler.php"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
@@ -63,7 +64,7 @@
 						<td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"><a href="inscription.php"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
 						<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button type="button" class="btn btn-success">Accepter</button></td>
 						<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button type="button" class="btn btn-danger">Refuser</button></td>
-					</tr>
+					</tr>-->
 				</table>
 				<ul class="pagination pull-right">
 					<li class="active"><a href="#">1</a></li>
