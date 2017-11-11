@@ -15,7 +15,7 @@
 
 					<ul class="nav navbar-nav navbar-right droite">
 						<?php 
-						if(!(isInscrit() or isConnecter()))
+						if(!(isInscritRh() or isConnecter()))
 						{
 							?>
 							<li>
@@ -49,7 +49,7 @@
 						<?php 
 						if(isConnecter() && !empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
 						{
-							echo"<li class=\"ide\"><span class=\"glyphicon glyphicon-lock\"></span> ".$_SESSION['nom']." ".$_SESSION['prenom']."</li>";
+							echo"<li class=\"ide\"><a href=\"ModifierProfil.php\"><span class=\"glyphicon glyphicon-lock\"></span> ".$_SESSION['nom']." ".$_SESSION['prenom']."</a></li>";
 						}
 						?>
 
@@ -81,6 +81,7 @@
 										?>
 										<li><a href="creerOffre.php"> Créer Offres</a></li>
 										<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
+										<li><a href="inscription.php"> Inscrire un collègue RH</a></li>
 										<?php 
 									}
 									if($requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
@@ -131,7 +132,7 @@
 							<?php 
 							if(isConnecter() && !empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
 							{
-								echo"<li class=\"ide\"><span class=\"glyphicon glyphicon-lock\"></span> ".$_SESSION['nom']." ".$_SESSION['prenom']."</li>";
+								echo"<li class=\"ide\"><a href=\"ModifierProfil.php\"><span class=\"glyphicon glyphicon-lock\"></span> ".$_SESSION['nom']." ".$_SESSION['prenom']."</a></li>";
 							}
 							?>
 						</ul>

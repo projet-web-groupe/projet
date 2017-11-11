@@ -22,26 +22,14 @@
 		session_destroy();
 		session_start();
 	}
-	if(isInscrit() && isset($_POST['modif']) && $_POST['modif'] === "true"){
-		
-	}
-	if(isInscrit())
+	//Cas d'une inscription
+	if(isInscritCandidat() and isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')
 	{
-		
-
 		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
 		$req->execute();
 		$val=$req->fetch();
-		$verif= $requeteur->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom AND prenom= :prenom AND dateNaissance= :dateNaissance AND login= :login AND mail= :mail');
 
-		$verif->bindValue(':nom', $_POST['nom']);
-		$verif->bindValue(':prenom', $_POST['prenom']);
-		$verif->bindValue(':dateNaissance',$_POST['date']);
-		$verif->bindValue(':login', $_POST['login']);
-		$verif->bindValue(':mail', $_POST['mail']);
-		$verif->execute();
-		$vtab= $verif->fetch();
-		if(empty($vtab))
+		if($requeteur->isUserNotExist($_POST['nom'], $_POST['prenom'], $_POST['date'], $_POST['login'], $_POST['mail']))
 		{
 			$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
 			$verif->bindValue(':id', $val['idMax']+1);
@@ -53,9 +41,11 @@
 			$verif->bindValue(':mdp', $_POST['mdp']);
 			$verif->bindValue(':mail', $_POST['mail']);
 			$verif->execute();
+			
 			$r=$requeteur->getRequete('SELECT MAX(numCandidat) as idMaxCand from candidat');
 			$r->execute();
 			$val2=$r->fetch();
+
 			$req=$requeteur->getRequete('INSERT INTO candidat(numCandidat, domain, lastDiploma, vehicule, id_pers) VALUES(:numCandidat, :domain, :lastDiploma, :vehicule, :id_pers)');
 			$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
 			$req->bindValue(':domain', $_POST['domaine']);
@@ -74,13 +64,43 @@
 			}
 		}
 	}
-	
-	if(isset($_POST['login']) && isset($_POST['mdp']))
+
+	else if(isInscritRh() and isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'rh')
 	{
-		$_requeteur = new requeteur;
-		$requete = $_requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:md'); //equiv a prepare()
+		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
+		$req->execute();
+		$val=$req->fetch();
+		if($requeteur->isUserNotExist($_POST['nom'], $_POST['prenom'], $_POST['date'], $_POST['login'], $_POST['mail']))
+		{
+			$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+			$verif->bindValue(':id', $val['idMax']+1);
+			$verif->bindValue(':nom', $_POST['nom']);
+			$verif->bindValue(':prenom', $_POST['prenom']);
+			$verif->bindValue(':dateNaissance',$_POST['date']);
+			$verif->bindValue(':sexe',$_POST['genre']);
+			$verif->bindValue(':login', $_POST['login']);
+			$verif->bindValue(':mdp', $_POST['mdp']);
+			$verif->bindValue(':mail', $_POST['mail']);
+			$verif->execute();
+			$r=$requeteur->getRequete('SELECT MAX(numRh) as idMaxRh from rh');
+			$r->execute();
+			$maxid=$r->fetch();//val2->maxid
+
+			var_dump($maxid['idMaxRh']+1);
+			var_dump($val['idMax']+1);
+			$req=$requeteur->getRequete('INSERT INTO rh(numRh, id_pers) VALUES(:numRh, :id_pers)');
+			$req->bindValue(':numRh', $maxid['idMaxRh']+1);
+			$req->bindValue(':id_pers',$val['idMax']+1);
+			$req->execute();
+		}
+	}
+	
+	if(isset($_POST['login']) and isset($_POST['mdp']))
+	{
+		$requeteur = new requeteur;
+		$requete = $requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
 		$requete->bindValue(':log', $_POST['login']);
-		$requete->bindValue(':md', $_POST['mdp']);
+		$requete->bindValue(':mdp', $_POST['mdp']);
 		$requete->execute();
 		$tab= $requete->fetch(PDO::FETCH_ASSOC);
 		if(empty($tab))
@@ -94,11 +114,23 @@
 			<?php 
 			die();
 		}
-
-		$_SESSION['nom'] = htmlspecialchars($tab['nom']);
-		$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
-		$_SESSION['connecte'] = true;
+		if((isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')){
+			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
+			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+			$_SESSION['connecte'] = true;
+		}
+		else if (!isset($_SESSION['typeInscription']))
+		{
+			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
+			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+			$_SESSION['connecte'] = true;
+		}
+		var_dump($_SESSION);
+		
 	}
+
+	if(isset($_SESSION['typeInscription']))
+		unset($_SESSION['typeInscription']);
 
 	require_once('ressourcePHP/header.php');
 	?>

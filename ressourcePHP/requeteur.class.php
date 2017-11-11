@@ -37,12 +37,18 @@ class requeteur
 		echo $this->dns.';charset='.$this->charset.', '.$this->user.', '.$this->pwd;
 	}
 
-	public function isUserExist($nom, $prenom){
-		$req = $this->bdd->query('SELECT id FROM personne WHERE nom = "'.$nom.'" AND prenom = "'.$prenom.'"');
-		$tab = $req->fetchAll();
-		$req->closeCursor();
+	public function isUserNotExist($nom, $prenom, $date, $login , $mail){
+		$verif= $this->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom AND prenom= :prenom AND dateNaissance= :dateNaissance AND login= :login AND mail= :mail');
 
-		return 1 === count($tab);
+		$verif->bindValue(':nom', $nom);
+		$verif->bindValue(':prenom', $prenom);
+		$verif->bindValue(':dateNaissance',$date);
+		$verif->bindValue(':login', $login);
+		$verif->bindValue(':mail', $mail);
+		$verif->execute();
+		$val = $verif->fetch();
+
+		return empty($val);
 	}
 
 	public function isUserHasQual($nom, $prenom,$qual){
