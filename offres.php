@@ -39,7 +39,7 @@
 					$req->execute();
 					while($l = $req->fetch(PDO::FETCH_ASSOC))
 					{
-						echo"<tr><td>".$l['ref']."</td><td>".$l['label']."</td><td><a href=\"postuler.php?id=".$l['ref']."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
+						echo"<tr><td>".htmlspecialchars($l['ref'])."</td><td>".htmlspecialchars($l['label'])."</td><td><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
 					}
 					
 					
