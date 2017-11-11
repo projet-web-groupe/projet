@@ -32,11 +32,11 @@
 
 
 		<?php 
-			$requeteur= new requeteur;
-			$req= $requeteur->getRequete('SELECT description, profil from description where ref= :id');
-			$req->bindValue(':id', $_GET['id']);
-			$req->execute();
-			$val= $req->fetch();
+		$requeteur= new requeteur;
+		$req= $requeteur->getRequete('SELECT description, profil from description where ref= :id');
+		$req->bindValue(':id', $_GET['id']);
+		$req->execute();
+		$val= $req->fetch();
 		?>
 		<div class="container-fluid">
 			<div class="panel panel-primary">
@@ -58,11 +58,8 @@
 				</div>
 				<div class="panel-body sb">
 					<?php
-						echo"<span>".$val['description'];
+					echo"<span>".$val['description']."</span>";
 					?>
-					<!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a lectus nisi. Morbi molestie tortor in magna lobortis, ut dapibus nisl rhoncus. Quisque consectetur vulputate risus non vulputate. Pellentesque pharetra, risus id auctor congue, eros ex euismod mauris, eu tincidunt purus mauris et purus. Donec laoreet commodo nunc auctor vestibulum. Nulla in porttitor est. Proin a tortor id tellus posuere dignissim. Nunc sodales tempus ultricies. Praesent eu lectus mattis, blandit turpis eget, laoreet nisi. Proin auctor lacinia erat, non commodo nibh porta ac. Pellentesque et mauris eget ipsum pulvinar mollis. Nunc viverra rhoncus lorem, at pharetra tortor auctor a. Aenean feugiat arcu nec enim tempus, vitae varius tortor gravida. Suspendisse tincidunt est lectus, a pharetra nunc tincidunt id.
-
-					Suspendisse feugiat pretium convallis. Donec aliquet libero et dolor rutrum, hendrerit euismod neque maximus. In rutrum convallis eros, vel volutpat tellus bibendum nec. Pellentesque sed metus vel metus pretium semper id in purus. Ut blandit convallis dolor nec malesuada. Phasellus et felis orci. Sed a elit eu neque facilisis rhoncus. Donec malesuada diam velit.-->
 
 				</div>
 			</div>
@@ -73,30 +70,27 @@
 				</div>
 				<div class="panel-body sb">
 					<?php
-						echo"<span>".$val['profil'];
+					echo"<span>".$val['profil'];
 					?>
-					<!--<ul >
-						<li>Bac +5 Informatique</li>
-						<li>HTML 5/css 3</li>
-						<li>Angular</li>
-						<li>Enthousiate et dynamique</li>
-					</ul>-->
+
 				</div>
 			</div>
 			<div class="container text-center">
 				<?php 
 				$_requeteur = new requeteur;
-				if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) &&$_requeteur->isRh($_SESSION['nom'],$_SESSION['nom']))
+				if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) && $_requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom']))
 				{
-					echo '<button type="button" class="btn btn-success">Postuler</button>';
-				}
+					?>
+					<button type="button" class="btn btn-success">Postuler</button>
+					<?php 
+				} 
 				?>
 				<a href="offres.php" class="btn btn-primary" role="button">Retour</a>
 			</div>
 		</div>
 	</div>
 	<?php
-	include 'ressourcePHP/footer.php'
+	require_once('ressourcePHP/footer.php');
 	?>
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>

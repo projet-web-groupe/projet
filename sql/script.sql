@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS Personne;
-DROP TABLE IF EXISTS Rh;
-DROP TABLE IF EXISTS Candidat;
-DROP TABLE IF EXISTS Description;
-DROP TABLE IF EXISTS Offre;
-DROP TABLE IF EXISTS Qualite;
+DROP TABLE IF EXISTS personne;
+DROP TABLE IF EXISTS rh;
+DROP TABLE IF EXISTS candidat;
+DROP TABLE IF EXISTS description;
+DROP TABLE IF EXISTS offre;
+DROP TABLE IF EXISTS qualite;
 
 create table personne
 (
@@ -58,7 +58,8 @@ CREATE TABLE offre
 
 CREATE TABLE qualite
 (
-    qual varchar(25) PRIMARY KEY,
+    qual varchar(25),
     num_cand INT,
-    FOREIGN KEY(num_cand) REFERENCES candidat(numCandidat)
+    FOREIGN KEY(num_cand) REFERENCES candidat(numCandidat),
+    CONSTRAINT pk_qualite PRIMARY KEY (qual, num_cand)
 );
