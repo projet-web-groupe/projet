@@ -27,11 +27,7 @@
 				<td><a href=\"inscription.php\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td>
 				<td><a href=\"mailto:adresseCandidat@mail.com\">".$ligne['mail']."</a></td>
 			</tr>";
-			 /*$v=array();
-			 $v[]=$ligne['numCandidat'];
-			 $v[]=$ligne['experience'];
-			 $v[]=$ligne['mail'];
-			 $val[]=$v;*/
+			 
 		}
 	     
 	}
