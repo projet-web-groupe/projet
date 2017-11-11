@@ -12,11 +12,17 @@
 	margin-top: 50px;
 	padding :5px 25px 25px 25px;
 	border-radius: 10px;
+	
+}
+
+.ombre{
+	margin-top: 10px;
 	background-color: rgba(0,0,0,0.5);
 }
 
-
-
+#h2ombre{
+	background-color: rgba(0,0,0,0.5);
+}
 
 
 

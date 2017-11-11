@@ -34,12 +34,14 @@
 					<th>Détails</th>
 				</tr>
 				<?php
-				$requeteur= new requeteur;
-				$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
-				$req->execute();
-				while ($l = $req->fetch(PDO::FETCH_ASSOC)){
-					echo"<tr><td>".$l['ref']."</td><td>".$l['label']."</td><td><a href=\"postuler.php?id=".$l['ref']."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
-				}
+					$requeteur= new requeteur;
+					$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
+					$req->execute();
+					while($l = $req->fetch(PDO::FETCH_ASSOC))
+					{
+						echo"<tr><td>".htmlspecialchars($l['ref'])."</td><td>".htmlspecialchars($l['label'])."</td><td><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
+					}
+					
 				?>
 			</table>
 			<ul class="pagination pull-right">

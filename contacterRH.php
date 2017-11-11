@@ -31,7 +31,7 @@
 				<div>
 					<label class="label label-primary">Entreprise ou RH :</label>
 					<div class="form-group">
-						<input type="text" name="nom" class="form-control">
+						<input id="indice" type="text" name="nom" class="form-control">
 						<div class="form-group rechercher">
 							
 							<div class="col-lg-offset-10 col-lg-2 col-md-offset-10 col-md-2 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-xs-10 btn btn-success">
@@ -42,13 +42,14 @@
 					</div>
 				</div>
 				<div id="res">
-					<h2>Résultats :</h2>
-					<div class="row">
-						<!-- ici l'adresse mail afficher et cibler change en fonction des résultat de la recherche  possible ???-->
-						
+					<h2 id="h2ombre">Résultats :</h2>
+					<div id="resPhp">
+
+					</div>
+					<!--<div class="row">
 						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label class="label label-primary">Courriel :</label>
-							<p><a class="form-control" href="mailto:exemple@hotmail.fr">exemple@hotmail.fr</a></p>
+							<p class="form-control mailRh">exemple@hotmail.fr</p>
 						</div>
 
 						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
@@ -58,8 +59,6 @@
 					</div>
 
 					<div class="row">
-						<!-- ici l'adresse mail afficher et cibler change en fonction des résultat de la recherche  possible ???-->
-						
 						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label class="label label-primary">Fax :</label>
 							<p class="form-control">un numero de fax...</p>
@@ -69,7 +68,7 @@
 							<label class="label label-primary">Adresse</label>
 							<p class="form-control">n°1 rue TrouverDuTravail</p>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</form>
 			
@@ -80,7 +79,7 @@
 		<script src="jquery-3.2.1.min.js"></script>
 		<script src="js/general.js"></script>
 		<script src="js/contacterRH.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
+		<script src="js/bootstrap.min.js"></script>
+		
 	</body>
 	</html>
