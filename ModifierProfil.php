@@ -42,6 +42,10 @@
 			<div class="">
 				<table>
 					<tr>
+						<td class="col-xm-6 champ">Type de compte </td>
+						<td class="col-xm-6"><?php if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom'])){echo 'RH';}else{echo 'Candidat';} ?></td>
+					</tr>
+					<tr>
 						<td class="col-xm-6 champ">Nom </td>
 						<td class="col-xm-6"><?php echo $val['nom']; ?></td>
 					</tr>

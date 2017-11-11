@@ -20,26 +20,22 @@
 	<?php
 	try{
 		$requeteur = new requeteur;
-		if(isInscrit())
-		{
-				?>
-					<div class="panel panel-danger" id="page">
-						<div class="panel-heading">
-							Vous êtes déjà inscrit sur ce site !
-						</div>
-					</div>'
-				<?php
-		}
-		else if (isConnecter()){
+		if (isConnecter() and $requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
 			?>
-					<div class="panel panel-danger" id="page">
-						<div class="panel-heading">
-							Vous êtes déjà connecté, vous ne pouvez donc pas vous inscrire !
-						</div>
-					</div>'
-				<?php
+			<div class="panel panel-danger" id="page">
+				<div class="panel-heading">
+					Vous êtes déjà connecté, vous ne pouvez donc pas vous inscrire !
+				</div>
+			</div>'
+			<?php
+		}
+		else if(isConnecter() and $requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
+		{ 
+			$_SESSION['typeInscription'] = 'rh';
+			include 'ressourcePHP/inscriptionForm.php'; 
 		}
 		else{
+			$_SESSION['typeInscription'] = 'candidat';
 			include 'ressourcePHP/inscriptionForm.php';
 		}
 	}
