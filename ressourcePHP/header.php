@@ -69,7 +69,6 @@
 								}
 								else
 								{
-									$requeteur = new requeteur;
 									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom']) or $requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
 										?>
 										<li><a href="offres.php">Consulter offres</a></li>

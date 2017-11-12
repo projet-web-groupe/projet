@@ -13,7 +13,6 @@
 </head>
 <?php
 require_once('ressourcePHP/session.php');
-require_once('ressourcePHP/header.php');
 require_once('ressourcePHP/requeteur.class.php');
 
 if(isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] === 'candidat' and isModifiableCandidat() and isConnecter())
@@ -101,6 +100,7 @@ else if (isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] ==
 			<h1>Bienvenue</h1>
 		</div>
 		<?php 
+		require_once('ressourcePHP/header.php');
 		try{
 			$requeteur = new requeteur;
 			if(isConnecter()){
