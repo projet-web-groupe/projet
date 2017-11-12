@@ -26,9 +26,11 @@
 			if(isConnecter()){
 				if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
 					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail, domain, lastDiploma, experience, vehicule from personne join candidat on personne.id=candidat.id_pers where personne.nom= :nom AND personne.prenom= :prenom');
+					$_SESSION['typeProfilModif'] = 'candidat';
 				}
 				else{
 					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail from personne where nom= :nom AND prenom= :prenom');
+					$_SESSION['typeProfilModif'] = 'rh';
 				}
 				$req->bindValue(':nom', $_SESSION['nom']);
 				$req->bindValue(':prenom', $_SESSION['prenom']);
@@ -38,8 +40,50 @@
 		}
 		catch(PDOException $e){die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');}
 		?>
+		<?php
+		/*if(isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] === 'candidat' and isInscritCandidat())
+		{
+			$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+			$verif->bindValue(':id', $val['idMax']+1);
+			$verif->bindValue(':nom', $_POST['nom']);
+			$verif->bindValue(':prenom', $_POST['prenom']);
+			$verif->bindValue(':dateNaissance',$_POST['date']);
+			$verif->bindValue(':sexe',$_POST['genre']);
+			$verif->bindValue(':login', $_POST['login']);
+			$verif->bindValue(':mdp', $_POST['mdp']);
+			$verif->bindValue(':mail', $_POST['mail']);
+			$verif->execute();
+
+			$r=$requeteur->getRequete('SELECT MAX(numCandidat) as idMaxCand from candidat');
+			$r->execute();
+			$val2=$r->fetch();
+
+			$req=$requeteur->getRequete('INSERT INTO candidat(numCandidat, domain, lastDiploma, vehicule, id_pers) VALUES(:numCandidat, :domain, :lastDiploma, :vehicule, :id_pers)');
+			$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
+			$req->bindValue(':domain', $_POST['domaine']);
+			$req->bindValue(':lastDiploma', $_POST['diplome']);
+			if($_POST['vehicule'] == 'oui')
+				$req->bindValue(':vehicule',1);
+			else
+				$req->bindValue(':vehicule',0);
+			$req->bindValue(':id_pers',$val['idMax']+1);
+			$req->execute();
+			foreach ($_POST['qualite'] as  $value) 
+			{
+				$req=$requeteur->getRequete('INSERT INTO qualite(qual, num_cand) VALUES(:qual, :numCandidat)');
+				$req->bindValue(':qual', $value);
+				$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
+				$req->execute();
+			}
+			
+		}
+		else if (isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] === 'rh')
+		{
+
+		}*/
+		?>
 		<div id="overview" class="background">
-			<div class="">
+			<div>
 				<table>
 					<tr>
 						<td class="col-xm-6 champ">Type de compte </td>
@@ -115,7 +159,7 @@
 		</div>
 		<div id="modification" class="background hide">
 			<div id="form">
-				<form id="insc" method="post" action="Accueil.php">
+				<form id="insc" method="post" action="ModifierProfil.php">
 					<div class="row">
 						<div class="form-group">
 							<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
@@ -249,7 +293,7 @@
 				}
 				?>
 				<input type="hidden" name="modif" value="true">
-				<div class="row">
+				<div>
 					<button type="submit" class="btn btn-success col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-10 col-md-2 col-lg-offset-11 col-lg-1">Valider</button>
 				</div>
 
