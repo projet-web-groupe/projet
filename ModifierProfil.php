@@ -100,7 +100,7 @@
 							for($i = 0 ; $i < count($qual) ; $i++){
 								echo $qual[$i];
 								if($i < count($qual) - 1)
-									echo ',';
+									echo ', ';
 							}
 							?>
 						</td>

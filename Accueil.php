@@ -23,7 +23,7 @@
 		session_start();
 	}
 	//Cas d'une inscription
-	if(isInscritCandidat() and isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')
+	if(isInscritCandidat() and isset($_SESSION['typeInscription']) and ($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh'))
 	{
 		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
 		$req->execute();
