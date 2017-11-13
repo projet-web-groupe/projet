@@ -75,9 +75,8 @@ class requeteur
 		return 1 === count($tab);
 	}
 
-	public function chargerOffres($nom, $prenom){
 		
-	}
+	
 	
 }
 ?>
