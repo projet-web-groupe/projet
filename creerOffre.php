@@ -5,87 +5,45 @@
 	<title>Créer votre offre</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="css/creerOffre.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-	<style>
-	#footer
-	{
-		margin-bottom:0px;
-
-	}
-	.droite
-	{
-		margin-right:0px;
-	}
-	#pa
-	{
-		margin-top: 100px;
-	}
-
-	div#login-alert{
-		display: none;
-	}
 	
-	.input-group {
-		margin-bottom: 25px;
-	}
-	.form-group-end{
-		border-top: 1px solid#888;
-		padding-top:15px;
-		font-size:85%;
-	}
-
-	#panel {
-		max-width: 600px;
-		padding-right:0;
-		padding-left:0;
-	}
-	#mod{
-		margin-bottom:0px;
-	}
-	.moda{
-		display:block;
-		padding-top: 15px;
-		cursor:pointer;
-		color: #9d9d9d;
-	}
-	.moda:hover{
-		color:white;
-	}
-
-</style>
 </head>
 
 <body>
+	<?php include 'ressourcePHP/session.php' ?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
-	<div class="container" id="pa">
+	<div class="container" id="page">
 		<div class="page-header">
 			<h1>Créer votre offre</h1>
 		</div>
-		<form>
-			<div class="row">
-				
-				<div class="page-header">
-					<h1>Créer votre offre</h1>
+		<?php include 'ressourcePHP/modal.php' ?>
+		<form id="creer_offre" method="post" action="creerOffre.php">
+			<div class="row">	
+				<div  class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+					<label for="Intitulé du poste" class="label label-primary">Intitulé du poste</label>
+					<input type="text" id="prenom" name="label" class="form-control" placeholder="Décrivé le poste en quelque termes">
 				</div>
 
-				<?php
-				include 'ressourcePHP/modal.php'
-				?>
-
-				<span class="label label-primary">Employeur : </span>
-				<input type="text" class="form-control">
-				
-				<span class="label label-primary">Description du poste : </span>
-				<textarea class="form-control"></textarea>
-			</div>
-			<div class="row">
-				<div class="col-lg-1 col-lg-push-11">
-					<button type="button" class="btn btn-success btn-block">Valider</button>
+				<div class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+					<label for="Description détaillé du poste" class="label label-primary">Description détaillé du poste</label>
+					<textarea id="longDesc" name="longDesc" class="form-control"></textarea>
 				</div>
+				<div class="col-xm-12 col-sm-12 col-md-12 col-lg-12">
+					<label for="Profil recherché pour le poste" class="label label-primary">Profil recherché pour le poste</label>
+					<textarea id="profil" name="profil" class="form-control"></textarea>
+				</div>
+				<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-10 col-md-2 col-lg-offset-11 col-lg-1">
+					<button type="submit" class="btn btn-success">Valider</button>
+				</div>
+
 			</div>
 		</form>
+
 	</div>
 	<?php
 	include 'ressourcePHP/footer.php'

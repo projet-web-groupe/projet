@@ -5,53 +5,13 @@
 	<title>Historique</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-	<style>
-	#footer
-	{
-		margin-bottom:0px;
-
-	}
-	.droite
-	{
-		margin-right:0px;
-	}
-
-	div#login-alert{
-		display: none;
-	}
-	
-	.input-group {
-		margin-bottom: 25px;
-	}
-	.form-group-end{
-		border-top: 1px solid#888;
-		padding-top:15px;
-		font-size:85%;
-	}
-
-	#panel {
-		max-width: 600px;
-		padding-right:0;
-		padding-left:0;
-	}
-	#mod{
-		margin-bottom:0px;
-	}
-	.moda{
-		display:block;
-		padding-top: 15px;
-		cursor:pointer;
-		color: #9d9d9d;
-	}
-	.moda:hover{
-		color:white;
-	}
-	
-</style>
 </head>
 
 <body>
+	<?php include 'ressourcePHP/session.php' ?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>

@@ -1,0 +1,104 @@
+div#login-alert{
+	display: none;
+}
+
+#footer
+{
+	margin-bottom:0px;
+}
+
+.droite
+{
+	margin-right:0px;
+}
+
+#mod
+{
+	margin-bottom:0px;
+}
+
+.moda, .moda:active
+{
+	background-color: rgba(255,255,255,0);
+	outline-style: none;
+	border:none;
+	padding-top: 15px;
+	cursor:pointer;
+	color: #9d9d9d;
+}
+
+.moda:hover
+{
+	color:white;
+}
+
+.input-group
+{
+	margin-bottom: 25px;
+}
+
+.form-group-end
+{
+	border-top: 1px solid#888;
+	padding-top:15px;
+	font-size:85%;
+}
+
+#panel
+{
+	max-width: 600px;
+	padding-right:0;
+	padding-left:0;
+}
+
+#page{
+	margin-bottom:75px;
+	margin-top:120px;
+}
+
+.bg-img
+{
+	background-image: url("dark-triangles.png");
+}
+
+.text-center {
+	text-align: center!important;
+}
+
+body
+{
+	background-image:url("wp5.jpg");
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+h1
+{
+	color:white;
+}
+
+h2
+{
+	color:white;
+}
+
+tr
+{
+	background-color: white;
+}
+
+
+#ph{
+	margin-top:160px; !important
+}
+
+footer{
+	margin-top: 100px;
+}
+
+.ide{
+	color:#9d9d9d;
+	padding: 13px 0px 17px 5px;
+	font-size: 20px;
+}
+

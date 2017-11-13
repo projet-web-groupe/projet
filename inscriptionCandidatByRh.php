@@ -20,23 +20,19 @@
 	<?php
 	try{
 		$requeteur = new requeteur;
-		if (isConnecter() and $requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
-			?>
-			<div class="panel panel-danger" id="page">
-				<div class="panel-heading">
-					Vous êtes déjà connecté, vous ne pouvez donc pas vous inscrire !
-				</div>
-			</div>'
-			<?php
-		}
-		else if(isConnecter() and $requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
+		if(isConnecter() and $requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
 		{ 
-			$_SESSION['typeInscription'] = 'rh';
+			$_SESSION['typeInscription'] = 'candidatByRh';
 			include 'ressourcePHP/inscriptionForm.php'; 
 		}
 		else{
-			$_SESSION['typeInscription'] = 'candidat';
-			include 'ressourcePHP/inscriptionForm.php';
+			?>
+			<div class="panel panel-danger" id="page">
+				<div class="panel-heading">
+					Vous n'êtes pas autorisé à accéder au contenu de cette page.
+				</div>
+			</div>'
+			<?php
 		}
 	}
 	catch(PDOException $e){die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');}

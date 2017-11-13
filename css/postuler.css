@@ -1,16 +1,3 @@
-#footer
-{
-	margin-bottom:0px;
-}
-.droite
-{
-	margin-right:0px;
-}
-.bg-img {
-	background-image: url("dark-triangles.png");
-	background-repeat: repeat;
-}
-
 .sb{
 	display:none;
 }
@@ -22,33 +9,3 @@
 	display:inline-block;
 }
 
-div#login-alert{
-	display: none;
-}
-
-.input-group {
-	margin-bottom: 25px;
-}
-.form-group-end{
-	border-top: 1px solid#888;
-	padding-top:15px;
-	font-size:85%;
-}
-
-#panel {
-	max-width: 600px;
-	padding-right:0;
-	padding-left:0;
-}
-#mod{
-	margin-bottom:0px;
-}
-.moda{
-	display:block;
-	padding-top: 15px;
-	cursor:pointer;
-	color: #9d9d9d;
-}
-.moda:hover{
-	color:white;
-}

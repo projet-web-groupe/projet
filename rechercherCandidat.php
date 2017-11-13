@@ -4,12 +4,15 @@
 	<meta charset="utf-8"/>
 	<title>Recherche candidat</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/rechercherCandidat.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="css/rechercherCandidat.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+	<?php include 'ressourcePHP/session.php' ?>
 	<?php
 	include 'ressourcePHP/header.php'
 	?>
@@ -32,7 +35,7 @@
 						<div class="form-inline row">
 							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
 								<label class="checkbox-inline">
-									<input type="checkbox" name="metier"value="Informatique"> Informatique
+									<input type="checkbox" name="metier" value="Informatique"> Informatique
 								</label>
 							</div>
 
@@ -71,7 +74,7 @@
 								<label class="label label-primary">
 									Expérience minimum
 								</label>
-								<input type="number" class="form-control" placeholder="année(s)">
+								<input type="number" id="minExp" class="form-control" placeholder="année(s)">
 							</div>
 						</div>
 					</div>
@@ -79,7 +82,7 @@
 			</div>
 			<div class="row chercher">
 				<div class="col-lg-offset-10 col-lg-2 col-md-offset-10 col-md-2 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-xs-10 btn btn-success">
-					<span class="glyphicon glyphicon-search"></span>
+					<span class="glyphicon glyphicon-search chercher"></span>
 					Rechercher
 				</div>
 			</div>
@@ -93,38 +96,10 @@
 
 				<div class="row">
 					<div class="table-responsive ">
+						
+						<table id="listeCandidat" class="table table-bordered ">
 
-						<table class="table table-bordered ">
-							<tr class="bg-primary">
-								<th>Id candidat</th>
-								<th>Année expérience</th>
-								<th>Fiche candidat</th>
-								<th>Contacter</th>
-							</tr>
-							<tr class="info">
-								<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">001</td>
-								<td>xx ans</td>
-								<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-								<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-							</tr>
-							<tr class="info">
-								<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">002</td>
-								<td>xx ans</td>
-								<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-								<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-							</tr>
-							<tr class="info">
-								<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">003</td>
-								<td>xx ans</td>
-								<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-								<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-							</tr>
-							<tr class="info" >
-								<td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">004</td>
-								<td>xx ans</td>
-								<td><a href="inscription.html"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-								<td><a href="mailto:adresseCandidat@mail.com">mail</a></td>
-							</tr>
+							
 						</table>
 
 					</div>
@@ -140,6 +115,6 @@
 	<script src="js/general.js"></script>
 	<script src="js/rechercherCandidat.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
+	
 </body>
 </html>

@@ -1,5 +1,47 @@
 $(document).ready(function(){
 	console.log("chargé");
+	
+	$(".rechercher").on("click",function(e){
+		console.log($("#indice").val()+" a");
+		/*$.get('http://localhost/Web/projet/ressourcePHP/listeDrh.php',{mot: $("#indice").val()},function(response){
+			console.log("enter");
+			var obj= jQuery.parseJSON(response);
+			
+		});*/
+		/*$.get('http://localhost/Web/projet/ressourcePHP/listeDrh.php',{name: 'John'},
+			function(rep){
+				console.log("pass2");
+				var obj = jQuery.parseJSON(rep);
+				console.log("Réponse reçue du serveur: ",obj[0]);
+
+				$('.mailRh').html(rep[2]);
+		});*/
+
+		$.ajax({
+		    
+		    url: 'ressourcePHP/listeDrh.php',
+		    type: 'POST',
+		    data: 'mot='+ $("#indice").val(),
+		    success: function(data) {
+		       
+				//var obj= jQuery.parseJSON(data);
+				//console.log(data);
+				$('#resPhp').html(data);
+
+		    },
+		    error: function(x,y, error){
+		    	console.log(error);
+		    }
+
+		});
+		
+		$("#res").show();
+	});
+
+});	
+
+
+
 	/*$("#mail").on("keyup",function(){
 		
 		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
@@ -81,7 +123,3 @@ $(document).ready(function(){
 			}
 		}
 	});*/
-	$(".rechercher").on("click",function(){
-		$("#res").show();
-	});
-});
