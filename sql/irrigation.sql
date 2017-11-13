@@ -30,5 +30,7 @@ INSERT INTO `qualite` VALUES ('Curieux',6);
 INSERT INTO `description` VALUES (1,'desc1','poste à pourvoir 1','profil 1');
 INSERT INTO `description` VALUES (2,'desc2','poste à pourvoir 2','profil 2');
 
-INSERT INTO `offre` VALUES (1,1);
-INSERT INTO `offre` VALUES (2,2);
+INSERT INTO `offre` VALUES (1,1,0,1);
+INSERT INTO `offre` VALUES (2,2,0,0);
+INSERT INTO `offre` VALUES (2,1,0,0);
+INSERT INTO `offre` VALUES (1,2,0,0);

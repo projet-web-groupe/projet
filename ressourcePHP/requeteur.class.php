@@ -74,6 +74,9 @@ class requeteur
 
 		return 1 === count($tab);
 	}
+
+		
+	
 	
 }
 

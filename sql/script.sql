@@ -52,6 +52,8 @@ CREATE TABLE offre
 (
     ref varchar(25),
     id_cand INT,
+    accepte boolean,
+    approuve boolean,
     FOREIGN KEY(id_cand) REFERENCES candidat(numCandidat),
     CONSTRAINT pk_offre PRIMARY KEY (ref,id_cand)
 );
