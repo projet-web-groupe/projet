@@ -74,114 +74,144 @@
 									Date de naissance:
 								</div>
 							</div>
-							<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
-								<input type="datetime" name="date" name="naissance" class="form-control">
+							<div class="form-group col-xs-4 col-md-2" id="blackcolor">
+								<select name="jour" class="form-control">
+									<option selected>jour</option>
+									<?php  
+									for($i=1; $i <= 31; $i++){
+										echo '<option value ="'.$i.'" >'.$i.'</option>';
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group col-xs-4 col-md-2" id="blackcolor">
+								
+								<select name="mois" class="form-control">
+									<option selected>mois</option>
+									<?php 
+									for($i=1; $i <= 12; $i++){
+										echo '<option value ="'.$i.'" >'.$i.'</option>';
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group col-xs-4 col-md-2" id="blackcolor">
+								<!--<input type="datetime" name="date" name="naissance" class="form-control">-->
+								<select name="annee" class="form-control ">
+									<option selected>année</option>
+									<?php 
+									for($i=1900; $i <= 2017; $i++){
+										echo '<option value ="'.$i.'" >'.$i.'</option>';
+									}
+									?>
+								</select>
 							</div>
 						</div>
 					</div>
-
-					<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6 gene">
-						<label class="label label-primary">Adresse mail:</label>
-						<span class="input-group">
-							<input id="email" name="mail" type="text" class="form-control" placeholder="exemple@gmail.com">
-							<span id="e-croix" class="input-group-addon "></span>
-						</span>
-					</div>
-
-					<?php 
-					if($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh')
-					{
-						?>
-						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Quel est votre dernier diplôme?</label>
-							<input type="text" name="diplome" class="form-control diplome">
-							<div class="suggestion cache">
-								<ul>
-									<a href="Accueil.php"><li>test1</li></a>
-									<a href="#"><li>test2</li></a>
-								</ul>
-							</div>
-						</div>
-						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Quel est votre domaine?</label>
-							<input type="text" name="domaine" class="form-control domaine">
-							<div class="suggestion2 cache2">
-								<ul>
-									<a href="Accueil.php"><li>test1</li></a>
-									<a href="#"><li>test2</li></a>
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6 gene">
-							<label class="label label-primary">Nombre d'années d'éxpérience:</label>
-							<span class="input-group">
-								<input id="exp" type="number" name="exp" class="form-control" placeholder="Entrez votre nombre d'années d'éxpérience">
-								<span id="croix" class="input-group-addon "></span>
-							</span>
-						</div>
-
-						<?php 
-					}
-					?>
 				</div>
+
+				<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6 gene">
+					<label class="label label-primary">Adresse mail:</label>
+					<span class="input-group">
+						<input id="email" name="mail" type="text" class="form-control" placeholder="exemple@gmail.com">
+						<span id="e-croix" class="input-group-addon "></span>
+					</span>
+				</div>
+
 				<?php 
 				if($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh')
 				{
 					?>
-					<div class="row">
-						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Etes-vous véhiculé?</label>
-							<div class="radio">
-								<label><input  type="radio" name="vehicule" value="oui"><span class="veh">Oui</span></label>
-							</div>
-							<div class="radio">
-								<label><input  type="radio" name="vehicule" value="non"><span class="veh">Non</span></label>
-							</div>
+					<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="label label-primary">Quel est votre dernier diplôme?</label>
+						<input type="text" name="diplome" class="form-control diplome">
+						<div class="suggestion cache">
+							<ul>
+								<a href="Accueil.php"><li>test1</li></a>
+								<a href="#"><li>test2</li></a>
+							</ul>
 						</div>
+					</div>
+					<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="label label-primary">Quel est votre domaine?</label>
+						<input type="text" name="domaine" class="form-control domaine">
+						<div class="suggestion2 cache2">
+							<ul>
+								<a href="Accueil.php"><li>test1</li></a>
+								<a href="#"><li>test2</li></a>
+							</ul>
+						</div>
+					</div>
 
+
+					<div class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6 gene">
+						<label class="label label-primary">Nombre d'années d'éxpérience:</label>
+						<span class="input-group">
+							<input id="exp" type="number" name="exp" class="form-control" placeholder="Entrez votre nombre d'années d'éxpérience">
+							<span id="croix" class="input-group-addon "></span>
+						</span>
 					</div>
-					<div class="row">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<span>Choisissez les qualités qui vont définissent parmis celles qui figurent ci-dessous:</span>
-							</div>
-							<div id="blackcolor" class="panel-body form-inline">
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Enthousiaste"> Enthousiaste</label>
-								</div>
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Curieux"> Curieux</label>
-								</div>
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Sociable"> Sociable</label>
-								</div>
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Déterminé"> Déterminé</label>
-								</div>
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Rigoureux"> Rigoureux</label>
-								</div>
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Organisé"> Organisé</label>
-								</div>
-								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
-									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Intelligent"> Intelligent</label>
-								</div>
-							</div>
-						</div>
-					</div>
+
 					<?php 
 				}
 				?>
+			</div>
+			<?php 
+			if($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh')
+			{
+				?>
 				<div class="row">
-					<button type="submit" class="btn btn-success col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-10 col-md-2 col-lg-offset-11 col-lg-1">Valider</button>
+					<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
+						<label class="label label-primary">Etes-vous véhiculé?</label>
+						<div class="radio">
+							<label><input  type="radio" name="vehicule" value="oui"><span class="veh">Oui</span></label>
+						</div>
+						<div class="radio">
+							<label><input  type="radio" name="vehicule" value="non"><span class="veh">Non</span></label>
+						</div>
+					</div>
+
 				</div>
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span>Choisissez les qualités qui vont définissent parmis celles qui figurent ci-dessous:</span>
+						</div>
+						<div id="blackcolor" class="panel-body form-inline">
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Enthousiaste"> Enthousiaste</label>
+							</div>
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Curieux"> Curieux</label>
+							</div>
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Sociable"> Sociable</label>
+							</div>
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Déterminé"> Déterminé</label>
+							</div>
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Rigoureux"> Rigoureux</label>
+							</div>
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Organisé"> Organisé</label>
+							</div>
+							<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Intelligent"> Intelligent</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php 
+			}
+			?>
+			<div class="row">
+				<button type="submit" class="btn btn-success col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-10 col-md-2 col-lg-offset-11 col-lg-1">Valider</button>
+			</div>
 
-			</form>
-		</div>
-		<?php
+		</form>
+	</div>
+	<?php
 
-	}	?>
+}	?>
 </div>

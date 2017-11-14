@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS candidat;
 DROP TABLE IF EXISTS description;
 DROP TABLE IF EXISTS offre;
 DROP TABLE IF EXISTS qualite;
+DROP TABLE IF EXISTS message;
 
 create table personne
 (
@@ -23,7 +24,8 @@ CREATE TABLE rh
 (
     numRh INT PRIMARY KEY, 
     id_pers INT,
-    FOREIGN KEY(id_pers) REFERENCES personne(id)
+    FOREIGN KEY(id_pers) REFERENCES personne(id),
+    FOREIGN KEY(numRh) REFERENCES message(numRh)
 );
 
 CREATE TABLE candidat
@@ -34,7 +36,8 @@ CREATE TABLE candidat
     experience INT,
     vehicule boolean,
     id_pers INT,
-    FOREIGN KEY(id_pers) REFERENCES personne(id)
+    FOREIGN KEY(id_pers) REFERENCES personne(id),
+    FOREIGN KEY(numCandidat) REFERENCES message(numCand)
 );
 
 CREATE TABLE description
@@ -64,4 +67,15 @@ CREATE TABLE qualite
     num_cand INT,
     FOREIGN KEY(num_cand) REFERENCES candidat(numCandidat),
     CONSTRAINT pk_qualite PRIMARY KEY (qual, num_cand)
+);
+
+CREATE TABLE message
+(
+    numCand INT,
+    numRh INT,
+    msg TEXT,
+    dateMsg DATETIME,
+    CONSTRAINT pk_message PRIMARY KEY (numCand, numRh),
+    FOREIGN KEY (numCand) REFERENCES candidat(numCandidat),
+    FOREIGN KEY (numRh) REFERENCES rh(numRh)
 );

@@ -9,6 +9,7 @@ class requeteur
 	private $charset;
 
 	private $bdd;
+	public $quote;
 
 	public function __construct()
 	{
@@ -25,6 +26,7 @@ class requeteur
 		}catch (PDOException $e){
 			die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
 		} 
+		$this->quote = $bdd->quote;
 	}
 
 	public function getRequete($reqStr)
@@ -40,11 +42,11 @@ class requeteur
 	public function isUserNotExist($nom, $prenom, $date, $login , $mail){
 		$verif= $this->getRequete('SELECT nom, prenom, dateNaissance, login, mail from personne where nom= :nom AND prenom= :prenom AND dateNaissance= :dateNaissance AND login= :login AND mail= :mail');
 
-		$verif->bindValue(':nom', $nom);
-		$verif->bindValue(':prenom', $prenom);
-		$verif->bindValue(':dateNaissance',$date);
-		$verif->bindValue(':login', $login);
-		$verif->bindValue(':mail', $mail);
+		$verif->bindValue(':nom', $bdd->quote($nom));
+		$verif->bindValue(':prenom', $bdd->quote($prenom));
+		$verif->bindValue(':dateNaissance',$bdd->quote($date));
+		$verif->bindValue(':login', $bdd->quote($login));
+		$verif->bindValue(':mail', $bdd->quote($mail));
 		$verif->execute();
 		$val = $verif->fetch();
 

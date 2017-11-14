@@ -19,7 +19,6 @@
 	?>
 	<?php
 	try{
-		$requeteur = new requeteur;
 		if (isConnecter() and $requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
 			?>
 			<div class="panel panel-danger" id="page">

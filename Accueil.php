@@ -13,6 +13,9 @@
 <body>
 	
 	<?php
+	if(isset($_POST['annee']) and trim($_POST['annee']) and isset($_POST['mois']) and trim($_POST['mois']) and isset($_POST['jour']) and trim($_POST['jour'])){
+		$_POST['date'] = $_POST['annee'].'-'.$_POST['mois'].'-'.$_POST['jour'];
+	}
 	require_once('ressourcePHP/session.php'); 
 	require_once('ressourcePHP/requeteur.class.php');
 	$requeteur = new requeteur;
@@ -98,7 +101,7 @@
 	if(isset($_POST['login']) and isset($_POST['mdp']))
 	{
 		$requeteur = new requeteur;
-		$requete = $requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
+		$requete = $requeteur->getRequete('SELECT nom, prenom, id FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
 		$requete->bindValue(':log', $_POST['login']);
 		$requete->bindValue(':mdp', $_POST['mdp']);
 		$requete->execute();
@@ -117,15 +120,62 @@
 		if((isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')){
 			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
 			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+			$_SESSION['id'] = $tab['id'];
 			$_SESSION['connecte'] = true;
+			if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom']))
+			{
+				$req = $requeteur->getRequete('SELECT numCandidat from personne join candidat on personne.id=candidat.id_pers WHERE id = :id');
+				$req->bindValue(':id',$_SESSION['id']);
+				$req->execute();
+				$val = $req->fetch();
+				if(isset($val))
+				{
+					$_SESSION['idProfil'] = $val['numCandidat'];
+				}
+			}
+			else if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
+			{
+				$req = $requeteur->getRequete('SELECT numRh from personne join rh on personne.id=rh.id_pers WHERE id = :id');
+				$req->bindValue(':id',$_SESSION['id']);
+				$req->execute();
+				$val = $req->fetch();
+				if(isset($val))
+				{
+					$_SESSION['idProfil'] = $val['numRh'];
+				}
+			}
 		}
 		else if (!isset($_SESSION['typeInscription']))
 		{
 			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
 			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+			$_SESSION['id'] = $tab['id'];
 			$_SESSION['connecte'] = true;
+			if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom']))
+			{
+				$req = $requeteur->getRequete('SELECT numCandidat from personne join candidat on personne.id=candidat.id_pers WHERE nom = :nom and prenom = :prenom');
+				$req->bindValue(':nom',$_SESSION['nom']);
+				$req->bindValue(':prenom',$_SESSION['prenom']);
+				$req->execute();
+				$val = $req->fetch();
+				if(isset($val))
+				{
+					$_SESSION['idProfil'] = $val['numCandidat'];
+				}
+			}
+			else if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
+			{
+				$req = $requeteur->getRequete('SELECT numRh, id from personne join rh on personne.id=rh.id_pers WHERE nom = :nom and prenom = :prenom');
+				$req->bindValue(':nom',$_SESSION['nom']);
+				$req->bindValue(':prenom',$_SESSION['prenom']);
+				$req->execute();
+				$val = $req->fetch();
+				if(isset($val))
+				{
+					$_SESSION['idProfil'] = $val['numRh'];
+				}
+			}
 		}
-		var_dump($_SESSION);
 		
 	}
 

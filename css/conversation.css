@@ -1,0 +1,40 @@
+#content{
+	background-color: rgba(0,0,0,0.4);
+	border-radius: 5px;
+	width:100%;
+	height: 100%;
+}
+
+.msg{
+
+}
+
+.message{
+	margin: 20px;
+}
+
+.message{
+}
+
+.autre{
+	border : 1px solid #E2E2E2;
+	padding: 10px;
+	background: #FDFCF5;
+	border-radius: 6px;
+}
+
+.moi{
+	border: 1px solid #BFE3EE;
+	padding: 10px;
+	background: #DCEAF7;
+	border-radius: 6px;
+}
+
+.moi strong,.autre strong{
+	border-bottom: solid darkgrey 1px;
+	padding-bottom: 5px;
+}
+
+.moi p, .autre p {
+	margin-top: 10px;
+}
