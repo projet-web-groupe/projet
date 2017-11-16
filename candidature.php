@@ -38,12 +38,7 @@
 							echo" <p id=\"sessionPrenom\" hidden>".$_SESSION['prenom']."</p>";
 						echo"
 						<table class=\"table table-bordered \" id=\"listeOffre\">
-							<tr class=\"bg-primary\">
-								<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Réf de l'offre</th>
-								<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Lien de l'offre</th>
-								<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\" >Accepter</th>
-								<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
-							</tr>";
+							";
 								$requeteur= new requeteur;
 								if( $requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
 									
@@ -51,6 +46,12 @@
 									$req->execute();
 									$nombre= $req->fetch(PDO::FETCH_ASSOC);
 									//var_dump($nombre['nb']);
+									echo"<tr class=\"bg-primary\">
+										<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Réf de l'offre</th>
+										<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Lien de l'offre</th>
+										<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\" >Accepter</th>
+										<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
+									</tr>";
 									if($nombre['nb'] ==1)
 									{
 										$req= $requeteur->getRequete('select ref, accepte from offre where approuve=1 and id_cand = (select numCandidat from candidat where id_pers= (select id from personne where nom="'.$_SESSION['nom'].'" and prenom="'.$_SESSION['prenom'].'"))');
@@ -101,6 +102,13 @@
 									$requeteur= new requeteur;
 									$req= $requeteur->getRequete('select ref, id_cand from offre where approuve=0');
 									$req->execute();
+									echo"<tr class=\"bg-primary\">
+											<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Réf de l'offre</th>
+											<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Lien de l'offre</th>
+											<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Profil</th>
+											<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\" >Accepter</th>
+											<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
+										</tr>";
 									while($l=$req->fetch(PDO::FETCH_ASSOC)){
 										echo "<tr >
 													<td class=\"numCandRh\" hidden>".$l['id_cand']."</td>
@@ -125,14 +133,17 @@
 													<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref-rh\"> trop tard déjà approuvé</td>
 												</tr>";
 									}
-									$req= $requeteur->getRequete('select ref, id_cand, personne.id from (offre natural join description) as a join personne on a.id_pers= personne.id where approuve=1 and accepte=1');
+									$req= $requeteur->getRequete('select offre.ref, id_cand, personne.id from offre join description on offre.ref= description.ref join candidat on candidat.numCandidat= offre.id_cand join personne on candidat.id_pers= personne.id where approuve=1 and accepte=1');
 									$req->execute();
 									while($l=$req->fetch(PDO::FETCH_ASSOC)){
 										echo "<tr >
 													<td class=\"numCandRh\" hidden>".$l['id_cand']."</td>
 													<td class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center ref-rh\">".$l['ref']."</td>
 													<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center\"><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td>
-													<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center\"><a href=\"ModifierProfil.php\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td>
+													<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center\">
+														<form action= \"ModifierProfil.php\" method=\"post\">
+															<span class=\"glyphicon glyphicon-eye-open\"><input type=\"submit\" value=\"Voir\"></span></td>
+														</form>
 													<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-acc-rh\">accepté par le candidat</td>
 													<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref-rh\">déjà approuvé</td>
 												</tr>";
