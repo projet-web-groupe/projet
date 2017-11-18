@@ -11,6 +11,12 @@
 				<h1>Inscrivez-vous!</h1>
 				<?php 
 			}
+			else if($_SESSION['typeInscription'] === 'candidatByRh')
+			{
+				?>
+				<h1>Inscrivez un candidat en tant que RH !</h1>
+				<?php 
+			}
 			else 
 			{
 				?>
@@ -83,7 +89,7 @@
 					</div>
 
 					<?php 
-					if($_SESSION['typeInscription'] === 'candidat')
+					if($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh')
 					{
 						?>
 						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
@@ -121,7 +127,7 @@
 					?>
 				</div>
 				<?php 
-				if($_SESSION['typeInscription'] === 'candidat')
+				if($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh')
 				{
 					?>
 					<div class="row">
@@ -141,7 +147,7 @@
 							<div class="panel-heading">
 								<span>Choisissez les qualités qui vont définissent parmis celles qui figurent ci-dessous:</span>
 							</div>
-							<div class="panel-body form-inline">
+							<div id="blackcolor" class="panel-body form-inline">
 								<div class="checkbox col-xs-12 col-sm-6 col-md-4 col-lg-3">
 									<label class="checkbox-inline"><input name="qualite[]" type="checkbox" value="Enthousiaste"> Enthousiaste</label>
 								</div>

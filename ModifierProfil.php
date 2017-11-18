@@ -11,39 +11,108 @@
 	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
+<?php
+require_once('ressourcePHP/session.php');
+require_once('ressourcePHP/requeteur.class.php');
 
+if(isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] === 'candidat' and isModifiableCandidat() and isConnecter())
+{
+	//récupération de l'id :
+	$rid = $requeteur->getRequete('SELECT id, numCandidat as idCand FROM personne join candidat on personne.id=candidat.id_pers where nom = :nom and prenom = :prenom');
+	$rid->bindValue(':nom', $_SESSION['nom']);
+	$rid->bindValue(':prenom', $_SESSION['prenom']);
+	$rid->execute();
+	$id = $rid->fetch();
+	if(!empty($id))
+	{ 
+
+		$req1=$requeteur->getRequete('UPDATE personne SET nom = :nom, prenom = :prenom, dateNaissance = :dateNaissance, sexe = :sexe, login = :login, mail = :mail WHERE id = :id_pers' );
+
+		$req1->bindValue(':id_pers', $id['id']);
+		$req1->bindValue(':nom', $_POST['nom']);
+		$req1->bindValue(':prenom', $_POST['prenom']);
+		$req1->bindValue(':dateNaissance',$_POST['date']);
+		$req1->bindValue(':sexe',$_POST['genre']);
+		$req1->bindValue(':login', $_POST['login']);
+		$req1->bindValue(':mail', $_POST['mail']);
+		$req1->execute();
+
+		$req2=$requeteur->getRequete('UPDATE candidat SET domain = :domain, lastDiploma = :lastDiploma, experience = :experience, vehicule = :vehicule WHERE id_pers = :id_pers');
+
+		$req2->bindValue(':domain', $_POST['domaine']);
+		$req2->bindValue(':lastDiploma', $_POST['diplome']);
+		$req2->bindValue(':experience', $_POST['exp']);
+
+		if($_POST['vehicule'] == 'oui')
+			$req2->bindValue(':vehicule',1);
+		else
+			$req2->bindValue(':vehicule',0);
+		$req2->bindValue(':id_pers',$id['id']);
+
+		$req2->execute();
+
+		$req3 = $requeteur->getRequete('DELETE FROM qualite WHERE num_cand = :num_cand');
+		$req3->bindValue(':num_cand', $id['idCand']);
+		$req3->execute();
+
+		$req4=$requeteur->getRequete('INSERT INTO qualite(qual, num_cand) VALUES(:qual, :numCandidat)');
+		foreach ($_POST['qualite'] as  $value) 
+		{
+			$req4->bindValue(':qual', $value);
+			$req4->bindValue(':numCandidat', $id['idCand']);
+			$req4->execute();
+		}
+	}
+	$_SESSION['nom'] = $_POST['nom'];
+	$_SESSION['prenom'] = $_POST['prenom'];
+	unset($_POST);
+}
+else if (isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] === 'rh' and isModifiableRh() and isConnecter())
+{
+	//récupération de l'id :
+	$rid = $requeteur->getRequete('SELECT id, numRh as idRh FROM personne join rh on personne.id=rh.id_pers where nom = :nom and prenom = :prenom');
+	$rid->bindValue(':nom', $_SESSION['nom']);
+	$rid->bindValue(':prenom', $_SESSION['prenom']);
+	$rid->execute();
+	$id = $rid->fetch();
+	if(!empty($id))
+	{ 
+
+		$req1=$requeteur->getRequete('UPDATE personne SET nom = :nom, prenom = :prenom, dateNaissance = :dateNaissance, sexe = :sexe, login = :login, mail = :mail WHERE id = :id_pers' );
+
+		$req1->bindValue(':id_pers', $id['id']);
+		$req1->bindValue(':nom', $_POST['nom']);
+		$req1->bindValue(':prenom', $_POST['prenom']);
+		$req1->bindValue(':dateNaissance',$_POST['date']);
+		$req1->bindValue(':sexe',$_POST['genre']);
+		$req1->bindValue(':login', $_POST['login']);
+		$req1->bindValue(':mail', $_POST['mail']);
+		$req1->execute();
+	}
+	$_SESSION['nom'] = $_POST['nom'];
+	$_SESSION['prenom'] = $_POST['prenom'];
+	unset($_POST);
+}
+?>
 <body>
 	<div class="container" id="page">
 		<div class="page-header">
 			<h1>Bienvenue</h1>
 		</div>
 		<?php 
-		require_once('ressourcePHP/session.php');
 		require_once('ressourcePHP/header.php');
-		require_once('ressourcePHP/requeteur.class.php');
 		try{
 			$requeteur = new requeteur;
 			if(isConnecter()){
 				if(isset($_POST['nom']) and isset($_POST['prenom']))
 				{
 					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail, domain, lastDiploma, experience, vehicule from personne join candidat on personne.id=candidat.id_pers where personne.nom= :nom AND personne.prenom= :prenom');
-					$req->bindValue(':nom', $_POST['nom']);
-					$req->bindValue(':prenom', $_POST['prenom']);
-					$req->execute();
-					$val=$req->fetch();
+
+					$_SESSION['typeProfilModif'] = 'candidat';
 				}
 				else{
-
-					if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
-					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail, domain, lastDiploma, experience, vehicule from personne join candidat on personne.id=candidat.id_pers where personne.nom= :nom AND personne.prenom= :prenom');
-					}
-					else{
-						$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail from personne where nom= :nom AND prenom= :prenom');
-					}
-					$req->bindValue(':nom', $_SESSION['nom']);
-					$req->bindValue(':prenom', $_SESSION['prenom']);
-					$req->execute();
-					$val=$req->fetch();
+					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail from personne where nom= :nom AND prenom= :prenom');
+					$_SESSION['typeProfilModif'] = 'rh';
 				}
 				
 			}
@@ -51,7 +120,7 @@
 		catch(PDOException $e){die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');}
 		?>
 		<div id="overview" class="background">
-			<div class="">
+			<div>
 				<table>
 					<tr>
 						<td class="col-xm-6 champ">Type de compte </td>
@@ -102,7 +171,7 @@
 						<td class="col-xm-6 champ">Qualité </td>
 						<td class="col-xm-6 ">
 							<?php 
-							$list = array("Curieux","Sociable","Déterminé","Rigoureux","Organisé","Intelligent");
+							$list = array("Enthousiaste","Curieux","Sociable","Déterminé","Rigoureux","Organisé","Intelligent");
 							$qual = array();
 							foreach ($list as $key => $value) {
 								if($requeteur->isUserHasQual($_SESSION['nom'],$_SESSION['prenom'],$value)){
@@ -112,7 +181,7 @@
 							for($i = 0 ; $i < count($qual) ; $i++){
 								echo $qual[$i];
 								if($i < count($qual) - 1)
-									echo ',';
+									echo ', ';
 							}
 							?>
 						</td>
@@ -127,7 +196,7 @@
 		</div>
 		<div id="modification" class="background hide">
 			<div id="form">
-				<form id="insc" method="post" action="Accueil.php">
+				<form id="insc" method="post" action="ModifierProfil.php">
 					<div class="row">
 						<div class="form-group">
 							<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
@@ -216,10 +285,10 @@
 						<div  class="form-group col-xm-12 col-sm-12 col-md-6 col-lg-6">
 							<label class="label label-primary">Etes-vous véhiculé?</label>
 							<div class="radio">
-								<label><input  type="radio" name="vehicule" value="oui" <?php if($val['vehicule']===true) { echo 'checked="checked"'; }?> ><span class="veh">Oui</span></label>
+								<label><input  type="radio" name="vehicule" value="oui" <?php if($val['vehicule']==='1') { echo 'checked="checked"'; }?> ><span class="veh">Oui</span></label>
 							</div>
 							<div class="radio">
-								<label><input  type="radio" name="vehicule" value="non" <?php if(!$val['vehicule']===false) { echo 'checked="checked"'; }?>><span class="veh">Non</span></label>
+								<label><input  type="radio" name="vehicule" value="non" <?php if($val['vehicule']==='0') { echo 'checked="checked"'; }?>><span class="veh">Non</span></label>
 							</div>
 						</div>
 
@@ -261,7 +330,7 @@
 				}
 				?>
 				<input type="hidden" name="modif" value="true">
-				<div class="row">
+				<div>
 					<button type="submit" class="btn btn-success col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-10 col-md-2 col-lg-offset-11 col-lg-1">Valider</button>
 				</div>
 
