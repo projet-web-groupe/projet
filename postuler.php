@@ -33,8 +33,8 @@
 
 		<?php 
 		$requeteur= new requeteur;
-		$req= $requeteur->getRequete('SELECT description, profil from description where ref= :id');
-		$req->bindValue(':id', $_GET['id']);
+		$req= $requeteur->getRequete('SELECT description, profil, id_cand from description natural join offre join candidat on offre.id_cand= candidat.numCandidat where ref= :id and candidat.id_pers="'.$_SESSION['id'].'"');
+		$req->bindValue(':id', $_POST['id']);
 		$req->execute();
 		$val= $req->fetch();
 		?>
@@ -77,15 +77,37 @@
 			</div>
 			<div class="container text-center">
 				<?php 
-				$_requeteur = new requeteur;
-				if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) && $_requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom']))
-				{
-					?>
-					<button type="button" class="btn btn-success">Postuler</button>
-					<?php 
-				} 
+					$_requeteur = new requeteur;
+					$verif= $_requeteur->getRequete('SELECT count(*) as nb from offre where ref= :ref and id_cand= :cand');
+					$verif->bindValue(':ref', $_POST['id']);
+					$verif->bindValue(':cand', $val['id_cand']);
+					$verif->execute();
+					$res= $verif->fetch();
+					if($res['nb']==0)
+					{
+						if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) && $_requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom']))
+						{
+							?>
+							<form action= "accueil.php" method="post">
+								<?php
+									echo"
+									<input  type=\"text\" name=\"max\" value=\"".$val['id_cand']."\"hidden>
+									<input  type=\"text\" name=\"ref\" value=\"".$_POST['id']."\"hidden>";
+								?>
+								<button type="submit" class="btn btn-success">Postuler</button>
+								<a href="offres.php" class="btn btn-primary" role="button">Retour</a>
+							</form>
+							
+							<?php 
+						} 
+					}
+					else{
+						echo"<h4><span class=\"label label-warning\">Vous avez déjà postulé à cette offre.</span></h4>
+						<a href=\"offres.php\" class=\"btn btn-primary\" role=\"button\">Retour</a>";
+					}
+					
 				?>
-				<a href="offres.php" class="btn btn-primary" role="button">Retour</a>
+				
 			</div>
 		</div>
 	</div>

@@ -16,6 +16,17 @@
 	require_once('ressourcePHP/session.php'); 
 	require_once('ressourcePHP/requeteur.class.php');
 	$requeteur = new requeteur;
+	//Quand un candidat a posutlé
+	/*var_dump($requeteur);
+	var_dump($_POST);*/
+	if(isset($_POST['max']) and  isset($_POST['ref']))
+	{
+		$req=$requeteur->getRequete('INSERT INTO offre(ref, id_cand, accepte, approuve) VALUES(:ref,:id_cand,0,0)');
+		$req->bindValue('ref',$_POST['ref']);
+		$req->bindValue('id_cand', $_POST['max']+1);
+		$req->execute();
+	}
+
 
 	if(isset($_POST['deco']))
 	{
@@ -98,7 +109,7 @@
 	if(isset($_POST['login']) and isset($_POST['mdp']))
 	{
 		$requeteur = new requeteur;
-		$requete = $requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
+		$requete = $requeteur->getRequete('SELECT id, nom, prenom FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
 		$requete->bindValue(':log', $_POST['login']);
 		$requete->bindValue(':mdp', $_POST['mdp']);
 		$requete->execute();
@@ -115,12 +126,14 @@
 			die();
 		}
 		if((isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')){
+			$_SESSION['id']= $tab['id'];
 			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
 			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
 			$_SESSION['connecte'] = true;
 		}
 		else if (!isset($_SESSION['typeInscription']))
 		{
+			$_SESSION['id']= $tab['id'];
 			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
 			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
 			$_SESSION['connecte'] = true;

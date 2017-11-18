@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
-
 <body>
 	<?php 
 	require_once('ressourcePHP/session.php');
@@ -39,18 +38,22 @@
 					$req->execute();
 					while($l = $req->fetch(PDO::FETCH_ASSOC))
 					{
-						echo"<tr><td>".htmlspecialchars($l['ref'])."</td><td>".htmlspecialchars($l['label'])."</td><td><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\" target=\"blank\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td><tr>";
+						echo"<tr>
+							<td>".htmlspecialchars($l['ref'])."</td>
+							<td>".htmlspecialchars($l['label'])."</td>
+							
+							<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center colorB\">
+								<form action= \"postuler.php\" method=\"post\"  target=\"_blank\">
+									<input  type=\"text\" name=\"id\" value=\"".htmlspecialchars($l['ref'])."\" hidden>
+									<span class=\"glyphicon glyphicon-eye-open\"><input class=\"lienForm\" type=\"submit\" value=\"Voir\"></span>
+								</form>
+							</td>
+						<tr>";
 					}
 					
 				?>
 			</table>
-			<ul class="pagination pull-right">
-				<li class="active"><a href="#">1</a></li>
-				<li ><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-			</ul>
+		
 		</div>
 	</div>
 	<?php

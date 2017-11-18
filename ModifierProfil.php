@@ -24,16 +24,28 @@
 		try{
 			$requeteur = new requeteur;
 			if(isConnecter()){
-				if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
+				if(isset($_POST['nom']) and isset($_POST['prenom']))
+				{
 					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail, domain, lastDiploma, experience, vehicule from personne join candidat on personne.id=candidat.id_pers where personne.nom= :nom AND personne.prenom= :prenom');
+					$req->bindValue(':nom', $_POST['nom']);
+					$req->bindValue(':prenom', $_POST['prenom']);
+					$req->execute();
+					$val=$req->fetch();
 				}
 				else{
-					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail from personne where nom= :nom AND prenom= :prenom');
+
+					if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
+					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail, domain, lastDiploma, experience, vehicule from personne join candidat on personne.id=candidat.id_pers where personne.nom= :nom AND personne.prenom= :prenom');
+					}
+					else{
+						$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail from personne where nom= :nom AND prenom= :prenom');
+					}
+					$req->bindValue(':nom', $_SESSION['nom']);
+					$req->bindValue(':prenom', $_SESSION['prenom']);
+					$req->execute();
+					$val=$req->fetch();
 				}
-				$req->bindValue(':nom', $_SESSION['nom']);
-				$req->bindValue(':prenom', $_SESSION['prenom']);
-				$req->execute();
-				$val=$req->fetch();
+				
 			}
 		}
 		catch(PDOException $e){die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');}
@@ -43,7 +55,7 @@
 				<table>
 					<tr>
 						<td class="col-xm-6 champ">Type de compte </td>
-						<td class="col-xm-6"><?php if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom'])){echo 'RH';}else{echo 'Candidat';} ?></td>
+						<td class="col-xm-6"><?php if(isset($_POST['nom']) and isset($_POST['prenom'])){echo 'Candidat';} else if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom'])){echo 'RH';}else{echo 'Candidat';} ?></td>
 					</tr>
 					<tr>
 						<td class="col-xm-6 champ">Nom </td>
