@@ -104,18 +104,17 @@ else if (isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] ==
 		try{
 			$requeteur = new requeteur;
 			if(isConnecter()){
-				if($requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
+				if(isset($_POST['nom']) and isset($_POST['prenom']))
+				{
 					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail, domain, lastDiploma, experience, vehicule from personne join candidat on personne.id=candidat.id_pers where personne.nom= :nom AND personne.prenom= :prenom');
+
 					$_SESSION['typeProfilModif'] = 'candidat';
 				}
 				else{
 					$req = $requeteur->getRequete('SELECT nom, prenom, dateNaissance, sexe, login, mail from personne where nom= :nom AND prenom= :prenom');
 					$_SESSION['typeProfilModif'] = 'rh';
 				}
-				$req->bindValue(':nom', $_SESSION['nom']);
-				$req->bindValue(':prenom', $_SESSION['prenom']);
-				$req->execute();
-				$val=$req->fetch();
+				
 			}
 		}
 		catch(PDOException $e){die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');}
@@ -125,7 +124,7 @@ else if (isset($_SESSION['typeProfilModif']) and $_SESSION['typeProfilModif'] ==
 				<table>
 					<tr>
 						<td class="col-xm-6 champ">Type de compte </td>
-						<td class="col-xm-6"><?php if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom'])){echo 'RH';}else{echo 'Candidat';} ?></td>
+						<td class="col-xm-6"><?php if(isset($_POST['nom']) and isset($_POST['prenom'])){echo 'Candidat';} else if($requeteur->isRh($_SESSION['nom'], $_SESSION['prenom'])){echo 'RH';}else{echo 'Candidat';} ?></td>
 					</tr>
 					<tr>
 						<td class="col-xm-6 champ">Nom </td>
