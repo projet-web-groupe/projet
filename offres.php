@@ -10,11 +10,11 @@
 	<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
-
 <body>
-	<?php include 'ressourcePHP/session.php' ?>
-	<?php
-	include 'ressourcePHP/header.php'
+	<?php 
+	require_once('ressourcePHP/session.php');
+	require_once('ressourcePHP/header.php');
+	require_once('ressourcePHP/requeteur.class.php');
 	?>
 	<div class="container" id="page">
 		<div class="page-header">
@@ -22,55 +22,38 @@
 		</div>
 
 		<?php
-		include 'ressourcePHP/modal.php'
+		require_once('ressourcePHP/modal.php');
 		?>
 
 		<div class="table-responsive">
 			<table class="table table-bordered ">
 				<tr class="bg-primary">
 					<th>Référence</th>
-					<th>Domaine </th>
-					<th>Description</th>
-					<th>Type de contrat</th>
+					<th>poste</th>
 					<th>Détails</th>
 				</tr>
-				<tr>
-					<td>0001</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-				<tr>
-					<td>0002</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-				<tr>
-					<td>0003</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-				<tr>
-					<td>0004</td>
-					<td>Info</td>
-					<td>No data</td>
-					<td>CDI</td>
-					<td ><a href="postuler.php" target="blank"><span class="glyphicon glyphicon-eye-open"> Voir</span></a></td>
-				</tr>
-
+				<?php
+					$requeteur= new requeteur;
+					$req = $requeteur->getRequete('SELECT ref, description, label, profil from description');
+					$req->execute();
+					while($l = $req->fetch(PDO::FETCH_ASSOC))
+					{
+						echo"<tr>
+							<td>".htmlspecialchars($l['ref'])."</td>
+							<td>".htmlspecialchars($l['label'])."</td>
+							
+							<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center colorB\">
+								<form action= \"postuler.php\" method=\"post\"  target=\"_blank\">
+									<input  type=\"text\" name=\"id\" value=\"".htmlspecialchars($l['ref'])."\" hidden>
+									<span class=\"glyphicon glyphicon-eye-open\"><input class=\"lienForm\" type=\"submit\" value=\"Voir\"></span>
+								</form>
+							</td>
+						<tr>";
+					}
+					
+				?>
 			</table>
-			<ul class="pagination pull-right">
-				<li class="active"><a href="#">1</a></li>
-				<li ><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-			</ul>
+		
 		</div>
 	</div>
 	<?php
@@ -79,7 +62,6 @@
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/general.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 
 </html>

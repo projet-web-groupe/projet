@@ -1,5 +1,35 @@
 $(document).ready(function(){
 	console.log("chargé");
+	
+	$(".rechercher").on("click",function(e){
+		console.log($("#indice").val()+" a");
+
+		$.ajax({
+		    
+		    url: 'ressourcePHP/listeDrh.php',
+		    type: 'POST',
+		    data: 'mot='+ $("#indice").val(),
+		    success: function(data) {
+		       
+				//var obj= jQuery.parseJSON(data);
+				//console.log(data);
+				console.log(data +" aa");
+				$('#resPhp').html(data);
+
+		    },
+		    error: function(x,y, error){
+		    	console.log(error);
+		    }
+
+		});
+		
+		$("#res").show();
+	});
+
+});	
+
+
+
 	/*$("#mail").on("keyup",function(){
 		
 		var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
@@ -81,7 +111,3 @@ $(document).ready(function(){
 			}
 		}
 	});*/
-	$(".rechercher").on("click",function(){
-		$("#res").show();
-	});
-});

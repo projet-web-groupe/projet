@@ -53,7 +53,7 @@ div#login-alert{
 
 #page{
 	margin-bottom:75px;
-	margin-top:100px;
+	margin-top:120px;
 }
 
 .bg-img
@@ -102,3 +102,5 @@ footer{
 	font-size: 20px;
 }
 
+.colorB{color:#337ab7;}
+.lienForm{border:none;background-color: white;}

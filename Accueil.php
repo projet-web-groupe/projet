@@ -15,30 +15,133 @@
 	<?php
 	require_once('ressourcePHP/session.php'); 
 	require_once('ressourcePHP/requeteur.class.php');
+	$requeteur = new requeteur;
+	//Quand un candidat a posutlé
+	/*var_dump($requeteur);
+	var_dump($_POST);*/
+	if(isset($_POST['max']) and  isset($_POST['ref']))
+	{
+		$req=$requeteur->getRequete('INSERT INTO offre(ref, id_cand, accepte, approuve) VALUES(:ref,:id_cand,0,0)');
+		$req->bindValue('ref',$_POST['ref']);
+		$req->bindValue('id_cand', $_POST['max']+1);
+		$req->execute();
+	}
+
 
 	if(isset($_POST['deco']))
 	{
 		session_destroy();
 		session_start();
 	}
-
-	if(isset($_POST['login']) && isset($_POST['mdp']))
+	//Cas d'une inscription
+	if(isInscritCandidat() and isset($_SESSION['typeInscription']) and ($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh'))
 	{
-		$_requeteur = new requeteur;
-		$requete = $_requeteur->getRequete('SELECT nom, prenom FROM personne where login =:log and mdp =:md'); //equiv a prepare()
+		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
+		$req->execute();
+		$val=$req->fetch();
+
+		if($requeteur->isUserNotExist($_POST['nom'], $_POST['prenom'], $_POST['date'], $_POST['login'], $_POST['mail']))
+		{
+			$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+			$verif->bindValue(':id', $val['idMax']+1);
+			$verif->bindValue(':nom', $_POST['nom']);
+			$verif->bindValue(':prenom', $_POST['prenom']);
+			$verif->bindValue(':dateNaissance',$_POST['date']);
+			$verif->bindValue(':sexe',$_POST['genre']);
+			$verif->bindValue(':login', $_POST['login']);
+			$verif->bindValue(':mdp', $_POST['mdp']);
+			$verif->bindValue(':mail', $_POST['mail']);
+			$verif->execute();
+			
+			$r=$requeteur->getRequete('SELECT MAX(numCandidat) as idMaxCand from candidat');
+			$r->execute();
+			$val2=$r->fetch();
+
+			$req=$requeteur->getRequete('INSERT INTO candidat(numCandidat, domain, lastDiploma, vehicule, id_pers) VALUES(:numCandidat, :domain, :lastDiploma, :vehicule, :id_pers)');
+			$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
+			$req->bindValue(':domain', $_POST['domaine']);
+			$req->bindValue(':lastDiploma', $_POST['diplome']);
+			if($_POST['vehicule'] == 'oui')
+				$req->bindValue(':vehicule',1);
+			else
+				$req->bindValue(':vehicule',0);
+			$req->bindValue(':id_pers',$val['idMax']+1);
+			$req->execute();
+			foreach ($_POST['qualite'] as  $value) {
+				$req=$requeteur->getRequete('INSERT INTO qualite(qual, num_cand) VALUES(:qual, :numCandidat)');
+				$req->bindValue(':qual', $value);
+				$req->bindValue(':numCandidat', $val2['idMaxCand']+1);
+				$req->execute();
+			}
+		}
+	}
+
+	else if(isInscritRh() and isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'rh')
+	{
+		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
+		$req->execute();
+		$val=$req->fetch();
+		if($requeteur->isUserNotExist($_POST['nom'], $_POST['prenom'], $_POST['date'], $_POST['login'], $_POST['mail']))
+		{
+			$verif=$requeteur->getRequete('INSERT INTO personne(id, nom, prenom, dateNaissance, sexe, login, mdp, mail) VALUES(:id,:nom,:prenom,:dateNaissance,:sexe,:login,:mdp,:mail)');
+			$verif->bindValue(':id', $val['idMax']+1);
+			$verif->bindValue(':nom', $_POST['nom']);
+			$verif->bindValue(':prenom', $_POST['prenom']);
+			$verif->bindValue(':dateNaissance',$_POST['date']);
+			$verif->bindValue(':sexe',$_POST['genre']);
+			$verif->bindValue(':login', $_POST['login']);
+			$verif->bindValue(':mdp', $_POST['mdp']);
+			$verif->bindValue(':mail', $_POST['mail']);
+			$verif->execute();
+			$r=$requeteur->getRequete('SELECT MAX(numRh) as idMaxRh from rh');
+			$r->execute();
+			$maxid=$r->fetch();//val2->maxid
+
+			$req=$requeteur->getRequete('INSERT INTO rh(numRh, id_pers) VALUES(:numRh, :id_pers)');
+			$req->bindValue(':numRh', $maxid['idMaxRh']+1);
+			$req->bindValue(':id_pers',$val['idMax']+1);
+			$req->execute();
+		}
+	}
+	
+	if(isset($_POST['login']) and isset($_POST['mdp']))
+	{
+		$requeteur = new requeteur;
+		$requete = $requeteur->getRequete('SELECT id, nom, prenom  FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
 		$requete->bindValue(':log', $_POST['login']);
-		$requete->bindValue(':md', $_POST['mdp']);
+		$requete->bindValue(':mdp', $_POST['mdp']);
 		$requete->execute();
 		$tab= $requete->fetch(PDO::FETCH_ASSOC);
 		if(empty($tab))
 		{
-			echo "!!!!!!!!!!!!!erreur !!!!!!!!!!!!!!!!!!!! <br><br>";
+			?>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					Un problème est survenu, veuillez nous excusé de la gène occasionnée.
+				</div>
+			</div>'
+			<?php 
+			die();
 		}
-
-		$_SESSION['nom'] = htmlspecialchars($tab['nom']);
-		$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
-		$_SESSION['connecte'] = true;
+		if((isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')){
+			$_SESSION['id']= $tab['id'];
+			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
+			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+			$_SESSION['connecte'] = true;
+		}
+		else if (!isset($_SESSION['typeInscription']))
+		{
+			$_SESSION['id']= $tab['id'];
+			$_SESSION['nom'] = htmlspecialchars($tab['nom']);
+			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
+			$_SESSION['connecte'] = true;
+		}
+		var_dump($_SESSION);
+		
 	}
+
+	if(isset($_SESSION['typeInscription']))
+		unset($_SESSION['typeInscription']);
 
 	require_once('ressourcePHP/header.php');
 	?>
