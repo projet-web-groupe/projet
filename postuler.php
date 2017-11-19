@@ -15,7 +15,6 @@
 	<?php 
 	require_once('ressourcePHP/session.php');
 	require_once('ressourcePHP/requeteur.class.php');
-	require_once('ressourcePHP/session.php');
 	require_once('ressourcePHP/requeteur.class.php');
 	require_once('ressourcePHP/header.php');
 	?>

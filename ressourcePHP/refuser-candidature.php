@@ -3,7 +3,7 @@
 	require_once('affichageCandidature.php');
 
 	$requeteur= new requeteur;
-	if($requeteur->isCandidat($_POST['nom'], $_POST['prenom']) and $_POST['rh']==0)
+	if($requeteur->isCandidat($_POST['id']) and $_POST['rh']==0)
 	{
 		$val="";
 		$val .="<tbody>";
@@ -19,7 +19,7 @@
 		$val .="</tbody>";
 		echo $val;
 	}
-	elseif($requeteur->isRh($_POST['nom'], $_POST['prenom']) and $_POST['rh']==1){
+	elseif($requeteur->isRh($_POST['id']) and $_POST['rh']==1){
 
 		$req= $requeteur->getRequete('delete from offre where ref =:ref and id_cand= :num');
 		$req->bindValue(':ref', $_POST['ref']);

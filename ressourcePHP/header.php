@@ -69,7 +69,7 @@
 								}
 								else
 								{
-									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom']) or $requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
+									if($requeteur->isRh($_SESSION['id']) or $requeteur->isCandidat($_SESSION['id'])){
 										?>
 										<li><a href="offres.php">Consulter offres</a></li>
 										<li><a href="candidature.php"> Candidatures</a></li>
@@ -77,7 +77,7 @@
 										<li><a href="messagerie.php">Messagerie</a></li>
 										<?php 
 									}
-									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom'])){
+									if($requeteur->isRh($_SESSION['id'])){
 										?>
 										<li><a href="creerOffre.php"> Créer Offres</a></li>
 										<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
@@ -86,7 +86,7 @@
 										<li><a href="inscriptionCandidatByRh.php"> Inscrire un candidat</a></li>
 										<?php 
 									}
-									if($requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
+									if($requeteur->isCandidat($_SESSION['id'])){
 										?>
 										<li><a href="contacterRH.php"> Contacter RH</a></li>
 										<?php 

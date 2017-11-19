@@ -46,29 +46,6 @@
 					<div id="resPhp">
 
 					</div>
-					<!--<div class="row">
-						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Courriel :</label>
-							<p class="form-control mailRh">exemple@hotmail.fr</p>
-						</div>
-
-						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Télephone</label>
-							<p class="form-control">0xxxxxxxxx</p>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Fax :</label>
-							<p class="form-control">un numero de fax...</p>
-						</div>
-
-						<div class="col-xm-12 col-sm-12 col-md-6 col-lg-6">
-							<label class="label label-primary">Adresse</label>
-							<p class="form-control">n°1 rue TrouverDuTravail</p>
-						</div>
-					</div>-->
 				</div>
 			</form>
 			

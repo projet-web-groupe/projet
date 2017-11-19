@@ -79,7 +79,7 @@
 			<div class="form-group">
 				<?php 
 					$requeteur= new requeteur;
-					if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom'])){
+					if($requeteur->isRh($_SESSION['id'])){
 						echo"
 							<form action=\"blacklister.php\" method=\"post\">
 								<div class=\"form-group\">

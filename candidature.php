@@ -39,11 +39,11 @@
 						echo"
 						<table class=\"table table-bordered \" id=\"listeOffre\">
 							";
-						if( $requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom']))
+						if( $requeteur->isCandidat($_SESSION['id']))
 						{
 							echo affichageCandidat();
 						}
-						else if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom'])){
+						else if($requeteur->isRh($_SESSION['id'])){
 							echo affichageRh();
 						}
 						//affichage();

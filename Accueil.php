@@ -97,8 +97,6 @@
 			$r->execute();
 			$maxid=$r->fetch();//val2->maxid
 
-			var_dump($maxid['idMaxRh']+1);
-			var_dump($val['idMax']+1);
 			$req=$requeteur->getRequete('INSERT INTO rh(numRh, id_pers) VALUES(:numRh, :id_pers)');
 			$req->bindValue(':numRh', $maxid['idMaxRh']+1);
 			$req->bindValue(':id_pers',$val['idMax']+1);

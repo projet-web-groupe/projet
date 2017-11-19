@@ -97,41 +97,56 @@ function affichageCandidat(){
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
 		</tr>";
 	$requeteur= new requeteur;
-	$req= $requeteur->getRequete('select ref from offre where approuve=0 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers= (select id from personne where nom="'.$_SESSION['nom'].'" and prenom="'.$_SESSION['prenom'].'"))');	
+	$req= $requeteur->getRequete('select ref from offre where approuve=0 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
 	$req->execute();
 	while($l=$req->fetch(PDO::FETCH_ASSOC)){
 
 		$val.= "<tr >
 
 		<td class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center ref\">".$l['ref']."</td>
-		<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center\"><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td>
+		<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center colorB\">
+		<form action= \"postuler.php\" method=\"post\" class=\"lienForm\">
+		<input type=\"text\" name=\"id\" value=\"".htmlspecialchars($l['ref'])."\" hidden>
+		<span class=\"glyphicon glyphicon-eye-open\"><input class=\"lienForm\" type=\"submit\" value=\"Voir\"></span>
+		</form>
+		</td>
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\"><span>En attente</span></td>
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref\"><button type=\"button\" class=\"btn btn-danger\">Abandonner</button></td>
 		</tr>";
 	}
 
-	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers= (select id from personne where nom="'.$_SESSION['nom'].'" and prenom="'.$_SESSION['prenom'].'"))');	
+	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
 	$req->execute();
 	while($l=$req->fetch(PDO::FETCH_ASSOC)){
 
 		$val.= "<tr >
 
 		<td class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center ref\">".$l['ref']."</td>
-		<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center\"><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td>
+		<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center colorB\">
+		<form action= \"postuler.php\" method=\"post\" class=\"lienForm\">
+		<input type=\"text\" name=\"id\" value=\"".htmlspecialchars($l['ref'])."\" hidden>
+		<span class=\"glyphicon glyphicon-eye-open\"><input class=\"lienForm\" type=\"submit\" value=\"Voir\"></span>
+		</form>
+		</td>
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-acc\"><button type=\"button\" class=\"btn btn-success\">Accepter</button></td>
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref\"><button type=\"button\" class=\"btn btn-danger\">Refuser</button></td>
 		</tr>";
 	}
 
 
-	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 1 and id_cand = (select numCandidat from candidat where id_pers= (select id from personne where nom="'.$_SESSION['nom'].'" and prenom="'.$_SESSION['prenom'].'"))');	
+	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 1 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
 	$req->execute();
 	while($l=$req->fetch(PDO::FETCH_ASSOC)){
 
 		$val.= "<tr >
 
 		<td class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center ref\">".$l['ref']."</td>
-		<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center\"><a href=\"postuler.php?id=".htmlspecialchars($l['ref'])."\"><span class=\"glyphicon glyphicon-eye-open\"> Voir</span></a></td>
+		<td class=\"col-lg-1 col-md-1 col-sm-3 col-xs-3 text-center colorB\">
+		<form action= \"postuler.php\" method=\"post\" class=\"lienForm\">
+		<input type=\"text\" name=\"id\" value=\"".htmlspecialchars($l['ref'])."\" hidden>
+		<span class=\"glyphicon glyphicon-eye-open\"><input class=\"lienForm\" type=\"submit\" value=\"Voir\"></span>
+		</form>
+		</td>
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">déjà accepté</td>
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref\">trop tard</td>
 		</tr>";

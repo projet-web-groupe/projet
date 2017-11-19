@@ -3,19 +3,6 @@ $(document).ready(function(){
 	
 	$(".rechercher").on("click",function(e){
 		console.log($("#indice").val()+" a");
-		/*$.get('http://localhost/Web/projet/ressourcePHP/listeDrh.php',{mot: $("#indice").val()},function(response){
-			console.log("enter");
-			var obj= jQuery.parseJSON(response);
-			
-		});*/
-		/*$.get('http://localhost/Web/projet/ressourcePHP/listeDrh.php',{name: 'John'},
-			function(rep){
-				console.log("pass2");
-				var obj = jQuery.parseJSON(rep);
-				console.log("Réponse reçue du serveur: ",obj[0]);
-
-				$('.mailRh').html(rep[2]);
-		});*/
 
 		$.ajax({
 		    
@@ -26,6 +13,7 @@ $(document).ready(function(){
 		       
 				//var obj= jQuery.parseJSON(data);
 				//console.log(data);
+				console.log(data +" aa");
 				$('#resPhp').html(data);
 
 		    },
