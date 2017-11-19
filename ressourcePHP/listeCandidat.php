@@ -3,8 +3,6 @@
 	$requeteur= new requeteur;
 	$array = NULL;
 	$tab= json_decode($_POST['competences']);
-	//var_dump($tab);
-	//$val= array();
 	$res="<tr class=\"bg-primary\" id=\"entete\">
 			<th>Id candidat</th>
 			<th>Année expérience</th>

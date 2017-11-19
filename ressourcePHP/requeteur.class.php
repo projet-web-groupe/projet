@@ -21,7 +21,6 @@ class requeteur
 			$this->bdd = new PDO($this->dns.';charset='.$this->charset, $this->user, $this->pwd);
 			$this->bdd->query('SET NAMES utf8');
 			$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//echo 'Connexion établie !!!';
 		}catch (PDOException $e){
 			die('<p> La connexion a échoué. Erreur[' .$e->getCode().'] : '.$e->getMessage().'</p>');
 		} 

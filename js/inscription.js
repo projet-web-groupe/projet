@@ -67,7 +67,6 @@ $(document).ready(function(){
 		if(!pattern.test($("#email").val()))
 		{
 			
-			//$('#croix').hide();
 			if(!$('#e-croix').hasClass("glyphicon glyphicon-remove"))
 			{
 				if($('#e-croix').hasClass("glyphicon glyphicon-ok"))

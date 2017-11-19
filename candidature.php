@@ -36,9 +36,7 @@
 						echo" <p id=\"sessionNom\" hidden>".$_SESSION['nom']."</p>";
 						echo" <p id=\"sessionPrenom\" hidden>".$_SESSION['prenom']."</p>";
 						echo" <p id=\"sessionId\" hidden>".$_SESSION['id']."</p>";
-						echo"
-						<table class=\"table table-bordered \" id=\"listeOffre\">
-							";
+						
 						if( $requeteur->isCandidat($_SESSION['id']))
 						{
 							echo affichageCandidat();
@@ -46,9 +44,7 @@
 						else if($requeteur->isRh($_SESSION['id'])){
 							echo affichageRh();
 						}
-						//affichage();
 						echo"	
-							</table>
 						</div>
 					</div>
 				</div>";
@@ -63,6 +59,5 @@
 	<script src="js/general.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/candidature.js"></script>
-	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 </html>

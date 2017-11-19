@@ -5,7 +5,6 @@
 	if($requeteur->isCandidat($_POST['id']) and $_POST['rh']==0)
 	{
 		$val="";
-		$val .="<tbody>";
 		
 		$req= $requeteur->getRequete('select numCandidat from candidat where id_pers= "'.$_POST['id'].'"');
 		$req->execute();
@@ -27,19 +26,15 @@
 
 		$val .=affichageCandidat();
 
-		$val .="</tbody>";
-
 		echo $val;
 	}
 	elseif($requeteur->isRh($_POST['id']) and $_POST['rh']==1){
 		$val="";
-		$val .= "<tbody>";
 		$req= $requeteur->getRequete('update offre set approuve=1 where ref= :ref and id_cand= :num');
 		$req->bindValue(':ref', $_POST['ref']);
 		$req->bindValue(':num', $_POST['numCand']);
 		$req->execute();
 		$val .=affichageRh();
-		$val .="</tbody>";
 		echo $val;
 	}
 	

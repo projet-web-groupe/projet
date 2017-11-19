@@ -6,7 +6,7 @@
 	if($requeteur->isCandidat($_POST['id']) and $_POST['rh']==0)
 	{
 		$val="";
-		$val .="<tbody>";
+		
 		$req= $requeteur->getRequete('select numCandidat from candidat join personne on personne.id= candidat.id_pers where personne.id=:id');
 		$req->bindValue(':id', $_POST['id']);
 		$req->execute();
@@ -16,7 +16,7 @@
 		$req->bindValue(':num', $l['numCandidat']);
 		$req->execute();
 		$val .=affichageCandidat();
-		$val .="</tbody>";
+		
 		echo $val;
 	}
 	elseif($requeteur->isRh($_POST['id']) and $_POST['rh']==1){
@@ -26,11 +26,9 @@
 		$req->bindValue(':num', $_POST['numCand']);
 		$req->execute();
 		$val="";
-		$val .= "<tbody>";
 		
 		$val .=affichageRh();
 
-		$val .="</tbody>";
 		echo $val;
 	}
 	

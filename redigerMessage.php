@@ -119,7 +119,6 @@
 	<script src="js/general.js"></script>
 	<script src="js/postuler.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 
 

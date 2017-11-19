@@ -47,7 +47,6 @@
 	<script src="js/general.js"></script>
 	<script src="js/inscription.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!--<script src="bootstrap/js/bootstrap.min.js"></script>-->
 
 </body>
 </html>

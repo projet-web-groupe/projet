@@ -15,19 +15,21 @@ $(document).ready(function(){
 		    },
 		    error: function(x,y, error){
 		    	console.log(error);
+		    },
+		    complete: function(resultat,statut){
+		    	console.log(statut+" a1"+resultat);
 		    }
-
 		});
 		console.log("sortie2");
 	});
-
+	
 	$(".btn-acc").on("click", function(){
 		console.log("btn-acc");
 		$.ajax({
 		    
 		    url: 'ressourcePHP/accepter-Candidature.php',
 		    type: 'POST',
-		    data: 'ref='+ ($(this).parent().children(".ref").text())+'&nom='+$("#sessionNom").text()+'&prenom='+$("#sessionPrenom").text()+'&id='+$("#sessionId").text()+'&rh=0',
+		    data: 'ref='+ ($(".ref").text())+'&nom='+$("#sessionNom").text()+'&prenom='+$("#sessionPrenom").text()+'&id='+$("#sessionId").text()+'&rh=0',
 		    success: function(data) {
 		       
 				console.log(data+" test");
@@ -41,7 +43,6 @@ $(document).ready(function(){
 	});
 
 	$(".btn-ref-rh").on("click",function(){
-		//console.log($(this).parent().children(".numCandRh").text()+" a");
 		console.log("btn-ref-rh");
 		$.ajax({
 		    
@@ -50,7 +51,6 @@ $(document).ready(function(){
 		    data: 'ref='+ ($(this).parent().children(".ref-rh").text())+"&nom="+$("#sessionNom").text()+"&prenom="+$("#sessionPrenom").text()+'&id='+$("#sessionId").text()+"&rh=1"+"&numCand="+($(this).parent().children(".numCandRh").text()),
 		    success: function(data) {
 		       
-				//console.log(data+" test");
 				$("#listeOffre").html(data);
 		    },
 		    error: function(x,y, error){
@@ -61,7 +61,6 @@ $(document).ready(function(){
 	});
 
 	$(".btn-acc-rh").on("click",function(){
-		//console.log($(this).parent().children(".numCandRh").text()+" a");
 		console.log("btn-acc-rh");
 		$.ajax({
 		    

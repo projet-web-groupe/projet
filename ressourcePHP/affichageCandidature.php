@@ -4,13 +4,14 @@ require_once('session.php');
 
 function affichageRh()
 {
-	$val ="<tr class=\"bg-primary\">
+	$val ="<table class=\"table table-bordered \" id=\"listeOffre\">";
+	$val .="<thead><tr class=\"bg-primary\">
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Réf de l'offre</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Lien de l'offre</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Profil</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\" >Accepter</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
-		</tr>";
+		</tr></thead><tbody>";
 	$requeteur= new requeteur;
 	$req= $requeteur->getRequete('select offre.ref, id_cand, personne.id, personne.nom, personne.prenom from offre join description on offre.ref= description.ref join candidat on candidat.numCandidat= offre.id_cand join personne on candidat.id_pers= personne.id where approuve=0');
 	$req->execute();
@@ -85,17 +86,18 @@ function affichageRh()
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref-rh\">déjà approuvé</td>
 		</tr>";
 	}
+	$val .="</tbody></table>";
 	return $val;
 }
 
 function affichageCandidat(){
-
-	$val="<tr class=\"bg-primary\">
+	$val ="<table class=\"table table-bordered \" id=\"listeOffre\">";
+	$val .="<thead><tr class=\"bg-primary\">
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Réf de l'offre</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Lien de l'offre</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\" >Accepter</th>
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
-		</tr>";
+		</tr></thead><tbody>";
 	$requeteur= new requeteur;
 	$req= $requeteur->getRequete('select ref from offre where approuve=0 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
 	$req->execute();
@@ -151,6 +153,7 @@ function affichageCandidat(){
 		<td class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center btn-ref\">trop tard</td>
 		</tr>";
 	}
+	$val .="</tbody></table>";
 	return $val;
 }
 ?>

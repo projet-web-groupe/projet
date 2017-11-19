@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	$(".sec").on("click",function(){
 		console.log("entrer");
-		//console.log($(this).parent().children(".panel-body"));
 		$(this).parent().children(".panel-body").slideToggle();
 		if($(this).children().hasClass("glyphicon-menu-down"))
 		{
