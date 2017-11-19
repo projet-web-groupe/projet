@@ -1,12 +1,3 @@
-DROP TABLE IF EXISTS personne;
-DROP TABLE IF EXISTS rh;
-DROP TABLE IF EXISTS candidat;
-DROP TABLE IF EXISTS description;
-DROP TABLE IF EXISTS offre;
-DROP TABLE IF EXISTS qualite;
-DROP TABLE IF EXISTS messages;
-DROP TABLE IF EXISTS blacklist;
-
 create table personne
 (
     id INT PRIMARY KEY,
