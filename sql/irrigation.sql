@@ -34,3 +34,5 @@ INSERT INTO `offre` VALUES (1,1,0,1);
 INSERT INTO `offre` VALUES (2,2,0,0);
 INSERT INTO `offre` VALUES (2,1,0,0);
 INSERT INTO `offre` VALUES (1,2,0,0);
+
+INSERT INTO messages VALUES("testeur","sop.alain@hotmail.fr","test",NOW(),"blabla");

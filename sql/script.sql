@@ -4,6 +4,8 @@ DROP TABLE IF EXISTS candidat;
 DROP TABLE IF EXISTS description;
 DROP TABLE IF EXISTS offre;
 DROP TABLE IF EXISTS qualite;
+DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS blacklist;
 
 create table personne
 (
@@ -64,4 +66,24 @@ CREATE TABLE qualite
     num_cand INT,
     FOREIGN KEY(num_cand) REFERENCES candidat(numCandidat),
     CONSTRAINT pk_qualite PRIMARY KEY (qual, num_cand)
+);
+
+CREATE TABLE messages
+(
+    emetteur varchar(255),
+    destinataire varchar(255),
+    obj varchar(255),
+    date_envoie DATETIME,
+    msg TEXT,
+    CONSTRAINT pk_messages PRIMARY KEY (emetteur,destinataire,obj,date_envoie)
+
+);
+
+CREATE TABLE blacklist
+(
+    rh INT,
+    candidat INT,
+    CONSTRAINT pk_blacklist PRIMARY KEY(rh,candidat),
+    FOREIGN KEY(rh) REFERENCES rh(numRh),
+    FOREIGN KEY(candidat) REFERENCES candidat(numCandidat)
 );
