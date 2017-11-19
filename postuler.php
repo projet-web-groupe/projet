@@ -87,7 +87,7 @@
 						if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) && $_requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom']))
 						{
 							?>
-							<form action= "accueil.php" method="post">
+							<form action= "index.php" method="post">
 								<?php
 									echo"
 									<input  type=\"text\" name=\"max\" value=\"".$val['id_cand']."\"hidden>

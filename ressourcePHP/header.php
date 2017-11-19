@@ -27,7 +27,7 @@
 						}
 						if(isConnecter())
 						{
-							echo"<li ><form method=\"post\" action=\"Accueil.php\">
+							echo"<li ><form method=\"post\" action=\"index.php\">
 							<button name=\"deco\" type=\"submit\" class=\"moda\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</button>
 							</form> </li>
 							";
@@ -44,7 +44,7 @@
 
 				<div class="row">
 					<ul class="nav navbar-nav" >
-						<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
+						<li><a  href="index.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 						<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
 						<?php 
 						if(isConnecter() && !empty($_SESSION['nom']) && !empty($_SESSION['prenom']))
@@ -112,7 +112,7 @@
 							<?php 
 							if(isConnecter())
 							{
-								echo"<li ><form method=\"post\" action=\"Accueil.php\">
+								echo"<li ><form method=\"post\" action=\"index.php\">
 								<button name=\"deco\" type=\"submit\" class=\"moda\"><span class=\"glyphicon glyphicon-log-out\"></span> Déconnexion</button>
 								</form> </li>
 								";
@@ -129,7 +129,7 @@
 					</div>
 					<div class="row">
 						<ul class="nav navbar-nav" >
-							<li><a  href="Accueil.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
+							<li><a  href="index.php"><span class="glyphicon glyphicon-home home"></span> </a></li>
 							<li class="liste"><span class="glyphicon glyphicon-th-list deroule"><span class="taille deroule"></span></span></li>
 							<?php 
 							if(isConnecter() && !empty($_SESSION['nom']) && !empty($_SESSION['prenom']))

@@ -11,7 +11,7 @@
 						</div>
 
 						<div class="panel-body" >
-							<form id="loginform" class="form-horizontal" action="Accueil.php" method="post">
+							<form id="loginform" class="form-horizontal" action="index.php" method="post">
 
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
