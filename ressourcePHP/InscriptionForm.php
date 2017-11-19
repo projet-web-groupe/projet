@@ -31,7 +31,7 @@
 		?>
 
 		<div id="form" class="background">
-			<form id="insc" method="post" action="Accueil.php">
+			<form id="insc" method="post" action="index.php">
 				<div class="row">
 					<div class="form-group">
 						<div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6">
@@ -97,7 +97,7 @@
 							<input type="text" name="diplome" class="form-control diplome">
 							<div class="suggestion cache">
 								<ul>
-									<a href="Accueil.php"><li>test1</li></a>
+									<a href="index.php"><li>test1</li></a>
 									<a href="#"><li>test2</li></a>
 								</ul>
 							</div>
@@ -107,7 +107,7 @@
 							<input type="text" name="domaine" class="form-control domaine">
 							<div class="suggestion2 cache2">
 								<ul>
-									<a href="Accueil.php"><li>test1</li></a>
+									<a href="index.php"><li>test1</li></a>
 									<a href="#"><li>test2</li></a>
 								</ul>
 							</div>
