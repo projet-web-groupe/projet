@@ -74,6 +74,7 @@
 										<li><a href="offres.php">Consulter offres</a></li>
 										<li><a href="candidature.php"> Candidatures</a></li>
 										<li><a href="ModifierProfil.php">Mon Profil</a></li>
+										<li><a href="messagerie.php">Messagerie</a></li>
 										<?php 
 									}
 									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom'])){
@@ -81,6 +82,7 @@
 										<li><a href="creerOffre.php"> Créer Offres</a></li>
 										<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
 										<li><a href="inscription.php"> Inscrire un collègue RH</a></li>
+										<li><a href="blacklister.php"> Blacklister</a></li>
 										<li><a href="inscriptionCandidatByRh.php"> Inscrire un candidat</a></li>
 										<?php 
 									}

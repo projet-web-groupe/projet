@@ -109,7 +109,7 @@
 	if(isset($_POST['login']) and isset($_POST['mdp']))
 	{
 		$requeteur = new requeteur;
-		$requete = $requeteur->getRequete('SELECT id, nom, prenom FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
+		$requete = $requeteur->getRequete('SELECT id, nom, prenom  FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
 		$requete->bindValue(':log', $_POST['login']);
 		$requete->bindValue(':mdp', $_POST['mdp']);
 		$requete->execute();
