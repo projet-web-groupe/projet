@@ -79,4 +79,6 @@ class requeteur
 	
 	
 }
+
+$requeteur = new requeteur();
 ?>

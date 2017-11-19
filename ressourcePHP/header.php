@@ -69,7 +69,6 @@
 								}
 								else
 								{
-									$requeteur = new requeteur;
 									if($requeteur->isRh($_SESSION['nom'],$_SESSION['prenom']) or $requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
 										?>
 										<li><a href="offres.php">Consulter offres</a></li>
@@ -84,6 +83,7 @@
 										<li><a href="rechercherCandidat.php"> Rechercher Candidat</a></li>
 										<li><a href="inscription.php"> Inscrire un collègue RH</a></li>
 										<li><a href="blacklister.php"> Blacklister</a></li>
+										<li><a href="inscriptionCandidatByRh.php"> Inscrire un candidat</a></li>
 										<?php 
 									}
 									if($requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom'])){
