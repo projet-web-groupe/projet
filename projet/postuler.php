@@ -32,7 +32,7 @@
 
 		<?php
 		$requeteur= new requeteur;
-		$req= $requeteur->getRequete('SELECT description, profil, id_cand from description natural join offre join candidat on offre.id_cand= candidat.numCandidat where ref= :id and candidat.id_pers="'.$_SESSION['id'].'"');
+		$req= $requeteur->getRequete('SELECT description, profil from description natural join offre join candidat on offre.id_cand= candidat.numCandidat where ref= :id');
 		$req->bindValue(':id', $_POST['id']);
 		$req->execute();
 		$val= $req->fetch();
@@ -77,9 +77,12 @@
 			<div class="container text-center">
 				<?php
 					$_requeteur = new requeteur;
+					$recup= $_requeteur->getRequete('SELECT numCandidat from candidat join personne on personne.id= candidat.id_pers where personne.id="'.$_SESSION['id'].'"');
+					$recup->execute();
+					$x= $recup->fetch();
 					$verif= $_requeteur->getRequete('SELECT count(*) as nb from offre where ref= :ref and id_cand= :cand');
 					$verif->bindValue(':ref', $_POST['id']);
-					$verif->bindValue(':cand', $val['id_cand']);
+					$verif->bindValue(':cand', $x['numCandidat']);
 					$verif->execute();
 					$res= $verif->fetch();
 					if($res['nb']==0)
@@ -90,7 +93,7 @@
 							<form action= "index.php" method="post">
 								<?php
 									echo"
-									<input  type=\"text\" name=\"max\" value=\"".$val['id_cand']."\"hidden>
+									<input  type=\"text\" name=\"max\" value=\"".$x['numCandidat']."\"hidden>
 									<input  type=\"text\" name=\"ref\" value=\"".$_POST['id']."\"hidden>";
 								?>
 								<button type="submit" class="btn btn-success">Postuler</button>

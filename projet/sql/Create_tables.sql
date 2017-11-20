@@ -34,9 +34,9 @@ CREATE TABLE description
 (
 
     ref varchar(25) PRIMARY KEY,
-    description varchar(250),
+    description varchar(1000),
     label varchar(50),
-    profil varchar(250),
+    profil varchar(1000),
     FOREIGN KEY(ref)REFERENCES OFFRE(ref)
 
 );
