@@ -27,8 +27,8 @@ INSERT INTO `qualite` VALUES ('Intelligent',4);
 INSERT INTO `qualite` VALUES ('Rigoureux',5);
 INSERT INTO `qualite` VALUES ('Curieux',6);
 
-INSERT INTO `description` VALUES (1,'desc1','poste à pourvoir 1','profil 1');
-INSERT INTO `description` VALUES (2,'desc2','poste à pourvoir 2','profil 2');
+INSERT INTO `description` VALUES (1,'Tâches : Sous la responsabilité du chef de service, vous vous occuperez de l\'accueil téléphonique d\'une clientèle internationale, rédigerez les comptes rendus des réunions en français et en anglais et tiendrez à jour les agendas des commerciaux.','Secrétaire','Titulaire \'une formation comme le BTS Assistant de Manager, vous parlez couramment l\'anglais et maitrisez les logiciels bureautiques. Votre aisance relationnelle, votre dynamisme et votre polyvalence vous permettront d\'être rapidement autonome.');
+INSERT INTO `description` VALUES (2,'Vendre sur le marché dans un stand de fruits et légumes de 5h30 a 15h','Vendeur à la crié','Recherche personne serieuse, autonome et expérimenté');
 
 INSERT INTO `offre` VALUES (1,1,0,1);
 INSERT INTO `offre` VALUES (2,2,0,0);
