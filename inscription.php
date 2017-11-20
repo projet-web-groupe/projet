@@ -20,7 +20,7 @@
 	<?php
 	try{
 		$requeteur = new requeteur;
-		if (isConnecter() and $requeteur->isCandidat($_SESSION['nom'], $_SESSION['prenom'])){
+		if (isConnecter() and $requeteur->isCandidat($_SESSION['id'])){
 			?>
 			<div class="panel panel-danger" id="page">
 				<div class="panel-heading">
@@ -29,7 +29,7 @@
 			</div>'
 			<?php
 		}
-		else if(isConnecter() and $requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
+		else if(isConnecter() and $requeteur->isRh($_SESSION['id']))
 		{ 
 			$_SESSION['typeInscription'] = 'rh';
 			include 'ressourcePHP/inscriptionForm.php'; 

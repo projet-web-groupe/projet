@@ -16,9 +16,6 @@
 	require_once('ressourcePHP/session.php'); 
 	require_once('ressourcePHP/requeteur.class.php');
 	$requeteur = new requeteur;
-	//Quand un candidat a posutlé
-	/*var_dump($requeteur);
-	var_dump($_POST);*/
 	if(isset($_POST['max']) and  isset($_POST['ref']))
 	{
 		$req=$requeteur->getRequete('INSERT INTO offre(ref, id_cand, accepte, approuve) VALUES(:ref,:id_cand,0,0)');
@@ -136,7 +133,6 @@
 			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
 			$_SESSION['connecte'] = true;
 		}
-		var_dump($_SESSION);
 		
 	}
 

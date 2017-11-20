@@ -20,7 +20,7 @@
 	<?php
 	try{
 		$requeteur = new requeteur;
-		if(isConnecter() and $requeteur->isRh($_SESSION['nom'], $_SESSION['prenom']))
+		if(isConnecter() and $requeteur->isRh($_SESSION['id']))
 		{ 
 			$_SESSION['typeInscription'] = 'candidatByRh';
 			include 'ressourcePHP/inscriptionForm.php'; 
