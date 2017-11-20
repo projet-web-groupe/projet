@@ -12,13 +12,13 @@
 </head>
 
 <body>
-	<?php 
+	<?php
 	require_once('ressourcePHP/session.php');
 	require_once('ressourcePHP/requeteur.class.php');
 	require_once('ressourcePHP/requeteur.class.php');
 	require_once('ressourcePHP/header.php');
 	?>
-	
+
 	<div class="container" id="page">
 
 		<?php
@@ -30,7 +30,7 @@
 		</div>
 
 
-		<?php 
+		<?php
 		$requeteur= new requeteur;
 		$req= $requeteur->getRequete('SELECT description, profil, id_cand from description natural join offre join candidat on offre.id_cand= candidat.numCandidat where ref= :id and candidat.id_pers="'.$_SESSION['id'].'"');
 		$req->bindValue(':id', $_POST['id']);
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="container text-center">
-				<?php 
+				<?php
 					$_requeteur = new requeteur;
 					$verif= $_requeteur->getRequete('SELECT count(*) as nb from offre where ref= :ref and id_cand= :cand');
 					$verif->bindValue(':ref', $_POST['id']);
@@ -84,7 +84,7 @@
 					$res= $verif->fetch();
 					if($res['nb']==0)
 					{
-						if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) && $_requeteur->isCandidat($_SESSION['nom'],$_SESSION['prenom']))
+						if(isConnecter() && isset($_SESSION['nom']) && isset($_SESSION['prenom']) && $_requeteur->isCandidat($_SESSION['id']))
 						{
 							?>
 							<form action= "index.php" method="post">
@@ -96,17 +96,17 @@
 								<button type="submit" class="btn btn-success">Postuler</button>
 								<a href="offres.php" class="btn btn-primary" role="button">Retour</a>
 							</form>
-							
-							<?php 
-						} 
+
+							<?php
+						}
 					}
 					else{
 						echo"<h4><span class=\"label label-warning\">Vous avez déjà postulé à cette offre.</span></h4>
 						<a href=\"offres.php\" class=\"btn btn-primary\" role=\"button\">Retour</a>";
 					}
-					
+
 				?>
-				
+
 			</div>
 		</div>
 	</div>
