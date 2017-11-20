@@ -15,7 +15,7 @@ create table personne
     dateNaissance DATE,
     sexe varchar(1),
     login varchar(25),
-    mdp varchar(25),
+    mdp varchar(250),
     mail varchar(50)
     
 );

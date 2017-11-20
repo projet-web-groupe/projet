@@ -49,7 +49,7 @@
 			$verif->bindValue(':dateNaissance',$_POST['date']);
 			$verif->bindValue(':sexe',$_POST['genre']);
 			$verif->bindValue(':login', $_POST['login']);
-			$verif->bindValue(':mdp', $_POST['mdp']);
+			$verif->bindValue(':mdp', sha1($_POST['mdp']));
 			$verif->bindValue(':mail', $_POST['mail']);
 			$verif->execute();
 
@@ -90,7 +90,7 @@
 			$verif->bindValue(':dateNaissance',$_POST['date']);
 			$verif->bindValue(':sexe',$_POST['genre']);
 			$verif->bindValue(':login', $_POST['login']);
-			$verif->bindValue(':mdp', $_POST['mdp']);
+			$verif->bindValue(':mdp', sha1($_POST['mdp']));
 			$verif->bindValue(':mail', $_POST['mail']);
 			$verif->execute();
 			$r=$requeteur->getRequete('SELECT MAX(numRh) as idMaxRh from rh');
@@ -110,7 +110,7 @@
 		$requeteur = new requeteur;
 		$requete = $requeteur->getRequete('SELECT id, nom, prenom  FROM personne where login =:log and mdp =:mdp'); //equiv a prepare()
 		$requete->bindValue(':log', $_POST['login']);
-		$requete->bindValue(':mdp', $_POST['mdp']);
+		$requete->bindValue(':mdp', sha1($_POST['mdp']));
 		$requete->execute();
 		$tab= $requete->fetch(PDO::FETCH_ASSOC);
 		if(empty($tab))
@@ -157,7 +157,7 @@
 			<?php require_once('ressourcePHP/modal.php'); ?>
 
 			<div class="panel-body">
-
+				
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque accumsan turpis a egestas. Suspendisse scelerisque fermentum est, et tincidunt risus. Aliquam at metus malesuada, mattis magna eu, hendrerit diam. Proin eu tellus semper, viverra tellus at, bibendum ipsum. Pellentesque sed volutpat metus. Aenean hendrerit risus a augue varius mattis. Donec vel felis pellentesque, pellentesque nibh et, dapibus libero. Etiam faucibus massa et ligula mattis, a rutrum leo mattis.
 
 				Nunc elementum ante risus, eget hendrerit mi scelerisque in. Proin tempus mi nec vestibulum tristique. Donec a nunc sed velit facilisis pharetra. Aenean eu congue dolor. Curabitur ornare mauris sit amet nulla lacinia pulvinar. Nulla sapien velit, luctus non feugiat nec, hendrerit imperdiet nunc. Nullam in finibus dolor. Integer dictum feugiat porta.
