@@ -11,11 +11,13 @@
 </head>
 
 <body>
-	
+
 	<?php
-	require_once('ressourcePHP/session.php'); 
+	require_once('ressourcePHP/session.php');
 	require_once('ressourcePHP/requeteur.class.php');
 	$requeteur = new requeteur;
+
+	//Quand un candidat a posutlé, on insère une nouvelle ligne dans la bdd pour enregistrer la candidature
 	if(isset($_POST['max']) and  isset($_POST['ref']))
 	{
 		$req=$requeteur->getRequete('INSERT INTO offre(ref, id_cand, accepte, approuve) VALUES(:ref,:id_cand,0,0)');
@@ -24,13 +26,14 @@
 		$req->execute();
 	}
 
-
+	//Lors de la déconnexion, on efface toutes les informations de la session en détruisant la variable de session
 	if(isset($_POST['deco']))
 	{
 		session_destroy();
 		session_start();
 	}
-	//Cas d'une inscription
+
+	//Cas d'une inscription: on est redirigé vers l'accueil et on y ajoute les informations du nouvel utilisateur. Le traitememnt est différent selon si  c'est un rh ou un candidat
 	if(isInscritCandidat() and isset($_SESSION['typeInscription']) and ($_SESSION['typeInscription'] === 'candidat' or $_SESSION['typeInscription'] === 'candidatByRh'))
 	{
 		$req = $requeteur->getRequete('SELECT MAX(id) as idMax from personne');
@@ -49,7 +52,7 @@
 			$verif->bindValue(':mdp', $_POST['mdp']);
 			$verif->bindValue(':mail', $_POST['mail']);
 			$verif->execute();
-			
+
 			$r=$requeteur->getRequete('SELECT MAX(numCandidat) as idMaxCand from candidat');
 			$r->execute();
 			$val2=$r->fetch();
@@ -92,7 +95,7 @@
 			$verif->execute();
 			$r=$requeteur->getRequete('SELECT MAX(numRh) as idMaxRh from rh');
 			$r->execute();
-			$maxid=$r->fetch();//val2->maxid
+			$maxid=$r->fetch();
 
 			$req=$requeteur->getRequete('INSERT INTO rh(numRh, id_pers) VALUES(:numRh, :id_pers)');
 			$req->bindValue(':numRh', $maxid['idMaxRh']+1);
@@ -100,7 +103,8 @@
 			$req->execute();
 		}
 	}
-	
+
+	//Dans le cas de la connexion, on vérifie que les logs ont été fournies et on vérifie que ces logs existent. Si c'est le cas, on on met dans la variable de session toutes les informations qui nous seront utiles
 	if(isset($_POST['login']) and isset($_POST['mdp']))
 	{
 		$requeteur = new requeteur;
@@ -117,7 +121,7 @@
 					Un problème est survenu, veuillez nous excusé de la gène occasionnée.
 				</div>
 			</div>'
-			<?php 
+			<?php
 			die();
 		}
 		if((isset($_SESSION['typeInscription']) and $_SESSION['typeInscription'] === 'candidat')){
@@ -133,7 +137,6 @@
 			$_SESSION['prenom'] = htmlspecialchars($tab['prenom']);
 			$_SESSION['connecte'] = true;
 		}
-		
 	}
 
 	if(isset($_SESSION['typeInscription']))
@@ -141,7 +144,7 @@
 
 	require_once('ressourcePHP/header.php');
 	?>
-	
+
 	<div class="container" id="page">
 		<div class="page-header">
 			<h1>Bienvenue</h1>
@@ -154,7 +157,7 @@
 			<?php require_once('ressourcePHP/modal.php'); ?>
 
 			<div class="panel-body">
-				
+
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque accumsan turpis a egestas. Suspendisse scelerisque fermentum est, et tincidunt risus. Aliquam at metus malesuada, mattis magna eu, hendrerit diam. Proin eu tellus semper, viverra tellus at, bibendum ipsum. Pellentesque sed volutpat metus. Aenean hendrerit risus a augue varius mattis. Donec vel felis pellentesque, pellentesque nibh et, dapibus libero. Etiam faucibus massa et ligula mattis, a rutrum leo mattis.
 
 				Nunc elementum ante risus, eget hendrerit mi scelerisque in. Proin tempus mi nec vestibulum tristique. Donec a nunc sed velit facilisis pharetra. Aenean eu congue dolor. Curabitur ornare mauris sit amet nulla lacinia pulvinar. Nulla sapien velit, luctus non feugiat nec, hendrerit imperdiet nunc. Nullam in finibus dolor. Integer dictum feugiat porta.

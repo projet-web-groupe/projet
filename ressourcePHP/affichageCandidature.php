@@ -1,4 +1,5 @@
 <?php
+//Cette page contient les fonctions qui vont afficher les tableaux recensants les candidatures qui concernent la personne courante.
 require_once('session.php');
 
 
@@ -99,7 +100,7 @@ function affichageCandidat(){
 		<th class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center\">Refuser</th>
 		</tr></thead><tbody>";
 	$requeteur= new requeteur;
-	$req= $requeteur->getRequete('select ref from offre where approuve=0 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
+	$req= $requeteur->getRequete('select ref from offre where approuve=0 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');
 	$req->execute();
 	while($l=$req->fetch(PDO::FETCH_ASSOC)){
 
@@ -117,7 +118,7 @@ function affichageCandidat(){
 		</tr>";
 	}
 
-	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
+	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 0 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');
 	$req->execute();
 	while($l=$req->fetch(PDO::FETCH_ASSOC)){
 
@@ -136,7 +137,7 @@ function affichageCandidat(){
 	}
 
 
-	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 1 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');	
+	$req= $requeteur->getRequete('select ref from offre where approuve=1 and accepte= 1 and id_cand = (select numCandidat from candidat where id_pers="'.$_SESSION['id'].'")');
 	$req->execute();
 	while($l=$req->fetch(PDO::FETCH_ASSOC)){
 
